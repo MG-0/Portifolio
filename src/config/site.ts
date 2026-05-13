@@ -1,0 +1,140 @@
+export const siteConfig = {
+  name: "Mahmoud Gamal",
+  fullName: "Mahmoud Gamal Ahmed Bakheet",
+  email: "gamalgit@gmail.com",
+  phone: "01098326602",
+  location: {
+    en: "Cairo, Egypt",
+    ar: "القاهرة، مصر",
+  },
+  githubUsername: "MG-0",
+  github: "https://github.com/MG-0",
+  linkedin: "https://linkedin.com/in/mahmoud-gamal-3ba408321",
+  facebook: "https://www.facebook.com/profile.php?id=100002615632878&mibextid=LQQJ4d",
+  instagram: "https://www.instagram.com/mg___0o0",
+  youtube: "https://www.youtube.com/@MahmoudGamal-0",
+  formspreeId: "mgodbede",
+  
+  translations: {
+    en: {
+      role: "Full Stack Developer",
+      description: "Computer Science graduate from Arab Open University (Egypt), passionate about building scalable full-stack systems and clean code.",
+      nav: {
+        about: "About",
+        skills: "Skills",
+        projects: "Projects",
+        experience: "Experience",
+        contact: "Contact",
+      },
+      hero: {
+        available: "Available for new opportunities",
+        hi: "Hi, I'm",
+        viewProjects: "View Projects",
+        downloadCv: "Download CV",
+        contactMe: "Contact Me",
+      },
+      contact: {
+        title: "Get In Touch",
+        subtitle: "Have a question or want to work together? Drop me a message.",
+        connect: "Let's Connect",
+        connectDesc: "I'm currently open to new opportunities, collaborations, or just a friendly chat about tech.",
+        name: "Name",
+        email: "Email",
+        subject: "Subject",
+        message: "Message",
+        send: "Send Message",
+        sending: "Sending...",
+        sent: "Message Sent!",
+        sentDesc: "Thank you for reaching out. I'll get back to you as soon as possible.",
+        another: "Send another message",
+        error: "Something went wrong. Please try again later.",
+        location: "Location",
+      },
+      projects: {
+        title: "Featured Projects",
+        subtitle: "A selection of my best work and open-source contributions.",
+        viewDetails: "View Details",
+        noProjects: "No projects found. Check the GitHub username in config.",
+      }
+    },
+    ar: {
+      role: "مطور تطبيقات متكامل (Full Stack)",
+      description: "خريج علوم حاسب من الجامعة العربية المفتوحة (مصر)، شغوف ببناء أنظمة متكاملة قابلة للتوسع وكتابة كود نظيف.",
+      nav: {
+        about: "عني",
+        skills: "المهارات",
+        projects: "المشاريع",
+        experience: "الخبرة",
+        contact: "تواصل معي",
+      },
+      hero: {
+        available: "متاح لفرص عمل جديدة",
+        hi: "أهلاً، أنا",
+        viewProjects: "عرض المشاريع",
+        downloadCv: "تحميل السيرة الذاتية",
+        contactMe: "تواصل معي",
+      },
+      contact: {
+        title: "تواصل معي",
+        subtitle: "لديك سؤال أو ترغب في العمل معاً؟ أرسل لي رسالة.",
+        connect: "لنبدأ التواصل",
+        connectDesc: "أنا متاح حالياً للفرص الجديدة، التعاون، أو حتى مجرد دردشة ودية حول التقنية.",
+        name: "الاسم",
+        email: "البريد الإلكتروني",
+        subject: "الموضوع",
+        message: "الرسالة",
+        send: "إرسال الرسالة",
+        sending: "جاري الإرسال...",
+        sent: "تم الإرسال!",
+        sentDesc: "شكراً لتواصلك معي. سأقوم بالرد عليك في أقرب وقت ممكن.",
+        another: "إرسال رسالة أخرى",
+        error: "حدث خطأ ما. يرجى المحاولة مرة أخرى لاحقاً.",
+        location: "الموقع",
+      },
+      projects: {
+        title: "المشاريع المختارة",
+        subtitle: "مجموعة من أفضل أعمالي ومساهماتي في المشاريع مفتوحة المصدر.",
+        viewDetails: "عرض التفاصيل",
+        noProjects: "لم يتم العثور على مشاريع. تحقق من اسم المستخدم في الإعدادات.",
+      }
+    }
+  },
+
+  skills: [
+    "JavaScript",
+    "TypeScript",
+    "React.js",
+    "Next.js",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Tailwind CSS",
+    "Git & GitHub",
+    "Docker",
+    "REST APIs",
+    "OOP",
+    "Data Structures",
+    "System Design",
+    "Clean Code",
+  ],
+  featuredProjects: [
+    "Medical-Imaging-Platform",
+    "Burger-LandingPage",
+    "bookStore",
+  ],
+  projectDescriptions: {
+    en: {
+      "Medical-Imaging-Platform": "An AI-powered full-stack medical imaging platform for disease detection and heatmap analysis, built with Node.js, MongoDB, Python.",
+      "bookStore": "A full-stack e-commerce bookstore application with user authentication, book management, and a shopping cart.",
+      "Burger-LandingPage": "A modern, responsive landing page for a burger restaurant featuring smooth animations and an interactive menu.",
+    },
+    ar: {
+      "Medical-Imaging-Platform": "منصة طبية متكاملة مدعومة بالذكاء الاصطناعي للكشف عن الأمراض وتحليل الخرائط الحرارية، مبنية باستخدام Node.js و MongoDB و Python.",
+      "bookStore": "تطبيق متجر كتب إلكتروني متكامل مع نظام مصادقة مستخدمين، إدارة كتب، وعربة تسوق.",
+      "Burger-LandingPage": "صفحة هبوط عصرية وسريعة الاستجابة لمطعم برجر، تتميز برسوم متحركة سلسة وقائمة طعام تفاعلية.",
+    }
+  },
+  graduationProjectName: "AI-Based Brain Tumor Detection & Medical Consultation System",
+};
+
+export type SiteConfig = typeof siteConfig;
