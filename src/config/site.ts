@@ -10,7 +10,7 @@ export const siteConfig = {
   githubUsername: "MG-0",
   github: "https://github.com/MG-0",
   linkedin: "https://linkedin.com/in/mahmoud-gamal-3ba408321",
-  facebook: "https://www.facebook.com/profile.php?id=100002615632878&mibextid=LQQJ4d",
+  facebook: "https://www.facebook.com/share/1HdYZxSxD3/?mibextid=wwXIfr",
   instagram: "https://www.instagram.com/mg___0o0",
   youtube: "https://www.youtube.com/@MahmoudGamal-0",
   formspreeId: "mgodbede",
