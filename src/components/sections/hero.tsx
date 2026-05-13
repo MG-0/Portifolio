@@ -81,10 +81,10 @@ export function Hero() {
                 <Link href="#projects">{t.hero.viewProjects}</Link>
               </Button>
               <Button variant="outline" size="lg" className="rounded-full w-full sm:w-auto" asChild>
-                <Link href="/cv.pdf" target="_blank">
+                <a href="/cv.pdf" download="Mahmoud_Gamal_CV.pdf">
                   <FileDown className={language === "ar" ? "ml-2 h-5 w-5" : "mr-2 h-5 w-5"} />
                   {t.hero.downloadCv}
-                </Link>
+                </a>
               </Button>
               <Button variant="secondary" size="lg" className="rounded-full w-full sm:w-auto" asChild>
                 <Link href="#contact">{t.hero.contactMe}</Link>
