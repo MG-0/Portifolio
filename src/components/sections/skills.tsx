@@ -11,15 +11,16 @@ const skillCategories = [
   },
   {
     title: "Backend",
-    skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "REST APIs"],
+    skills: ["Node.js", "Express.js", "MongoDB", "REST APIs"],
   },
   {
     title: "Tools & DevOps",
     skills: ["Git & GitHub", "Docker", "CI/CD", "Vercel"],
   },
+  
   {
     title: "Fundamentals",
-    skills: ["OOP", "Data Structures", "System Design", "Clean Code"],
+    skills: ["OOP", "Data Structures", "System Design", "Clean Code", "Python", "PHP", "Java (Native)"],
   },
 ];
 
