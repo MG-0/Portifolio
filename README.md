@@ -1,4 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio
+
+This is my personal developer portfolio built using Next.js. It showcases my skills, projects, and experience as a frontend and backend developer.
+
+## Features
+
+* 🌐 Multi-language support (Arabic & English)
+* 🌙 Light and Dark mode support
+* 🧑‍💻 Projects showcase section
+* 🛠️ Skills and technologies overview
+* 📱 Fully responsive design
+* ⚡ Fast and optimized performance
+* 🎨 Clean and modern UI
+* 📬 Contact section
+
+## Tech Stack
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* next-intl (i18n)
+
+## Purpose
+
+The goal of this project is to present my work in a professional way and demonstrate my ability to build modern, scalable, and user-friendly web applications.
 
 ## Getting Started
 
