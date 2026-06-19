@@ -15,21 +15,39 @@ export function Projects() {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const response = await fetch(`https://api.github.com/users/${siteConfig.githubUsername}/repos?sort=updated&per_page=100`);
+        const response = await fetch(
+          `https://api.github.com/users/${siteConfig.githubUsername}/repos?sort=updated&per_page=100`,
+        );
         const data = await response.json();
-        
-        if (Array.isArray(data)) {
-          const filtered = data.filter((repo: any) => 
-            siteConfig.featuredProjects.includes(repo.name) || 
-            (repo.topics && repo.topics.includes("portfolio-featured"))
-          );
 
-          const processed = filtered.map(repo => ({
+        if (Array.isArray(data)) {
+          // Filter projects by featured list and graduation project
+          const filtered = data.filter((repo: any) => {
+            const repoName = repo.name.replace(/-/g, "-");
+            const isFeatured = siteConfig.featuredProjects.some(
+              (proj) => proj.toLowerCase() === repoName.toLowerCase(),
+            );
+            const isGraduation =
+              repo.topics?.includes("graduation") ||
+              repo.name.toLowerCase().includes("tumor") ||
+              repo.name.toLowerCase().includes("graduation");
+            return isFeatured || isGraduation;
+          });
+
+          // Sort to show graduation project first
+          const processed = filtered.map((repo: any) => ({
             ...repo,
-            isGraduationProject: repo.name.toLowerCase().includes("tumor") || repo.name.toLowerCase().includes("graduation")
+            isGraduationProject:
+              repo.topics?.includes("graduation") ||
+              repo.name.toLowerCase().includes("tumor") ||
+              repo.name.toLowerCase().includes("graduation"),
           }));
 
-          processed.sort((a, b) => (b.isGraduationProject ? 1 : 0) - (a.isGraduationProject ? 1 : 0));
+          processed.sort(
+            (a, b) =>
+              (b.isGraduationProject ? 1 : 0) - (a.isGraduationProject ? 1 : 0),
+          );
+
           setProjects(processed);
         }
       } catch (error) {
@@ -43,22 +61,31 @@ export function Projects() {
   }, []);
 
   return (
-    <Section id="projects" title={t.projects.title} subtitle={t.projects.subtitle}>
+    <Section
+      id="projects"
+      title={t.projects.title}
+      subtitle={t.projects.subtitle}
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {loading ? (
           Array.from({ length: 3 }).map((_, i) => <ProjectSkeleton key={i} />)
         ) : projects.length > 0 ? (
           projects.map((project) => {
-            const manualDesc = (siteConfig as any).projectDescriptions?.[language]?.[project.name];
+            const manualDesc = (siteConfig as any).projectDescriptions?.[
+              language
+            ]?.[project.name];
             const displayProject = {
               ...project,
-              description: manualDesc || project.description
+              description:
+                typeof manualDesc === "object"
+                  ? manualDesc.description
+                  : manualDesc || project.description,
             };
-            
+
             return (
-              <ProjectCard 
-                key={project.id} 
-                project={displayProject} 
+              <ProjectCard
+                key={project.id}
+                project={displayProject}
                 onClick={() => setSelectedProject(displayProject)}
               />
             );
@@ -70,10 +97,10 @@ export function Projects() {
         )}
       </div>
 
-      <ProjectModal 
-        project={selectedProject} 
-        isOpen={!!selectedProject} 
-        onClose={() => setSelectedProject(null)} 
+      <ProjectModal
+        project={selectedProject}
+        isOpen={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
       />
     </Section>
   );

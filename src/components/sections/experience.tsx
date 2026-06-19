@@ -1,86 +1,120 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-
 import { motion } from "framer-motion";
 import { Section } from "@/components/ui/section";
-import { Briefcase, BookOpen, Award } from "lucide-react";
-
-const items = [
-  {
-    type: "course",
-    title: "Full-Stack Web Development",
-    provider: "Maximilian Schwarzmüller",
-    description: "Deep dive into React, Node.js, and modern web architectures.",
-    date: "2023 - Present",
-    icon: <BookOpen className="text-primary" />,
-  },
-  {
-    type: "course",
-    title: "Advanced JavaScript & React",
-    provider: "Jonas Schmedtmann",
-    description: "Mastering complex JavaScript patterns and high-performance React applications.",
-    date: "2023",
-    icon: <Award className="text-primary" />,
-  },
-  {
-    type: "learning",
-    title: "Continuous Learning",
-    provider: "Self-Directed",
-    description: "Actively mastering Docker, CI/CD, NestJS, and advanced System Design principles.",
-    date: "Ongoing",
-    icon: <Briefcase className="text-primary" />,
-  },
-];
+import { siteConfig } from "@/config/site";
+import { useLanguage } from "@/components/language-provider";
+import { Briefcase, Calendar, MapPin, ArrowRight } from "lucide-react";
 
 export function Experience() {
+  const { language, t } = useLanguage();
+  const experience = siteConfig.experiences;
+
+  if (!experience || experience.length === 0) {
+    return null;
+  }
+
   return (
-    <Section id="experience" title="Learning Journey" subtitle="My professional growth and educational background.">
-      <div className="relative max-w-4xl mx-auto">
-        {/* Timeline Line */}
-        <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2 hidden md:block" />
+    <Section
+      id="experience"
+      title={t.experience.title}
+      subtitle={t.experience.subtitle}
+    >
+      <div className="space-y-8">
+        {experience.map((exp, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.15 }}
+            className="group relative"
+          >
+            {/* Timeline line */}
+            {index !== experience.length - 1 && (
+              <div className="absolute left-7 top-24 h-16 w-0.5 bg-gradient-to-b from-primary/50 to-transparent" />
+            )}
 
-        <div className="space-y-12">
-          {items.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className={cn(
-                "relative flex flex-col md:flex-row items-center",
-                index % 2 === 0 ? "md:flex-row-reverse" : ""
-              )}
-            >
-              {/* Dot */}
-              <div className="absolute left-0 md:left-1/2 top-0 md:top-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block" />
+            {/* Main card */}
+            <div className="relative flex gap-6">
+              {/* Timeline dot with icon */}
+              <div className="relative flex flex-col items-center">
+                <motion.div
+                  whileHover={{ scale: 1.15 }}
+                  className="w-14 h-14 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full flex items-center justify-center border-2 border-primary/40 group-hover:border-primary/70 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all flex-shrink-0 z-10"
+                >
+                  <Briefcase className="text-primary" size={24} />
+                </motion.div>
+                {index !== experience.length - 1 && (
+                  <div className="w-0.5 h-16 bg-gradient-to-b from-primary/30 to-transparent mt-2" />
+                )}
+              </div>
 
-              <div className="w-full md:w-1/2 p-4">
-                <div className={cn(
-                  "p-6 rounded-2xl border bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-all",
-                  index % 2 === 0 ? "md:mr-8" : "md:ml-8"
-                )}>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg leading-tight">{item.title}</h3>
-                      <p className="text-sm text-primary font-medium">{item.provider}</p>
+              {/* Content */}
+              <div className="flex-1 pt-2 pb-8">
+                <div className="rounded-2xl border border-border/50 bg-gradient-to-br from-card/60 to-card/30 p-6 group-hover:border-primary/50 group-hover:shadow-xl group-hover:shadow-primary/10 transition-all duration-300">
+                  {/* Header */}
+                  <div className="mb-4">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
+                          {exp.position}
+                        </h3>
+                        <p className="text-primary font-semibold text-lg mt-1">
+                          {exp.company}
+                        </p>
+                      </div>
+                      <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <ArrowRight className="text-primary/60" size={20} />
+                      </motion.div>
                     </div>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                    {item.description}
+
+                  {/* Meta information */}
+                  <div className="flex flex-wrap gap-6 mb-4 pb-4 border-b border-border/50">
+                    <div className="flex items-center gap-2 text-sm">
+                      <Calendar size={16} className="text-primary/60" />
+                      <span className="font-medium text-muted-foreground">
+                        {exp.period}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <MapPin size={16} className="text-primary/60" />
+                      <span className="font-medium text-muted-foreground">
+                        {language === "ar"
+                          ? typeof exp.location === "string"
+                            ? exp.location
+                            : exp.location.ar
+                          : typeof exp.location === "string"
+                            ? exp.location
+                            : exp.location.en}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-muted-foreground leading-relaxed text-base">
+                    {language === "ar"
+                      ? typeof exp.description === "string"
+                        ? exp.description
+                        : exp.description.ar
+                      : typeof exp.description === "string"
+                        ? exp.description
+                        : exp.description.en}
                   </p>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                    {item.date}
-                  </div>
+
+                  {/* Highlight accent */}
+                  <div className="absolute top-0 right-0 w-1 h-12 bg-gradient-to-b from-primary to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               </div>
-              <div className="md:w-1/2" />
-            </motion.div>
-          ))}
-        </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </Section>
   );
