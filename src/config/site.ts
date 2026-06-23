@@ -297,7 +297,7 @@ export const siteConfig = {
       "Full-Stack-Food-App": {
         title: "Full-Stack Food Ordering App",
         description: "Full-stack Food Ordering Web Application that allows users to browse menus, place orders, and track deliveries, with secure authentication and an admin dashboard for managing products and orders.",
-        technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
+        technologies: ["Next.js", "TypeScript", "Node.js", "Express.js", "MongoDB"],
         highlights: ["Order Tracking", "Admin Dashboard", "Secure Authentication", "Responsive UI"],
         status: "Personal Project",
         github: "https://github.com/MG-0/Full-Stack-Food-App",
@@ -451,7 +451,7 @@ export const siteConfig = {
       "Full-Stack-Food-App": {
         title: "تطبيق متكامل لطلب الطعام",
         description: "تطبيق ويب متكامل لطلب الطعام يتيح للمستخدمين تصفح القوائم وتقديم الطلبات وتتبع التوصيل، مع مصادقة آمنة ولوحة تحكم للمسؤولين لإدارة المنتجات والطلبات.",
-        technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
+        technologies: ["Next.js", "TypeScript", "Node.js", "Express.js", "MongoDB"],
         highlights: ["تتبع الطلبات", "لوحة تحكم الإدارة", "مصادقة آمنة", "واجهة مستجيبة"],
         status: "مشروع شخصي",
         github: "https://github.com/MG-0/Full-Stack-Food-App",
