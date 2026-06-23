@@ -34,23 +34,20 @@ export function Skills() {
             </div>
 
             {/* Skills grid */}
-            <div className="relative z-10 grid grid-cols-1 gap-2">
+            <div className="relative z-10 flex flex-wrap gap-2">
               {category.skills.map((skill, skillIndex) => (
                 <motion.div
                   key={skillIndex}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: catIndex * 0.1 + skillIndex * 0.05 }}
-                  className="flex items-center gap-2 p-2 rounded-lg hover:bg-primary/10 transition-colors duration-200 cursor-default group/item"
+                  transition={{ delay: catIndex * 0.1 + skillIndex * 0.03 }}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 hover:bg-primary/15 hover:border-primary/40 transition-all duration-200 cursor-default shadow-sm"
                 >
-                  <div className="text-lg flex-shrink-0">{skill.icon}</div>
-                  <span className="text-sm font-medium text-foreground/80 group-hover/item:text-foreground transition-colors">
+                  <div className="text-base flex-shrink-0">{skill.icon}</div>
+                  <span className="text-xs md:text-sm font-semibold text-foreground/80 hover:text-foreground transition-colors">
                     {skill.name}
                   </span>
-                  <div className="ml-auto opacity-0 group-hover/item:opacity-100 transition-opacity">
-                    <div className="w-1 h-1 bg-primary rounded-full" />
-                  </div>
                 </motion.div>
               ))}
             </div>
