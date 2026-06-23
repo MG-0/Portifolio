@@ -80,6 +80,7 @@ export function Projects() {
                 typeof manualDesc === "object"
                   ? manualDesc.description
                   : manualDesc || project.description,
+              technologies: typeof manualDesc === "object" ? manualDesc.technologies : project.topics,
             };
 
             return (

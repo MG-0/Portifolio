@@ -5,6 +5,7 @@ import { X, ExternalLink, Code2, GitBranch, Star, GitFork } from "lucide-react";
 import { GithubIcon as Github } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
 
 interface Project {
   id?: number;
@@ -13,6 +14,7 @@ interface Project {
   html_url: string;
   homepage?: string;
   topics?: string[];
+  technologies?: string[];
   isGraduationProject?: boolean;
   language?: string;
   stargazers_count?: number;
@@ -74,19 +76,27 @@ export function ProjectCard({
           {project.description || "A notable project in my portfolio."}
         </p>
 
-        {/* Tags */}
+        {/* Technologies / Tags */}
         <div className="flex flex-wrap gap-2 mb-6">
-          {project.topics?.slice(0, 3).map((topic, idx) => (
-            <motion.span
-              key={topic}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.05 }}
-              className="text-[11px] px-2.5 py-1 rounded-lg bg-primary/10 text-primary font-semibold border border-primary/20"
-            >
-              {topic}
-            </motion.span>
-          ))}
+          {(project.technologies || project.topics?.slice(0, 4) || []).map((tech, idx) => {
+            let icon = "⚡";
+            for (const cat of siteConfig.skillCategories) {
+              const f = cat.skills.find(s => s.name.toLowerCase() === tech.toLowerCase() || s.name.toLowerCase().includes(tech.toLowerCase()));
+              if (f) { icon = f.icon; break; }
+            }
+            return (
+              <motion.span
+                key={tech}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: idx * 0.05 }}
+                className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-md bg-secondary/50 text-secondary-foreground font-medium border border-border/50 hover:border-primary/40 transition-colors"
+              >
+                <span>{icon}</span>
+                <span>{tech}</span>
+              </motion.span>
+            );
+          })}
         </div>
 
         {/* Footer */}
@@ -229,26 +239,34 @@ export function ProjectModal({
               </div>
 
               {/* Technologies */}
-              {project.topics && project.topics.length > 0 && (
+              {(project.technologies?.length || project.topics?.length) ? (
                 <div className="mb-8">
                   <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-4">
                     Technologies Used
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {project.topics.map((topic, idx) => (
-                      <motion.span
-                        key={topic}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: idx * 0.05 }}
-                        className="px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-semibold border border-border/50 hover:border-primary/50 transition-colors"
-                      >
-                        {topic}
-                      </motion.span>
-                    ))}
+                    {(project.technologies || project.topics || []).map((tech, idx) => {
+                      let icon = "⚡";
+                      for (const cat of siteConfig.skillCategories) {
+                        const f = cat.skills.find(s => s.name.toLowerCase() === tech.toLowerCase() || s.name.toLowerCase().includes(tech.toLowerCase()));
+                        if (f) { icon = f.icon; break; }
+                      }
+                      return (
+                        <motion.span
+                          key={tech}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: idx * 0.05 }}
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-semibold border border-border/50 hover:border-primary/50 transition-colors"
+                        >
+                          <span>{icon}</span>
+                          <span>{tech}</span>
+                        </motion.span>
+                      );
+                    })}
                   </div>
                 </div>
-              )}
+              ) : null}
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
