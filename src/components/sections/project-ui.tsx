@@ -1,11 +1,18 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Code2, GitBranch, Star, GitFork } from "lucide-react";
+import { X, ExternalLink, Code2, Star, GitFork } from "lucide-react";
 import { GithubIcon as Github } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
+import { 
+  SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiNestjs, 
+  SiTypescript, SiJavascript, SiMongodb, SiPostgresql, 
+  SiRedux, SiTailwindcss, SiDocker, SiKubernetes, 
+  SiGraphql, SiPython, SiFlask 
+} from "react-icons/si";
+import { FaCode } from "react-icons/fa";
 
 interface Project {
   id?: number;
@@ -21,6 +28,28 @@ interface Project {
   forks_count?: number;
 }
 
+const getTechIcon = (tech: string) => {
+  const icons: Record<string, React.ReactNode> = {
+    "React.js": <SiReact className="text-[#61DAFB]" />,
+    "Next.js": <SiNextdotjs className="text-foreground" />,
+    "Node.js": <SiNodedotjs className="text-[#339933]" />,
+    "Express.js": <SiExpress className="text-foreground" />,
+    "NestJS": <SiNestjs className="text-[#E0234E]" />,
+    "TypeScript": <SiTypescript className="text-[#3178C6]" />,
+    "JavaScript": <SiJavascript className="text-[#F7DF1E]" />,
+    "MongoDB": <SiMongodb className="text-[#47A248]" />,
+    "PostgreSQL": <SiPostgresql className="text-[#4169E1]" />,
+    "Redux": <SiRedux className="text-[#764ABC]" />,
+    "Tailwind CSS": <SiTailwindcss className="text-[#06B6D4]" />,
+    "Docker": <SiDocker className="text-[#2496ED]" />,
+    "Kubernetes": <SiKubernetes className="text-[#326CE5]" />,
+    "GraphQL": <SiGraphql className="text-[#E10098]" />,
+    "Python": <SiPython className="text-[#3776AB]" />,
+    "Flask": <SiFlask className="text-foreground" />,
+  };
+  return icons[tech] || <FaCode className="text-muted-foreground" />;
+};
+
 export function ProjectCard({
   project,
   onClick,
@@ -31,84 +60,57 @@ export function ProjectCard({
   const displayName = project.name.replace(/-/g, " ");
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -8 }}
+    <div
       className={cn(
-        "group relative flex flex-col h-full overflow-hidden rounded-2xl border bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-sm transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 cursor-pointer",
-        project.isGraduationProject &&
-          "border-primary/50 ring-1 ring-primary/30 shadow-xl shadow-primary/10",
+        "group flex flex-col h-full overflow-hidden rounded-xl border border-border bg-card transition-all hover:border-primary/40 hover:shadow-md cursor-pointer",
+        project.isGraduationProject && "border-primary/40 ring-1 ring-primary/20 shadow-sm"
       )}
       onClick={onClick}
     >
-      {/* Background gradient on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
       {/* Badge */}
       {project.isGraduationProject && (
         <div className="absolute top-4 right-4 z-10">
-          <motion.span
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-lg"
-          >
-            ⭐ Graduation
-          </motion.span>
+          <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-primary text-primary-foreground shadow-sm">
+            Featured AI Project
+          </span>
         </div>
       )}
 
       <div className="p-6 flex flex-col flex-1 relative z-10">
-        {/* Icon */}
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-primary/20 transition-all shadow-md">
-          <Code2 className="text-primary font-bold" size={28} />
+        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-all">
+          <Code2 className="text-primary" size={24} />
         </div>
 
-        {/* Title */}
-        <h3 className="text-xl font-bold mb-2 leading-tight group-hover:text-primary transition-colors duration-300 line-clamp-2">
+        <h3 className="text-xl font-bold mb-3 leading-tight group-hover:text-primary transition-colors duration-300 line-clamp-2 text-foreground">
           {displayName}
         </h3>
 
-        {/* Description */}
         <p className="text-muted-foreground text-sm line-clamp-3 mb-6 flex-1">
           {project.description || "A notable project in my portfolio."}
         </p>
 
         {/* Technologies / Tags */}
         <div className="flex flex-wrap gap-2 mb-6">
-          {(project.technologies || project.topics?.slice(0, 4) || []).map((tech, idx) => {
-            let icon = "⚡";
-            for (const cat of siteConfig.skillCategories) {
-              const f = cat.skills.find(s => s.name.toLowerCase() === tech.toLowerCase() || s.name.toLowerCase().includes(tech.toLowerCase()));
-              if (f) { icon = f.icon; break; }
-            }
-            return (
-              <motion.span
-                key={tech}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: idx * 0.05 }}
-                className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-md bg-secondary/50 text-secondary-foreground font-medium border border-border/50 hover:border-primary/40 transition-colors"
-              >
-                <span>{icon}</span>
-                <span>{tech}</span>
-              </motion.span>
-            );
-          })}
+          {(project.technologies || project.topics?.slice(0, 4) || []).map((tech) => (
+            <span
+              key={tech}
+              className="flex items-center gap-1.5 text-[11px] px-2 py-1 rounded-md bg-secondary text-secondary-foreground font-medium border border-border/50"
+            >
+              <span className="text-sm">{getTechIcon(tech)}</span>
+              <span>{tech}</span>
+            </span>
+          ))}
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between pt-4 border-t border-border/50 mt-auto">
+        <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
-            {project.stargazers_count !== undefined &&
-              project.stargazers_count > 0 && (
-                <div className="flex items-center gap-1">
-                  <Star size={14} className="fill-yellow-500 text-yellow-500" />
-                  <span>{project.stargazers_count}</span>
-                </div>
-              )}
+            {project.stargazers_count !== undefined && project.stargazers_count > 0 && (
+              <div className="flex items-center gap-1">
+                <Star size={14} className="fill-yellow-500 text-yellow-500" />
+                <span>{project.stargazers_count}</span>
+              </div>
+            )}
             {project.forks_count !== undefined && project.forks_count > 0 && (
               <div className="flex items-center gap-1">
                 <GitFork size={14} />
@@ -117,30 +119,28 @@ export function ProjectCard({
             )}
           </div>
           <div className="flex gap-2">
-            <motion.a
+            <a
               href={project.html_url}
               target="_blank"
               onClick={(e) => e.stopPropagation()}
-              whileHover={{ scale: 1.2 }}
-              className="p-2 rounded-lg hover:bg-primary/20 text-muted-foreground hover:text-primary transition-all"
+              className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground hover:text-primary transition-all"
             >
               <Github size={18} />
-            </motion.a>
+            </a>
             {project.homepage && (
-              <motion.a
+              <a
                 href={project.homepage}
                 target="_blank"
                 onClick={(e) => e.stopPropagation()}
-                whileHover={{ scale: 1.2 }}
-                className="p-2 rounded-lg hover:bg-primary/20 text-muted-foreground hover:text-primary transition-all"
+                className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground hover:text-primary transition-all"
               >
                 <ExternalLink size={18} />
-              </motion.a>
+              </a>
             )}
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -169,50 +169,37 @@ export function ProjectModal({
             className="fixed inset-0 z-[60] bg-background/80 backdrop-blur-sm"
           />
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.95, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+            transition={{ duration: 0.2 }}
             className="fixed left-1/2 top-1/2 z-[70] w-full max-w-3xl -translate-x-1/2 -translate-y-1/2 p-4 md:p-6"
           >
-            <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-br from-card to-card/95 p-8 shadow-2xl">
-              {/* Close button */}
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 md:p-10 shadow-xl">
+              <button
                 onClick={onClose}
-                className="absolute right-6 top-6 p-2 rounded-full hover:bg-secondary transition-colors z-20"
+                className="absolute right-6 top-6 p-2 rounded-full hover:bg-secondary transition-colors z-20 text-muted-foreground hover:text-foreground"
               >
                 <X size={20} />
-              </motion.button>
+              </button>
 
-              {/* Content */}
               <div className="mb-8">
-                {/* Badge */}
                 {project.isGraduationProject && (
-                  <motion.span
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary mb-4 border border-primary/20"
-                  >
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary mb-4 border border-primary/20">
                     <Star size={14} className="fill-primary" />
-                    Graduation Project
-                  </motion.span>
+                    Featured AI Project
+                  </span>
                 )}
 
-                {/* Title */}
-                <h2 className="text-4xl font-bold mb-4 leading-tight">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-foreground">
                   {displayName}
                 </h2>
 
-                {/* Description */}
-                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
                   {project.description}
                 </p>
 
-                {/* Stats */}
-                {(project.stargazers_count !== undefined ||
-                  project.language) && (
+                {(project.stargazers_count !== undefined || project.language) && (
                   <div className="flex gap-6 mb-8">
                     {project.language && (
                       <div className="flex items-center gap-2">
@@ -222,73 +209,48 @@ export function ProjectModal({
                         </span>
                       </div>
                     )}
-                    {project.stargazers_count !== undefined &&
-                      project.stargazers_count > 0 && (
-                        <div className="flex items-center gap-2">
-                          <Star
-                            size={16}
-                            className="fill-yellow-500 text-yellow-500"
-                          />
-                          <span className="text-sm font-medium text-muted-foreground">
-                            {project.stargazers_count} Stars
-                          </span>
-                        </div>
-                      )}
+                    {project.stargazers_count !== undefined && project.stargazers_count > 0 && (
+                      <div className="flex items-center gap-2">
+                        <Star size={16} className="fill-yellow-500 text-yellow-500" />
+                        <span className="text-sm font-medium text-muted-foreground">
+                          {project.stargazers_count} Stars
+                        </span>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
 
-              {/* Technologies */}
               {(project.technologies?.length || project.topics?.length) ? (
                 <div className="mb-8">
                   <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-4">
                     Technologies Used
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {(project.technologies || project.topics || []).map((tech, idx) => {
-                      let icon = "⚡";
-                      for (const cat of siteConfig.skillCategories) {
-                        const f = cat.skills.find(s => s.name.toLowerCase() === tech.toLowerCase() || s.name.toLowerCase().includes(tech.toLowerCase()));
-                        if (f) { icon = f.icon; break; }
-                      }
-                      return (
-                        <motion.span
-                          key={tech}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: idx * 0.05 }}
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-semibold border border-border/50 hover:border-primary/50 transition-colors"
-                        >
-                          <span>{icon}</span>
-                          <span>{tech}</span>
-                        </motion.span>
-                      );
-                    })}
+                    {(project.technologies || project.topics || []).map((tech) => (
+                      <span
+                        key={tech}
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-sm font-medium border border-border"
+                      >
+                        <span className="text-base">{getTechIcon(tech)}</span>
+                        <span>{tech}</span>
+                      </span>
+                    ))}
                   </div>
                 </div>
               ) : null}
 
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="flex-1 rounded-xl font-semibold group"
-                  asChild
-                >
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-border">
+                <Button size="lg" className="flex-1 rounded-lg font-semibold" asChild>
                   <a href={project.html_url} target="_blank">
-                    <Github className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                    <Github className="mr-2 h-5 w-5" />
                     View on GitHub
                   </a>
                 </Button>
                 {project.homepage && (
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="flex-1 rounded-xl font-semibold group"
-                    asChild
-                  >
+                  <Button variant="outline" size="lg" className="flex-1 rounded-lg font-semibold" asChild>
                     <a href={project.homepage} target="_blank">
-                      <ExternalLink className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      <ExternalLink className="mr-2 h-5 w-5" />
                       Live Demo
                     </a>
                   </Button>
@@ -304,18 +266,17 @@ export function ProjectModal({
 
 export function ProjectSkeleton() {
   return (
-    <div className="rounded-2xl border border-border/50 bg-card/50 p-6 h-[320px] animate-pulse">
-      <div className="w-12 h-12 rounded-xl bg-muted mb-4" />
-      <div className="h-6 bg-muted rounded w-3/4 mb-3" />
-      <div className="h-4 bg-muted rounded w-full mb-2" />
-      <div className="h-4 bg-muted rounded w-full mb-2" />
-      <div className="h-4 bg-muted rounded w-2/3 mb-6" />
+    <div className="rounded-xl border border-border bg-card p-6 h-[320px] animate-pulse">
+      <div className="w-12 h-12 rounded-lg bg-secondary mb-5" />
+      <div className="h-6 bg-secondary rounded w-3/4 mb-3" />
+      <div className="h-4 bg-secondary rounded w-full mb-2" />
+      <div className="h-4 bg-secondary rounded w-full mb-2" />
+      <div className="h-4 bg-secondary rounded w-2/3 mb-6" />
       <div className="flex gap-2 mb-6">
-        <div className="h-5 bg-muted rounded-lg w-16" />
-        <div className="h-5 bg-muted rounded-lg w-16" />
-        <div className="h-5 bg-muted rounded-lg w-16" />
+        <div className="h-6 bg-secondary rounded-md w-16" />
+        <div className="h-6 bg-secondary rounded-md w-16" />
       </div>
-      <div className="h-10 bg-muted rounded-full w-full" />
+      <div className="h-10 bg-secondary rounded-lg w-full mt-auto" />
     </div>
   );
 }

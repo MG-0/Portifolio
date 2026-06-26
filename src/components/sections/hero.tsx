@@ -91,21 +91,12 @@ export function Hero() {
               </Button>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-6 rtl:space-x-reverse text-muted-foreground">
+            <div className="flex flex-wrap items-center justify-center gap-6 rtl:space-x-reverse text-muted-foreground mt-4">
               <Link href={siteConfig.github} target="_blank" className="hover:text-primary transition-colors">
                 <Github size={24} />
               </Link>
               <Link href={siteConfig.linkedin} target="_blank" className="hover:text-primary transition-colors">
                 <Linkedin size={24} />
-              </Link>
-              <Link href={siteConfig.facebook} target="_blank" className="hover:text-blue-600 transition-colors">
-                <Facebook size={24} />
-              </Link>
-              <Link href={siteConfig.instagram} target="_blank" className="hover:text-pink-600 transition-colors">
-                <Instagram size={24} />
-              </Link>
-              <Link href={siteConfig.youtube} target="_blank" className="hover:text-red-600 transition-colors">
-                <Youtube size={24} />
               </Link>
               <Link href={`mailto:${siteConfig.email}`} className="hover:text-primary transition-colors">
                 <Mail size={24} />

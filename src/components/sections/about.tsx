@@ -73,18 +73,14 @@ export function About() {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((feature, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.08 }}
-            className="group p-6 rounded-2xl border border-border/50 bg-gradient-to-br from-card/60 to-card/30 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+            className="group p-6 rounded-2xl border border-border/50 bg-card hover:border-primary/50 transition-all duration-300 hover:shadow-sm"
           >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-primary/20 transition-all">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-all">
               {feature.icon}
             </div>
-            <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+            <h3 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
               {language === "ar" ? feature.titleAr : feature.titleEn}
             </h3>
             <p className="text-muted-foreground leading-relaxed text-sm">
@@ -92,34 +88,34 @@ export function About() {
                 ? feature.descriptionAr
                 : feature.descriptionEn}
             </p>
-          </motion.div>
+          </div>
         ))}
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="mt-16 p-8 md:p-12 rounded-3xl border border-border/50 bg-gradient-to-br from-primary/10 to-primary/5 flex flex-col md:flex-row items-center gap-8"
-      >
+      <div className="mt-16 p-8 md:p-12 rounded-3xl border border-border/50 bg-secondary/30 flex flex-col md:flex-row items-center gap-8">
         <div className="flex-1">
-          <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+          <h3 className="text-3xl font-bold mb-6 text-foreground">
             {language === "ar" ? "رحلتي والرؤية" : "My Journey & Vision"}
           </h3>
-          <div className="space-y-4">
+          <div className="space-y-6">
             <p className="text-muted-foreground text-base leading-relaxed">
               {language === "ar"
-                ? "أنا مطور متكامل مخصص مع أساس قوي في علوم الحاسب. زودتني رحلتي الأكاديمية بمبادئ أساسية قوية، بينما دفعتني شغفتي بالتكنولوجيا لإتقان تقنيات الويب الحديثة مثل Next.js و Node.js و MongoDB."
-                : "I am a dedicated Junior Full Stack Developer with a strong foundation in Computer Science. My academic journey at Arab Open University has equipped me with fundamental principles, while my passion for technology has driven me to master modern web technologies like Next.js, Node.js, and MongoDB."}
+                ? "أنا مطور متكامل مخصص ذو أساس قوي في علوم الحاسب وشغف لا يمكن إنكاره ببناء تطبيقات ويب قابلة للتوسع وذات أداء عالٍ. تكمن خبرتي الأساسية في مجموعة MERN و Next.js، وأفتخر بكتابة كود نظيف وقابل للصيانة."
+                : "I am a dedicated Full Stack Developer with a strong foundation in Computer Science and an undeniable passion for building scalable, high-performance web applications. My core expertise lies in the MERN stack and Next.js, and I take pride in writing clean, maintainable code."}
             </p>
             <p className="text-muted-foreground text-base leading-relaxed">
               {language === "ar"
-                ? "أؤمن ببناء برامج لا تكون وظيفية فقط، بل محسّنة للغاية وموجهة نحو المستخدم. هدفي هو المساهمة في مشاريع ذات معنى والاستمرار في النمو كمطور محترف في فريق ديناميكي."
-                : "I believe in building software that is not just functional, but also highly optimized and user-centric. My goal is to contribute to meaningful projects and continue growing as a professional developer in a dynamic team."}
+                ? "قمت مؤخراً بتصميم وبناء منصة متكاملة للكشف عن أورام الدماغ بالذكاء الاصطناعي كمشروع تخرجي. يتميز المشروع ببنية خلفية معقدة تدمج خدمة ذكاء اصطناعي (Python/TensorFlow) مع بنية قوية باستخدام React و Node.js مخصصة للأطباء والمرضى."
+                : "Recently, I architected and built a comprehensive AI-Powered Brain Tumor Detection platform as my graduation project. It features a highly complex backend integrating a Python/TensorFlow AI service with a robust React/Node.js architecture for doctors and patients."}
+            </p>
+            <p className="text-muted-foreground text-base leading-relaxed">
+              {language === "ar"
+                ? "إلى جانب البرمجة، لدي قدرة طبيعية وشغف قوي بالتوجيه والتدريس. أتميز بتبسيط المفاهيم التقنية المعقدة إلى دروس واضحة وسهلة الفهم، مما يجعلني متواصلاً ومعلماً فعالاً في أي فريق تقني."
+                : "Beyond coding, I possess a natural ability and strong passion for mentoring and teaching. I excel at breaking down complex technical concepts into clear, digestible lessons, making me an effective communicator and instructor in any technical team."}
             </p>
           </div>
         </div>
-      </motion.div>
+      </div>
     </Section>
   );
 }

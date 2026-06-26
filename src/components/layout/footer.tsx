@@ -28,15 +28,6 @@ export function Footer() {
           <Link href={siteConfig.linkedin} target="_blank" className="hover:text-primary transition-colors">
             <Linkedin size={20} />
           </Link>
-          <Link href={siteConfig.facebook} target="_blank" className="hover:text-primary transition-colors">
-            <Facebook size={20} />
-          </Link>
-          <Link href={siteConfig.instagram} target="_blank" className="hover:text-primary transition-colors">
-            <Instagram size={20} />
-          </Link>
-          <Link href={siteConfig.youtube} target="_blank" className="hover:text-primary transition-colors">
-            <Youtube size={20} />
-          </Link>
           <Link href={`mailto:${siteConfig.email}`} className="hover:text-primary transition-colors">
             <Mail size={20} />
           </Link>
