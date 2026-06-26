@@ -10,9 +10,11 @@ import {
   SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiNestjs, 
   SiTypescript, SiJavascript, SiMongodb, SiPostgresql, 
   SiRedux, SiTailwindcss, SiDocker, SiKubernetes, 
-  SiGraphql, SiPython, SiFlask 
+  SiGraphql, SiPython, SiFlask, SiFramer, SiBootstrap,
+  SiHtml5, SiPrisma, SiSwagger, SiPostman, SiSqlite,
+  SiJava, SiCsharp, SiTensorflow, SiReactquery
 } from "react-icons/si";
-import { FaCode } from "react-icons/fa";
+import { FaCode, FaGlobe, FaServer, FaDatabase, FaRobot, FaCubes } from "react-icons/fa";
 
 interface Project {
   id?: number;
@@ -46,6 +48,25 @@ const getTechIcon = (tech: string) => {
     "GraphQL": <SiGraphql className="text-[#E10098]" />,
     "Python": <SiPython className="text-[#3776AB]" />,
     "Flask": <SiFlask className="text-foreground" />,
+    "React Query": <SiReactquery className="text-[#FF4154]" />,
+    "Framer Motion": <SiFramer className="text-[#0055FF]" />,
+    "i18n": <FaGlobe className="text-[#26A69A]" />,
+    "HTML5": <SiHtml5 className="text-[#E34F26]" />,
+    "HTML5 & CSS3": <SiHtml5 className="text-[#E34F26]" />,
+    "Bootstrap": <SiBootstrap className="text-[#7952B3]" />,
+    "REST APIs": <FaServer className="text-foreground" />,
+    "TypeORM": <FaDatabase className="text-[#FE0902]" />,
+    "Prisma": <SiPrisma className="text-foreground" />,
+    "Mongoose": <SiMongodb className="text-[#880000]" />,
+    "JWT": <FaCode className="text-foreground" />,
+    "Swagger": <SiSwagger className="text-[#85EA2D]" />,
+    "Postman": <SiPostman className="text-[#FF6C37]" />,
+    "SQLite": <SiSqlite className="text-[#003B57]" />,
+    "SQL": <FaDatabase className="text-foreground" />,
+    "Java": <SiJava className="text-[#007396]" />,
+    "C#": <SiCsharp className="text-[#239120]" />,
+    "TensorFlow": <SiTensorflow className="text-[#FF6F00]" />,
+    "Machine Learning": <FaRobot className="text-foreground" />,
   };
   return icons[tech] || <FaCode className="text-muted-foreground" />;
 };

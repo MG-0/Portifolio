@@ -6,9 +6,11 @@ import {
   SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiNestjs, 
   SiTypescript, SiJavascript, SiMongodb, SiPostgresql, 
   SiRedux, SiTailwindcss, SiDocker, SiKubernetes, 
-  SiGraphql, SiPython, SiFlask 
+  SiGraphql, SiPython, SiFlask, SiFramer, SiBootstrap,
+  SiHtml5, SiPrisma, SiSwagger, SiPostman, SiSqlite,
+  SiJava, SiCsharp, SiTensorflow, SiReactquery
 } from "react-icons/si";
-import { FaGitAlt, FaCode, FaCubes, FaServer, FaCodeBranch } from "react-icons/fa";
+import { FaGitAlt, FaCode, FaCubes, FaServer, FaCodeBranch, FaDatabase, FaGlobe, FaRobot } from "react-icons/fa";
 
 const skillIcons: Record<string, React.ReactNode> = {
   "React.js": <SiReact className="text-[#61DAFB]" />,
@@ -35,6 +37,28 @@ const skillIcons: Record<string, React.ReactNode> = {
   "System Design": <FaServer className="text-primary" />,
   "OOP": <FaCodeBranch className="text-primary" />,
   "Data Structures": <FaCubes className="text-primary" />,
+  "Zustand": <FaCode className="text-[#443E38]" />,
+  "React Query": <SiReactquery className="text-[#FF4154]" />,
+  "Shadcn UI": <FaCubes className="text-foreground" />,
+  "Framer Motion": <SiFramer className="text-[#0055FF]" />,
+  "React Hook Form": <FaCode className="text-[#EC5990]" />,
+  "Zod": <FaCode className="text-[#3E67B1]" />,
+  "i18n": <FaGlobe className="text-[#26A69A]" />,
+  "HTML5 & CSS3": <SiHtml5 className="text-[#E34F26]" />,
+  "Bootstrap": <SiBootstrap className="text-[#7952B3]" />,
+  "REST APIs": <FaServer className="text-foreground" />,
+  "TypeORM": <FaDatabase className="text-[#FE0902]" />,
+  "Prisma": <SiPrisma className="text-foreground" />,
+  "Mongoose": <SiMongodb className="text-[#880000]" />,
+  "JWT": <FaCode className="text-foreground" />,
+  "Swagger": <SiSwagger className="text-[#85EA2D]" />,
+  "Postman": <SiPostman className="text-[#FF6C37]" />,
+  "SQLite": <SiSqlite className="text-[#003B57]" />,
+  "SQL": <FaDatabase className="text-foreground" />,
+  "Java": <SiJava className="text-[#007396]" />,
+  "C#": <SiCsharp className="text-[#239120]" />,
+  "TensorFlow": <SiTensorflow className="text-[#FF6F00]" />,
+  "Machine Learning": <FaRobot className="text-foreground" />,
 };
 
 export function Skills() {
