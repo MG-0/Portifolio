@@ -83,11 +83,14 @@ export function ProjectCard({
   return (
     <div
       className={cn(
-        "group flex flex-col h-full overflow-hidden rounded-xl border border-border bg-card transition-all hover:border-primary/40 hover:shadow-md cursor-pointer",
-        project.isGraduationProject && "border-primary/40 ring-1 ring-primary/20 shadow-sm"
+        "group relative flex flex-col h-full overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:-translate-y-1.5 cursor-pointer",
+        project.isGraduationProject && "border-primary/40 ring-1 ring-primary/20 shadow-md"
       )}
       onClick={onClick}
     >
+      {/* Background gradient on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
       {/* Badge */}
       {project.isGraduationProject && (
         <div className="absolute top-4 right-4 z-10">
@@ -98,7 +101,7 @@ export function ProjectCard({
       )}
 
       <div className="p-6 flex flex-col flex-1 relative z-10">
-        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-all">
+        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
           <Code2 className="text-primary" size={24} />
         </div>
 
@@ -115,7 +118,7 @@ export function ProjectCard({
           {(project.technologies || project.topics?.slice(0, 4) || []).map((tech) => (
             <span
               key={tech}
-              className="flex items-center gap-1.5 text-[11px] px-2 py-1 rounded-md bg-secondary text-secondary-foreground font-medium border border-border/50"
+              className="flex items-center gap-1.5 text-[11px] px-2 py-1 rounded-md bg-secondary text-secondary-foreground font-medium border border-border/50 group-hover:border-primary/20 transition-colors"
             >
               <span className="text-sm">{getTechIcon(tech)}</span>
               <span>{tech}</span>
@@ -144,7 +147,7 @@ export function ProjectCard({
               href={project.html_url}
               target="_blank"
               onClick={(e) => e.stopPropagation()}
-              className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground hover:text-primary transition-all"
+              className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground hover:text-primary transition-all hover:scale-110"
             >
               <Github size={18} />
             </a>
@@ -153,7 +156,7 @@ export function ProjectCard({
                 href={project.homepage}
                 target="_blank"
                 onClick={(e) => e.stopPropagation()}
-                className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground hover:text-primary transition-all"
+                className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground hover:text-primary transition-all hover:scale-110"
               >
                 <ExternalLink size={18} />
               </a>

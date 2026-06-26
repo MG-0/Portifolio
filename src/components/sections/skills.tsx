@@ -84,11 +84,11 @@ export function Skills() {
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className={`flex items-center gap-2 md:gap-3 rounded-xl border bg-card hover:bg-secondary hover:border-primary/40 transition-all duration-200 cursor-default shadow-sm ${
-                      isCore ? "px-4 md:px-5 py-2 md:py-3" : "px-3 md:px-4 py-1.5 md:py-2 opacity-90"
+                    className={`flex items-center gap-2 md:gap-3 rounded-xl border bg-card hover:bg-secondary hover:border-primary/40 transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-default ${
+                      isCore ? "px-4 md:px-5 py-2 md:py-3" : "px-3 md:px-4 py-1.5 md:py-2 opacity-90 hover:opacity-100"
                     }`}
                   >
-                    <div className={isCore ? "text-xl md:text-2xl" : "text-lg md:text-xl"}>
+                    <div className={`${isCore ? "text-xl md:text-2xl" : "text-lg md:text-xl"} group-hover:scale-110 transition-transform duration-300`}>
                       {skillIcons[skill.name] || <FaCode className="text-primary" />}
                     </div>
                     <span className={`font-semibold text-foreground/90 hover:text-foreground transition-colors ${
