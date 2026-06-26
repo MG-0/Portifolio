@@ -8,9 +8,9 @@ import {
   SiRedux, SiTailwindcss, SiDocker, SiKubernetes, 
   SiGraphql, SiPython, SiFlask, SiFramer, SiBootstrap,
   SiHtml5, SiPrisma, SiSwagger, SiPostman, SiSqlite,
-  SiJava, SiCsharp, SiTensorflow, SiReactquery
+  SiTensorflow, SiReactquery
 } from "react-icons/si";
-import { FaGitAlt, FaCode, FaCubes, FaServer, FaCodeBranch, FaDatabase, FaGlobe, FaRobot } from "react-icons/fa";
+import { FaGitAlt, FaCode, FaCubes, FaServer, FaCodeBranch, FaDatabase, FaGlobe, FaRobot, FaJava } from "react-icons/fa";
 
 const skillIcons: Record<string, React.ReactNode> = {
   "React.js": <SiReact className="text-[#61DAFB]" />,
@@ -55,8 +55,8 @@ const skillIcons: Record<string, React.ReactNode> = {
   "Postman": <SiPostman className="text-[#FF6C37]" />,
   "SQLite": <SiSqlite className="text-[#003B57]" />,
   "SQL": <FaDatabase className="text-foreground" />,
-  "Java": <SiJava className="text-[#007396]" />,
-  "C#": <SiCsharp className="text-[#239120]" />,
+  "Java": <FaJava className="text-[#007396]" />,
+  "C#": <FaCode className="text-[#239120]" />,
   "TensorFlow": <SiTensorflow className="text-[#FF6F00]" />,
   "Machine Learning": <FaRobot className="text-foreground" />,
 };

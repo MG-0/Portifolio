@@ -12,9 +12,9 @@ import {
   SiRedux, SiTailwindcss, SiDocker, SiKubernetes, 
   SiGraphql, SiPython, SiFlask, SiFramer, SiBootstrap,
   SiHtml5, SiPrisma, SiSwagger, SiPostman, SiSqlite,
-  SiJava, SiCsharp, SiTensorflow, SiReactquery
+  SiTensorflow, SiReactquery
 } from "react-icons/si";
-import { FaCode, FaGlobe, FaServer, FaDatabase, FaRobot, FaCubes } from "react-icons/fa";
+import { FaCode, FaGlobe, FaServer, FaDatabase, FaRobot, FaCubes, FaJava } from "react-icons/fa";
 
 interface Project {
   id?: number;
@@ -63,8 +63,8 @@ const getTechIcon = (tech: string) => {
     "Postman": <SiPostman className="text-[#FF6C37]" />,
     "SQLite": <SiSqlite className="text-[#003B57]" />,
     "SQL": <FaDatabase className="text-foreground" />,
-    "Java": <SiJava className="text-[#007396]" />,
-    "C#": <SiCsharp className="text-[#239120]" />,
+    "Java": <FaJava className="text-[#007396]" />,
+    "C#": <FaCode className="text-[#239120]" />,
     "TensorFlow": <SiTensorflow className="text-[#FF6F00]" />,
     "Machine Learning": <FaRobot className="text-foreground" />,
   };
