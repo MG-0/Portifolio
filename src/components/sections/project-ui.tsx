@@ -12,9 +12,9 @@ import {
   SiRedux, SiTailwindcss, SiDocker, SiKubernetes, 
   SiGraphql, SiPython, SiFlask, SiFramer, SiBootstrap,
   SiHtml5, SiPrisma, SiSwagger, SiPostman, SiSqlite,
-  SiTensorflow, SiReactquery
+  SiTensorflow, SiReactquery, SiPhp, SiLaravel, SiJest, SiSpringboot, SiRedis
 } from "react-icons/si";
-import { FaCode, FaGlobe, FaServer, FaDatabase, FaRobot, FaCubes, FaJava } from "react-icons/fa";
+import { FaCode, FaGlobe, FaServer, FaDatabase, FaRobot, FaCubes, FaJava, FaShieldAlt } from "react-icons/fa";
 
 interface Project {
   id?: number;
@@ -65,6 +65,13 @@ const getTechIcon = (tech: string) => {
     "SQL": <FaDatabase className="text-foreground" />,
     "Java": <FaJava className="text-[#007396]" />,
     "C#": <FaCode className="text-[#239120]" />,
+    "PHP": <SiPhp className="text-[#777BB4]" />,
+    "Laravel": <SiLaravel className="text-[#FF2D20]" />,
+    "Eloquent ORM": <FaDatabase className="text-[#FF2D20]" />,
+    "Sanctum Auth": <FaShieldAlt className="text-[#FF2D20]" />,
+    "Jest": <SiJest className="text-[#C21325]" />,
+    "Spring Boot": <SiSpringboot className="text-[#6DB33F]" />,
+    "Caching (Redis)": <SiRedis className="text-[#DC382D]" />,
     "TensorFlow": <SiTensorflow className="text-[#FF6F00]" />,
     "Machine Learning": <FaRobot className="text-foreground" />,
   };

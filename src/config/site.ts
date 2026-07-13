@@ -14,9 +14,9 @@ export const siteConfig = {
 
   translations: {
     en: {
-      role: "Junior Full Stack Developer (MERN / Next.js)",
+      role: "Junior Full Stack Developer (MERN / Next.js / NestJS / Laravel)",
       description:
-        "A dedicated Full Stack Developer with a strong foundation in Computer Science and a passion for building scalable, high-performance web applications. I recently built a comprehensive AI-Powered Brain Tumor Detection platform, integrating a Python/TensorFlow AI service with a robust React/Node.js architecture. Beyond coding, I have a natural ability and strong passion for mentoring and teaching, excelling at breaking down complex technical concepts into clear, digestible insights.",
+        "A dedicated Full Stack Developer with a strong foundation in Computer Science and a genuine drive to understand how things really work, not just how to use them. My core stack spans the MERN ecosystem, Next.js, and NestJS, alongside a growing depth in Laravel and PHP — I like digging into the \"why\" behind a framework's architecture, not just shipping features with it. I'm also continuously expanding into new territory: Spring Boot, caching strategies, and other advanced full-stack concepts, always looking to build a more complete picture of how modern applications are designed and scaled. Beyond code, I have a strong passion for mentoring and teaching, and I enjoy breaking down complex technical ideas into clear, digestible insights for others.",
       nav: {
         about: "About",
         skills: "Skills",
@@ -65,9 +65,9 @@ export const siteConfig = {
       },
     },
     ar: {
-      role: "مطور متكامل مبتدئ (MERN / Next.js)",
+      role: "مطور متكامل مبتدئ (MERN / Next.js / NestJS / Laravel)",
       description:
-        "مطور متكامل مخصص ذو أساس قوي في علوم الحاسب وشغف ببناء تطبيقات ويب قابلة للتوسع وذات أداء عالٍ. قمت مؤخراً ببناء منصة متكاملة للكشف عن أورام الدماغ بالذكاء الاصطناعي، حيث دمجت خدمة ذكاء اصطناعي (Python/TensorFlow) مع بنية قوية باستخدام React و Node.js. إلى جانب البرمجة، لدي قدرة طبيعية وشغف قوي بالتوجيه والتدريس، وأتميز بتبسيط المفاهيم التقنية المعقدة إلى دروس واضحة وسهلة الفهم.",
+        "مطور متكامل مخلص ذو أساس قوي في علوم الحاسب ودافع حقيقي لفهم كيفية عمل الأشياء من الداخل، وليس مجرد كيفية استخدامها. تشمل تقنياتي الأساسية نظام MERN و Next.js و NestJS، إلى جانب تعمق متزايد في Laravel و PHP — أحب البحث عن \"السبب\" وراء معمارية إطارات العمل، وليس مجرد شحن الميزات بها. كما أنني أتوسع باستمرار في مجالات جديدة: Spring Boot، استراتيجيات التخزين المؤقت (Caching)، ومفاهيم متقدمة أخرى، ودائماً ما أتطلع لبناء صورة أكثر اكتمالاً حول كيفية تصميم وتطوير التطبيقات الحديثة. بعيداً عن الكود، لدي شغف قوي بالتوجيه والتدريس، وأستمتع بتبسيط الأفكار التقنية المعقدة إلى رؤى واضحة وسهلة الفهم للآخرين.",
       nav: {
         about: "عني",
         skills: "المهارات",
@@ -142,12 +142,15 @@ export const siteConfig = {
         { name: "Node.js" },
         { name: "Express.js" },
         { name: "NestJS" },
+        { name: "Laravel" },
         { name: "REST APIs" },
         { name: "GraphQL" },
         { name: "TypeORM" },
+        { name: "Eloquent ORM" },
         { name: "Prisma" },
         { name: "Mongoose" },
         { name: "JWT" },
+        { name: "Sanctum" },
         { name: "Swagger" },
         { name: "Postman" },
         { name: "Flask" },
@@ -163,14 +166,23 @@ export const siteConfig = {
       ],
     },
     {
-      title: "Tools & DevOps",
+      title: "Tools & Testing",
       skills: [
         { name: "Git & GitHub" },
+        { name: "Jest" },
+        { name: "CI/CD" },
+        { name: "Design Patterns" },
+      ],
+    },
+    {
+      title: "Currently Learning",
+      skills: [
+        { name: "Spring Boot" },
+        { name: "Caching (Redis)" },
+        { name: "System Design" },
         { name: "Docker" },
         { name: "Kubernetes" },
-        { name: "CI/CD" },
-        { name: "System Design" },
-        { name: "Design Patterns" },
+        { name: "React Native" },
       ],
     },
     {
@@ -178,6 +190,7 @@ export const siteConfig = {
       skills: [
         { name: "JavaScript" },
         { name: "TypeScript" },
+        { name: "PHP" },
         { name: "Python" },
         { name: "Java" },
         { name: "C#" },
@@ -207,6 +220,7 @@ export const siteConfig = {
   ],
 
   featuredProjects: [
+    "Task-Management-System",
     "Medical-Imaging-Platform",
     "bookStore-Backend",
     "Burger-LandingPage",
@@ -218,6 +232,14 @@ export const siteConfig = {
 
   projectDescriptions: {
     en: {
+      "Task-Management-System": {
+        title: "Task Management System",
+        description: "Built a full stack task management system with a Laravel REST API (Eloquent ORM, Migrations, Middleware, Service Container) and a React (Vite + TypeScript) frontend, using Sanctum-based token authentication — structured across sprints to build deep, end-to-end understanding of Laravel's core architecture.",
+        technologies: ["Laravel", "React", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+        highlights: ["Sanctum Auth", "Eloquent ORM", "REST API", "State Management"],
+        status: "Personal Project",
+        github: "https://github.com/MG-0/Task-Management-System",
+      },
       "Medical-Imaging-Platform": {
         title:
           "AI-Powered Brain Tumor Detection & Medical Consultation Platform",
@@ -311,6 +333,14 @@ export const siteConfig = {
       },
     },
     ar: {
+      "Task-Management-System": {
+        title: "نظام إدارة المهام",
+        description: "قمت ببناء نظام متكامل لإدارة المهام باستخدام Laravel لواجهة برمجة التطبيقات (مع Eloquent ORM، Migrations، Middleware، Service Container) و React للواجهة الأمامية، مع مصادقة Sanctum. تم تنظيمه عبر مراحل بناء لتعميق الفهم الشامل لمعمارية Laravel الأساسية.",
+        technologies: ["Laravel", "React", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+        highlights: ["مصادقة Sanctum", "مكتبة Eloquent", "واجهات REST", "إدارة الحالة"],
+        status: "مشروع شخصي",
+        github: "https://github.com/MG-0/Task-Management-System",
+      },
       "AI-Powered-Brain-Tumor-Detection": {
         title: "منصة الكشف عن أورام الدماغ بالذكاء الاصطناعي والاستشارة الطبية",
         description:

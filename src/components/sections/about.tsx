@@ -100,18 +100,18 @@ export function About() {
           <div className="space-y-6">
             <p className="text-muted-foreground text-base leading-relaxed">
               {language === "ar"
-                ? "أنا مطور متكامل مخصص ذو أساس قوي في علوم الحاسب وشغف لا يمكن إنكاره ببناء تطبيقات ويب قابلة للتوسع وذات أداء عالٍ. تكمن خبرتي الأساسية في مجموعة MERN و Next.js، وأفتخر بكتابة كود نظيف وقابل للصيانة."
-                : "I am a dedicated Full Stack Developer with a strong foundation in Computer Science and an undeniable passion for building scalable, high-performance web applications. My core expertise lies in the MERN stack and Next.js, and I take pride in writing clean, maintainable code."}
+                ? "مطور متكامل مخلص ذو أساس قوي في علوم الحاسب ودافع حقيقي لفهم كيفية عمل الأشياء من الداخل، وليس مجرد كيفية استخدامها. تشمل تقنياتي الأساسية نظام MERN و Next.js و NestJS، إلى جانب تعمق متزايد في Laravel و PHP — أحب البحث عن \"السبب\" وراء معمارية إطارات العمل، وليس مجرد شحن الميزات بها."
+                : "A dedicated Full Stack Developer with a strong foundation in Computer Science and a genuine drive to understand how things really work, not just how to use them. My core stack spans the MERN ecosystem, Next.js, and NestJS, alongside a growing depth in Laravel and PHP — I like digging into the \"why\" behind a framework's architecture, not just shipping features with it."}
             </p>
             <p className="text-muted-foreground text-base leading-relaxed">
               {language === "ar"
-                ? "قمت مؤخراً بتصميم وبناء منصة متكاملة للكشف عن أورام الدماغ بالذكاء الاصطناعي كمشروع تخرجي. يتميز المشروع ببنية خلفية معقدة تدمج خدمة ذكاء اصطناعي (Python/TensorFlow) مع بنية قوية باستخدام React و Node.js مخصصة للأطباء والمرضى."
-                : "Recently, I architected and built a comprehensive AI-Powered Brain Tumor Detection platform as my graduation project. It features a highly complex backend integrating a Python/TensorFlow AI service with a robust React/Node.js architecture for doctors and patients."}
+                ? "كما أنني أتوسع باستمرار في مجالات جديدة: Spring Boot، استراتيجيات التخزين المؤقت (Caching)، ومفاهيم متقدمة أخرى، ودائماً ما أتطلع لبناء صورة أكثر اكتمالاً حول كيفية تصميم وتطوير التطبيقات الحديثة."
+                : "I'm also continuously expanding into new territory: Spring Boot, caching strategies, and other advanced full-stack concepts, always looking to build a more complete picture of how modern applications are designed and scaled."}
             </p>
             <p className="text-muted-foreground text-base leading-relaxed">
               {language === "ar"
-                ? "إلى جانب البرمجة، لدي قدرة طبيعية وشغف قوي بالتوجيه والتدريس. أتميز بتبسيط المفاهيم التقنية المعقدة إلى دروس واضحة وسهلة الفهم، مما يجعلني متواصلاً ومعلماً فعالاً في أي فريق تقني."
-                : "Beyond coding, I possess a natural ability and strong passion for mentoring and teaching. I excel at breaking down complex technical concepts into clear, digestible lessons, making me an effective communicator and instructor in any technical team."}
+                ? "بعيداً عن الكود، لدي شغف قوي بالتوجيه والتدريس، وأستمتع بتبسيط الأفكار التقنية المعقدة إلى رؤى واضحة وسهلة الفهم للآخرين."
+                : "Beyond code, I have a strong passion for mentoring and teaching, and I enjoy breaking down complex technical ideas into clear, digestible insights for others."}
             </p>
           </div>
         </div>
