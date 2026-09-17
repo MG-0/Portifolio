@@ -47,7 +47,7 @@ export function Navbar() {
             MG
           </div>
           <span className="text-xl font-bold tracking-tight hidden sm:block">
-            {siteConfig.name}<span className="text-primary">.</span>
+            {siteConfig.name}
           </span>
         </Link>
 

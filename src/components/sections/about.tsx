@@ -73,14 +73,22 @@ export function About() {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((feature, index) => (
-          <div
+          <motion.div
             key={index}
-            className="group p-6 rounded-2xl border border-border/50 bg-card hover:border-primary/50 transition-all duration-300 hover:shadow-sm"
+            initial={{ opacity: 0, y: 30, x: index % 2 === 0 ? -20 : 20 }}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ y: -8, scale: 1.02 }}
+            className="group relative overflow-hidden p-6 rounded-3xl border border-border/60 bg-gradient-to-b from-card to-card/60 hover:border-primary/60 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 cursor-default"
           >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-all">
+            {/* Ambient hover glow */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/0 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300 text-primary">
               {feature.icon}
             </div>
-            <h3 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+            <h3 className="text-lg font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
               {language === "ar" ? feature.titleAr : feature.titleEn}
             </h3>
             <p className="text-muted-foreground leading-relaxed text-sm">
@@ -88,11 +96,17 @@ export function About() {
                 ? feature.descriptionAr
                 : feature.descriptionEn}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      <div className="mt-16 p-8 md:p-12 rounded-3xl border border-border/50 bg-secondary/30 flex flex-col md:flex-row items-center gap-8">
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6 }}
+        className="mt-16 p-8 md:p-12 rounded-3xl border border-border/60 bg-gradient-to-br from-secondary/40 via-secondary/20 to-card backdrop-blur-md flex flex-col md:flex-row items-center gap-8 shadow-lg hover:border-primary/40 transition-all duration-300"
+      >
         <div className="flex-1">
           <h3 className="text-3xl font-bold mb-6 text-foreground">
             {language === "ar" ? "رحلتي والرؤية" : "My Journey & Vision"}
@@ -105,8 +119,8 @@ export function About() {
             </p>
             <p className="text-muted-foreground text-base leading-relaxed">
               {language === "ar"
-                ? "كما أنني أتوسع باستمرار في مجالات جديدة: Spring Boot، استراتيجيات التخزين المؤقت (Caching)، ومفاهيم متقدمة أخرى، ودائماً ما أتطلع لبناء صورة أكثر اكتمالاً حول كيفية تصميم وتطوير التطبيقات الحديثة."
-                : "I'm also continuously expanding into new territory: Spring Boot, caching strategies, and other advanced full-stack concepts, always looking to build a more complete picture of how modern applications are designed and scaled."}
+                ? "كما أنني أتوسع باستمرار في مجالات جديدة: استراتيجيات التخزين المؤقت (Caching)، تصميم الأنظمة الموزعة (System Design)، ومفاهيم متقدمة أخرى، ودائماً ما أتطلع لبناء صورة أكثر اكتمالاً حول كيفية تصميم وتطوير التطبيقات الحديثة."
+                : "I'm also continuously expanding into new territory: caching strategies (Redis), System Design, and advanced full-stack concepts, always looking to build a more complete picture of how modern applications are designed and scaled."}
             </p>
             <p className="text-muted-foreground text-base leading-relaxed">
               {language === "ar"
@@ -115,7 +129,7 @@ export function About() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 }

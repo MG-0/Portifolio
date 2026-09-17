@@ -70,7 +70,7 @@ export function Projects() {
         {loading ? (
           Array.from({ length: 3 }).map((_, i) => <ProjectSkeleton key={i} />)
         ) : projects.length > 0 ? (
-          projects.map((project) => {
+          projects.map((project, index) => {
             const manualDesc = (siteConfig as any).projectDescriptions?.[
               language
             ]?.[project.name];
@@ -84,11 +84,19 @@ export function Projects() {
             };
 
             return (
-              <ProjectCard
-                key={project.id}
-                project={displayProject}
-                onClick={() => setSelectedProject(displayProject)}
-              />
+              <motion.div
+                key={project.id || project.name}
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: (index % 3) * 0.15 }}
+                className="h-full"
+              >
+                <ProjectCard
+                  project={displayProject}
+                  onClick={() => setSelectedProject(displayProject)}
+                />
+              </motion.div>
             );
           })
         ) : (

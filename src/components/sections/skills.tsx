@@ -15,7 +15,7 @@ import {
 } from "react-icons/si";
 import { 
   FaGitAlt, FaCode, FaCubes, FaServer, FaCodeBranch, 
-  FaDatabase, FaGlobe, FaRobot, FaShieldAlt, FaLock, FaLayerGroup, FaNetworkWired
+  FaDatabase, FaGlobe, FaRobot, FaShieldAlt, FaLock, FaLayerGroup, FaNetworkWired, FaJava, FaLaptopCode
 } from "react-icons/fa";
 import { useLanguage } from "@/components/language-provider";
 
@@ -27,6 +27,12 @@ const skillIcons: Record<string, React.ReactNode> = {
   "NestJS": <SiNestjs className="text-[#E0234E]" />,
   "TypeScript": <SiTypescript className="text-[#3178C6]" />,
   "JavaScript": <SiJavascript className="text-[#F7DF1E]" />,
+  "Java": <FaJava className="text-[#007396]" />,
+  "C#": <FaCode className="text-[#239120]" />,
+  "Software Engineering": <FaLaptopCode className="text-[#0ea5e9]" />,
+  "Data Structures": <FaCubes className="text-[#8b5cf6]" />,
+  "Operating Systems": <FaServer className="text-[#f59e0b]" />,
+  "OOP": <FaCodeBranch className="text-[#ec4899]" />,
   "MongoDB": <SiMongodb className="text-[#47A248]" />,
   "PostgreSQL": <SiPostgresql className="text-[#4169E1]" />,
   "Redux": <SiRedux className="text-[#764ABC]" />,
@@ -75,6 +81,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
   "Backend": <FaServer className="text-[#5FA04E]" />,
   "Databases": <FaDatabase className="text-[#4169E1]" />,
   "Security & Architecture": <FaShieldAlt className="text-[#EAB308]" />,
+  "CS Fundamentals": <FaLaptopCode className="text-[#8b5cf6]" />,
   "Tools & DevOps": <FaCubes className="text-[#F05032]" />,
   "Currently Learning": <FaGlobe className="text-[#A855F7]" />,
   "Languages": <FaCodeBranch className="text-[#3178C6]" />,

@@ -193,11 +193,23 @@ export const siteConfig = {
       ],
     },
     {
+      title: "CS Fundamentals",
+      skills: [
+        { name: "Software Engineering" },
+        { name: "Data Structures" },
+        { name: "Operating Systems" },
+        { name: "OOP" },
+        { name: "System Design" },
+      ],
+    },
+    {
       title: "Languages",
       skills: [
         { name: "JavaScript" },
         { name: "TypeScript" },
         { name: "PHP" },
+        { name: "Java" },
+        { name: "C#" },
         { name: "SQL" },
         { name: "Python" },
       ],

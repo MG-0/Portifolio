@@ -122,9 +122,9 @@ export function Hero() {
             {/* Typewriter Title */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
               {t.hero.hi}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-indigo-500 to-indigo-400 inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-indigo-600 to-indigo-500 dark:from-indigo-400 dark:via-primary dark:to-indigo-300 pb-1 inline-inline-block">
                 {displayedName}
-                <span className="animate-pulse text-primary font-light">|</span>
+                <span className="animate-pulse text-primary font-normal">|</span>
               </span>
             </h1>
 
@@ -157,12 +157,12 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Social Links Icons */}
+            {/* Social Links Icons with Individual Brand Hover Colors */}
             <div className="flex flex-wrap items-center justify-center gap-5 rtl:space-x-reverse text-muted-foreground">
               <Link 
                 href={siteConfig.github} 
                 target="_blank" 
-                className="p-3 rounded-full border border-border/60 bg-secondary/40 hover:text-primary hover:border-primary/50 hover:bg-primary/10 hover:scale-110 transition-all duration-300"
+                className="p-3 rounded-full border border-border/60 bg-secondary/40 hover:text-[#2da44f] dark:hover:text-[#3fb950] hover:border-[#2da44f]/50 hover:bg-[#2da44f]/10 hover:scale-110 shadow-sm transition-all duration-300"
                 title="GitHub"
               >
                 <Github size={22} />
@@ -170,7 +170,7 @@ export function Hero() {
               <Link 
                 href={siteConfig.linkedin} 
                 target="_blank" 
-                className="p-3 rounded-full border border-border/60 bg-secondary/40 hover:text-primary hover:border-primary/50 hover:bg-primary/10 hover:scale-110 transition-all duration-300"
+                className="p-3 rounded-full border border-border/60 bg-secondary/40 hover:text-[#0A66C2] hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/10 hover:scale-110 shadow-sm transition-all duration-300"
                 title="LinkedIn"
               >
                 <Linkedin size={22} />
@@ -178,7 +178,7 @@ export function Hero() {
               <Link 
                 href={siteConfig.medium} 
                 target="_blank" 
-                className="p-3 rounded-full border border-border/60 bg-secondary/40 hover:text-primary hover:border-primary/50 hover:bg-primary/10 hover:scale-110 transition-all duration-300"
+                className="p-3 rounded-full border border-border/60 bg-secondary/40 hover:text-[#00AB6C] hover:border-[#00AB6C]/50 hover:bg-[#00AB6C]/10 hover:scale-110 shadow-sm transition-all duration-300"
                 title="Medium"
               >
                 <Medium size={22} />
@@ -186,14 +186,14 @@ export function Hero() {
               <Link 
                 href={siteConfig.whatsapp} 
                 target="_blank" 
-                className="p-3 rounded-full border border-border/60 bg-secondary/40 hover:text-emerald-500 hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:scale-110 transition-all duration-300"
+                className="p-3 rounded-full border border-border/60 bg-secondary/40 hover:text-[#25D366] hover:border-[#25D366]/50 hover:bg-[#25D366]/10 hover:scale-110 shadow-sm transition-all duration-300"
                 title="WhatsApp"
               >
                 <Whatsapp size={22} />
               </Link>
               <Link 
                 href={`mailto:${siteConfig.email}`} 
-                className="p-3 rounded-full border border-border/60 bg-secondary/40 hover:text-primary hover:border-primary/50 hover:bg-primary/10 hover:scale-110 transition-all duration-300"
+                className="p-3 rounded-full border border-border/60 bg-secondary/40 hover:text-[#EA4335] hover:border-[#EA4335]/50 hover:bg-[#EA4335]/10 hover:scale-110 shadow-sm transition-all duration-300"
                 title="Email"
               >
                 <Mail size={22} />

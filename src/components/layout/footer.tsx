@@ -38,8 +38,8 @@ export function Footer() {
           </Link>
         </div>
 
-        <div className="text-sm text-muted-foreground italic">
-          Built with Next.js & Tailwind CSS
+        <div className="text-sm font-medium text-muted-foreground">
+          Designed & Developed by <span className="text-primary font-bold">{siteConfig.name}</span>
         </div>
       </div>
     </footer>
