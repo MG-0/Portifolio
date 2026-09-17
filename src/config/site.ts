@@ -3,6 +3,7 @@ export const siteConfig = {
   fullName: "Mahmoud Gamal Ahmed Bekhit",
   email: "gamalgit@gmail.com",
   phone: "+20 109 832 6602",
+  whatsapp: "https://wa.me/201098326602",
   location: {
     en: "Cairo, Egypt",
     ar: "القاهرة، مصر",
@@ -10,13 +11,14 @@ export const siteConfig = {
   githubUsername: "MG-0",
   github: "https://github.com/MG-0",
   linkedin: "https://linkedin.com/in/mahmoud-gamal-3ba408321",
+  medium: "https://medium.com/@gamalgit",
   formspreeId: "mgodbede",
 
   translations: {
     en: {
-      role: "Junior Full Stack Developer (MERN / Next.js / NestJS / Laravel)",
+      role: "Full Stack Developer (MERN / Next.js / NestJS / Laravel)",
       description:
-        "A dedicated Full Stack Developer with a strong foundation in Computer Science and a genuine drive to understand how things really work, not just how to use them. My core stack spans the MERN ecosystem, Next.js, and NestJS, alongside a growing depth in Laravel and PHP — I like digging into the \"why\" behind a framework's architecture, not just shipping features with it. I'm also continuously expanding into new territory: Spring Boot, caching strategies, and other advanced full-stack concepts, always looking to build a more complete picture of how modern applications are designed and scaled. Beyond code, I have a strong passion for mentoring and teaching, and I enjoy breaking down complex technical ideas into clear, digestible insights for others.",
+        "A dedicated Full Stack Developer skilled in MERN, Next.js, NestJS, and Laravel, building production-style apps with clean architecture across JavaScript/TypeScript and PHP. Sole developer on a real-time broadcast graphics control system, with emphasis on secure, scalable, and performant systems delivered through continuous learning and best practices. Beyond code, I have a strong passion for mentoring and breaking down complex technical ideas into clear, digestible insights.",
       nav: {
         about: "About",
         skills: "Skills",
@@ -34,10 +36,10 @@ export const siteConfig = {
       contact: {
         title: "Get In Touch",
         subtitle:
-          "Have a question or want to work together? Drop me a message.",
+          "Have a question or want to work together? Drop me a message or connect via WhatsApp.",
         connect: "Let's Connect",
         connectDesc:
-          "I'm currently open to new opportunities, collaborations, or just a friendly chat about tech.",
+          "I'm currently open to new opportunities, collaborations, or a quick chat on WhatsApp.",
         name: "Name",
         email: "Email",
         subject: "Subject",
@@ -54,25 +56,25 @@ export const siteConfig = {
       projects: {
         title: "Featured Projects",
         subtitle:
-          "A selection of my best work showcasing my expertise in full-stack development and AI integration.",
+          "A selection of my best work showcasing my expertise in full-stack development, real-time systems, and AI integration.",
         viewDetails: "View Details",
         noProjects: "No projects found. Check the GitHub username in config.",
       },
       experience: {
         title: "Work Experience",
         subtitle:
-          "Professional experience and hands-on exposure to modern development practices.",
+          "Professional software engineering experience delivering production systems.",
       },
     },
     ar: {
-      role: "مطور متكامل مبتدئ (MERN / Next.js / NestJS / Laravel)",
+      role: "مطور متكامل (MERN / Next.js / NestJS / Laravel)",
       description:
-        "مطور متكامل مخلص ذو أساس قوي في علوم الحاسب ودافع حقيقي لفهم كيفية عمل الأشياء من الداخل، وليس مجرد كيفية استخدامها. تشمل تقنياتي الأساسية نظام MERN و Next.js و NestJS، إلى جانب تعمق متزايد في Laravel و PHP — أحب البحث عن \"السبب\" وراء معمارية إطارات العمل، وليس مجرد شحن الميزات بها. كما أنني أتوسع باستمرار في مجالات جديدة: Spring Boot، استراتيجيات التخزين المؤقت (Caching)، ومفاهيم متقدمة أخرى، ودائماً ما أتطلع لبناء صورة أكثر اكتمالاً حول كيفية تصميم وتطوير التطبيقات الحديثة. بعيداً عن الكود، لدي شغف قوي بالتوجيه والتدريس، وأستمتع بتبسيط الأفكار التقنية المعقدة إلى رؤى واضحة وسهلة الفهم للآخرين.",
+        "مطور تطبيقات متكاملة (Full Stack Developer) متخصص في MERN و Next.js و NestJS و Laravel، متمرس في بناء تطبيقات إنتاجية احترافية بمعمارية برمجية نظيفة عبر JavaScript/TypeScript و PHP. قمت بمفردي بتطوير نظام جرافيكس مباشر للمباشر مع تركيز دائم على الأمان والسرعة وقابلية التوسع وابتكار الحلول التقنية.",
       nav: {
         about: "عني",
         skills: "المهارات",
-        projects: "المشاريع",
-        experience: "الخبرة",
+        projects: "المهام والمشاريع",
+        experience: "الخبرة العملية",
         contact: "تواصل معي",
       },
       hero: {
@@ -84,10 +86,10 @@ export const siteConfig = {
       },
       contact: {
         title: "تواصل معي",
-        subtitle: "لديك سؤال أو ترغب في العمل معاً؟ أرسل لي رسالة.",
+        subtitle: "لديك سؤال أو ترغب في العمل معاً؟ أرسل لي رسالة أو تواصل عبر الواتساب.",
         connect: "لنبدأ التواصل",
         connectDesc:
-          "أنا متاح حالياً للفرص الجديدة، التعاون، أو حتى مجرد دردشة ودية حول التقنية.",
+          "أنا متاح حالياً للفرص الجديدة، التعاون، أو المحادثات المباشرة عبر الواتساب والبريد.",
         name: "الاسم",
         email: "البريد الإلكتروني",
         subject: "الموضوع",
@@ -103,14 +105,14 @@ export const siteConfig = {
       projects: {
         title: "المشاريع المختارة",
         subtitle:
-          "مجموعة من أفضل أعمالي توضح خبرتي في تطوير التطبيقات المتكاملة وتكامل الذكاء الاصطناعي.",
+          "مجموعة من أفضل أعمالي توضح خبرتي في تطوير الأنظمة المباشرة والتطبيقات المتكاملة والذكاء الاصطناعي.",
         viewDetails: "عرض التفاصيل",
         noProjects:
           "لم يتم العثور على مشاريع. تحقق من اسم المستخدم في الإعدادات.",
       },
       experience: {
         title: "الخبرة العملية",
-        subtitle: "خبرة عملية وتعرض فعلي لممارسات التطوير الحديثة.",
+        subtitle: "خبرة مهنية في تطوير وبناء أنظمة برمجية إنتاجية.",
       },
     },
   },
@@ -123,17 +125,14 @@ export const siteConfig = {
         { name: "Next.js" },
         { name: "TypeScript" },
         { name: "JavaScript" },
+        { name: "Tailwind CSS" },
         { name: "Redux" },
+        { name: "GSAP" },
         { name: "Zustand" },
         { name: "React Query" },
-        { name: "Tailwind CSS" },
         { name: "Shadcn UI" },
         { name: "Framer Motion" },
-        { name: "React Hook Form" },
-        { name: "Zod" },
-        { name: "i18n" },
         { name: "HTML5 & CSS3" },
-        { name: "Bootstrap" },
       ],
     },
     {
@@ -143,46 +142,54 @@ export const siteConfig = {
         { name: "Express.js" },
         { name: "NestJS" },
         { name: "Laravel" },
+        { name: "WebSockets" },
         { name: "REST APIs" },
         { name: "GraphQL" },
         { name: "TypeORM" },
         { name: "Eloquent ORM" },
         { name: "Prisma" },
         { name: "Mongoose" },
-        { name: "JWT" },
         { name: "Sanctum" },
-        { name: "Swagger" },
-        { name: "Postman" },
-        { name: "Flask" },
+        { name: "JWT" },
       ],
     },
     {
       title: "Databases",
       skills: [
-        { name: "MongoDB" },
         { name: "PostgreSQL" },
+        { name: "MongoDB" },
         { name: "SQLite" },
         { name: "SQL" },
       ],
     },
     {
-      title: "Tools & Testing",
+      title: "Security & Architecture",
+      skills: [
+        { name: "Clean Architecture" },
+        { name: "Design Patterns" },
+        { name: "SOLID" },
+        { name: "RBAC" },
+        { name: "OAuth" },
+        { name: "Laravel Sanctum" },
+      ],
+    },
+    {
+      title: "Tools & DevOps",
       skills: [
         { name: "Git & GitHub" },
         { name: "Jest" },
         { name: "CI/CD" },
-        { name: "Design Patterns" },
+        { name: "Postman" },
+        { name: "Swagger" },
       ],
     },
     {
       title: "Currently Learning",
       skills: [
-        { name: "Spring Boot" },
         { name: "Caching (Redis)" },
         { name: "System Design" },
         { name: "Docker" },
         { name: "Kubernetes" },
-        { name: "React Native" },
       ],
     },
     {
@@ -191,30 +198,31 @@ export const siteConfig = {
         { name: "JavaScript" },
         { name: "TypeScript" },
         { name: "PHP" },
+        { name: "SQL" },
         { name: "Python" },
-        { name: "Java" },
-        { name: "C#" },
-      ],
-    },
-    {
-      title: "AI & ML",
-      skills: [
-        { name: "TensorFlow" },
-        { name: "Machine Learning" },
-        { name: "Data Structures" },
       ],
     },
   ],
 
   experiences: [
     {
-      company: "Avnology - Monitoring",
+      company: "TKDS MENA LLC",
+      position: "Full Stack Developer",
+      period: "May 2026 - Aug 2026",
+      location: { en: "Remote (TKDS Media LLC, USA / Egypt)", ar: "عن بعد (TKDS Media LLC، أمريكا / مصر)" },
+      description: {
+        en: "Single-handedly designed and built a three-program real-time CG broadcast system (Node.js/Express/Socket.io backend, React + Tailwind control panel, vanilla JS + GSAP overlay for vMix/OBS) supporting 3 live graphic types within 3 months. Engineered a WebSocket event layer with serialized write queue over file-based JSON store for reliable real-time state sync without a database. Also delivered Mediacore2 official SaaS product site.",
+        ar: "صممت وبنيت بمفردي نظام جرافيكس للبث المباشر من 3 برامج (Node.js/Express/Socket.io، لوحة تحكم React + Tailwind، وتراكب سينمائي vanilla JS + GSAP لـ vMix/OBS) لدعم 3 أنواع جرافيك مباشر خلال 3 أشهر. قمت بابتكار طبقة أحداث WebSocket مع طابور كتابة تسلسلي لمزامنة الحالة فورياً وبدون قاعدة بيانات. كما قمت بإنشاء الموقع الرسمي لمنتج Mediacore2 SaaS.",
+      },
+    },
+    {
+      company: "Avnology",
       position: "System & Network Monitoring",
-      period: "Apr 2024 - Dec 2024",
+      period: "Apr 2024 - Aug 2024",
       location: { en: "Saudi Arabia (Remote)", ar: "السعودية (عن بعد)" },
       description: {
-        en: "Performed system and network monitoring tasks remotely for a Saudi Arabia-based company, gaining early exposure to a professional technical work environment and team collaboration.",
-        ar: "قمت بمهام مراقبة الأنظمة والشبكات عن بعد لشركة سعودية، محققاً تعرضاً مبكراً لبيئة العمل التقنية المهنية والتعاون الجماعي.",
+        en: "Detected and escalated production system and network incidents across shift-based monitoring, giving the technical team faster visibility into issues and supporting continuous uptime for client infrastructure.",
+        ar: "قمت بمهام مراقبة الأنظمة والشبكات عن بعد لشركة سعودية، واكتشاف وتصعيد الحوادث التقنية لضمان سرعة الاستجابة واستمرارية تشغيل البنية التحتية للعملاء.",
       },
     },
   ],

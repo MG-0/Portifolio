@@ -3,9 +3,8 @@ import { Mail } from "lucide-react";
 import { 
   GithubIcon as Github, 
   LinkedinIcon as Linkedin,
-  FacebookIcon as Facebook,
-  InstagramIcon as Instagram,
-  YoutubeIcon as Youtube
+  MediumIcon as Medium,
+  WhatsappIcon as Whatsapp
 } from "@/components/ui/icons";
 import Link from "next/link";
 
@@ -22,21 +21,28 @@ export function Footer() {
         </div>
         
         <div className="flex items-center space-x-6 rtl:space-x-reverse">
-          <Link href={siteConfig.github} target="_blank" className="hover:text-primary transition-colors">
+          <Link href={siteConfig.github} target="_blank" className="hover:text-primary transition-colors" title="GitHub">
             <Github size={20} />
           </Link>
-          <Link href={siteConfig.linkedin} target="_blank" className="hover:text-primary transition-colors">
+          <Link href={siteConfig.linkedin} target="_blank" className="hover:text-primary transition-colors" title="LinkedIn">
             <Linkedin size={20} />
           </Link>
-          <Link href={`mailto:${siteConfig.email}`} className="hover:text-primary transition-colors">
+          <Link href={siteConfig.medium} target="_blank" className="hover:text-primary transition-colors" title="Medium">
+            <Medium size={20} />
+          </Link>
+          <Link href={siteConfig.whatsapp} target="_blank" className="hover:text-emerald-500 transition-colors" title="WhatsApp">
+            <Whatsapp size={20} />
+          </Link>
+          <Link href={`mailto:${siteConfig.email}`} className="hover:text-primary transition-colors" title="Email">
             <Mail size={20} />
           </Link>
         </div>
 
         <div className="text-sm text-muted-foreground italic">
-          By me
+          Built with Next.js & Tailwind CSS
         </div>
       </div>
     </footer>
   );
 }
+

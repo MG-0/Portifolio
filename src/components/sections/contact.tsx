@@ -4,8 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
-import { Mail, Send, MapPin, Loader2, CheckCircle2 } from "lucide-react";
-import { GithubIcon as Github, LinkedinIcon as Linkedin } from "@/components/ui/icons";
+import { Mail, Send, MapPin, Loader2, CheckCircle2, PhoneCall } from "lucide-react";
+import { GithubIcon as Github, LinkedinIcon as Linkedin, MediumIcon as Medium, WhatsappIcon as Whatsapp } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/components/language-provider";
@@ -63,17 +63,27 @@ export function Contact() {
           </p>
 
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+            <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-4 group p-3 rounded-2xl border border-transparent hover:border-primary/20 hover:bg-primary/5 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                 <Mail size={24} />
               </div>
               <div className="text-start">
                 <p className="text-sm text-muted-foreground">{t.contact.email}</p>
-                <p className="font-semibold">{siteConfig.email}</p>
+                <p className="font-semibold group-hover:text-primary transition-colors">{siteConfig.email}</p>
               </div>
-            </div>
+            </a>
+
+            <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group p-3 rounded-2xl border border-transparent hover:border-emerald-500/20 hover:bg-emerald-500/5 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform">
+                <Whatsapp size={24} />
+              </div>
+              <div className="text-start">
+                <p className="text-sm text-muted-foreground">WhatsApp / Phone</p>
+                <p className="font-semibold group-hover:text-emerald-500 transition-colors">{siteConfig.phone}</p>
+              </div>
+            </a>
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 p-3">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                 <MapPin size={24} />
               </div>
@@ -83,17 +93,23 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="flex gap-4 pt-4">
-              <Button variant="outline" size="lg" className="rounded-xl flex-1" asChild>
+            <div className="grid grid-cols-3 gap-3 pt-4">
+              <Button variant="outline" size="sm" className="rounded-xl" asChild>
                 <a href={siteConfig.github} target="_blank">
-                  <Github className="mr-2 h-5 w-5" />
+                  <Github className="mr-1.5 h-4 w-4" />
                   GitHub
                 </a>
               </Button>
-              <Button variant="outline" size="lg" className="rounded-xl flex-1" asChild>
+              <Button variant="outline" size="sm" className="rounded-xl" asChild>
                 <a href={siteConfig.linkedin} target="_blank">
-                  <Linkedin className="mr-2 h-5 w-5" />
+                  <Linkedin className="mr-1.5 h-4 w-4" />
                   LinkedIn
+                </a>
+              </Button>
+              <Button variant="outline" size="sm" className="rounded-xl" asChild>
+                <a href={siteConfig.medium} target="_blank">
+                  <Medium className="mr-1.5 h-4 w-4" />
+                  Medium
                 </a>
               </Button>
             </div>
