@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Section } from "@/components/ui/section";
 import { siteConfig } from "@/config/site";
 import { ProjectCard, ProjectModal, ProjectSkeleton } from "./project-ui";
