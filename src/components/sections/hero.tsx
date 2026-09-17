@@ -122,9 +122,9 @@ export function Hero() {
             {/* Typewriter Title */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
               {t.hero.hi}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-indigo-600 to-indigo-500 dark:from-indigo-400 dark:via-primary dark:to-indigo-300 pb-1 inline-inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 dark:from-indigo-400 dark:via-purple-400 dark:to-indigo-300 pb-1">
                 {displayedName}
-                <span className="animate-pulse text-primary font-normal">|</span>
+                <span className="animate-pulse text-indigo-600 dark:text-indigo-400 font-normal">|</span>
               </span>
             </h1>
 
