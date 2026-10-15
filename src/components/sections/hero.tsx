@@ -125,18 +125,6 @@ export function Hero() {
                   {t.hero.downloadCv}
                 </a>
               </Button>
-
-              <Button 
-                variant="secondary" 
-                size="lg" 
-                className="rounded-2xl px-5 py-6 text-base font-bold hover:scale-105 transition-all border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20" 
-                asChild
-              >
-                <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer">
-                  <Whatsapp size={20} className={language === "ar" ? "ml-2" : "mr-2"} />
-                  WhatsApp
-                </a>
-              </Button>
             </div>
 
             {/* Social Links */}
