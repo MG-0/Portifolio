@@ -83,7 +83,7 @@ export const siteConfig = {
         contactMe: "Get in Touch",
       },
       skills: {
-        title: "Technical Arsenal",
+        title: "Technical Stack & Expertise",
         subtitle: "Full overview of frontend, backend, university computer science foundations, and modern engineering tools.",
         pauseNotice: "Hover over any stream to pause",
         frontend: "Frontend & UI Systems",
@@ -148,7 +148,7 @@ export const siteConfig = {
         contactMe: "تواصل معي مباشرة",
       },
       skills: {
-        title: "الترسانة التقنية والمهارات",
+        title: "المهارات والخبرات التقنية",
         subtitle: "نظرة شاملة على مهارات الواجهات، الأنظمة الخلفية، أساسيات علوم الحاسب الأكاديمية، ولغات البرمجة.",
         pauseNotice: "قف بمؤشر الفأرة فوق أي شريط لإيقافه مؤقتاً",
         frontend: "أنظمة الواجهات الأمامية (Frontend)",

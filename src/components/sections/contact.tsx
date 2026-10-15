@@ -78,10 +78,20 @@ export function Contact() {
           className="flex flex-col justify-between"
         >
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-primary text-xs font-bold uppercase tracking-wider mb-4">
-              <Sparkles size={13} />
+            <motion.div 
+              animate={{ y: [-2.5, 2.5, -2.5] }}
+              transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-indigo-950 dark:text-primary text-xs font-bold uppercase tracking-wider mb-4 shadow-sm"
+            >
+              <motion.span
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                className="inline-flex items-center justify-center text-primary"
+              >
+                <Sparkles size={13} />
+              </motion.span>
               <span>{t.contact.connect}</span>
-            </div>
+            </motion.div>
 
             <h3 className="text-2xl sm:text-3xl font-black mb-4 text-foreground">
               {language === "ar" ? "جاهز لتحويل فكرتك إلى واقع تقني" : "Ready to Build Your Next Milestone"}

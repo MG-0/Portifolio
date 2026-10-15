@@ -68,11 +68,21 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-start"
           >
-            {/* Greeting Pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-primary text-xs md:text-sm font-bold tracking-wide uppercase mb-6 shadow-sm">
-              <Sparkles size={14} className="animate-pulse" />
+            {/* Greeting Pill with Gentle Floating & Rotating Sparkle */}
+            <motion.div 
+              animate={{ y: [-3, 3, -3] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-primary text-xs md:text-sm font-bold tracking-wide uppercase mb-6 shadow-sm"
+            >
+              <motion.span
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                className="inline-flex items-center justify-center text-primary"
+              >
+                <Sparkles size={14} />
+              </motion.span>
               <span>{t.hero.hi} {language === "ar" ? "محمود جمال" : "Mahmoud Gamal"}</span>
-            </div>
+            </motion.div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-4 leading-[1.1]">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-purple-700 to-slate-900 dark:from-indigo-400 dark:via-purple-300 dark:to-cyan-300">

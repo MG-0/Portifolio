@@ -54,7 +54,15 @@ const getTechIcon = (tech: string) => {
 
   const item = icons[tech];
   if (item) {
-    return <span style={{ color: item.color }}>{item.icon}</span>;
+    const isNeutral = item.color === "#FFFFFF" || item.color === "#E5E7EB";
+    return (
+      <span
+        className={isNeutral ? "text-slate-900 dark:text-white" : ""}
+        style={isNeutral ? undefined : { color: item.color }}
+      >
+        {item.icon}
+      </span>
+    );
   }
   return <FaCode className="text-primary" />;
 };
@@ -82,10 +90,20 @@ export function FreelanceCard({
 
       {/* Top Banner Row */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-primary/30 to-purple-600/30 text-white border border-primary/40 shadow-sm">
-          <Sparkles size={14} className="text-amber-400 animate-pulse" />
+        <motion.div
+          animate={{ y: [-3, 3, -3] }}
+          transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-primary/15 dark:bg-primary/25 text-indigo-950 dark:text-white border border-primary/35 shadow-sm"
+        >
+          <motion.span
+            animate={{ rotate: 360 }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            className="inline-flex items-center justify-center text-amber-500 dark:text-amber-400"
+          >
+            <Sparkles size={14} />
+          </motion.span>
           <span>{project.badge ? (project.badge[language] || project.badge.en) : "Freelance Showcase"}</span>
-        </span>
+        </motion.div>
 
         {project.live && (
           <a
@@ -93,9 +111,9 @@ export function FreelanceCard({
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="flex items-center gap-2 text-xs font-bold px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500 hover:text-white transition-all shadow-md"
+            className="flex items-center gap-2 text-xs font-bold px-4 py-1.5 rounded-full bg-emerald-500/15 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30 dark:border-emerald-500/40 hover:bg-emerald-600 hover:text-white transition-all shadow-md"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
             <span>{t.projects.viewLive}: rewaq-decor.com</span>
             <ExternalLink size={13} />
           </a>
@@ -149,7 +167,7 @@ export function FreelanceCard({
           </div>
 
           <div className="flex items-center justify-between pt-4 border-t border-border/40 gap-3">
-            <span className="text-xs font-bold text-purple-400 bg-purple-500/10 px-3 py-1.5 rounded-xl border border-purple-500/20">
+            <span className="text-xs font-bold text-purple-900 dark:text-purple-300 bg-purple-500/15 dark:bg-purple-500/20 px-3 py-1.5 rounded-xl border border-purple-500/30">
               {language === "ar" ? "كود تجاري خاص بالعميل" : "Commercial Client Code"}
             </span>
 
@@ -194,14 +212,24 @@ export function ProjectCard({
         {/* Header */}
         <div className="flex items-center justify-between gap-3 mb-5">
           {badgeText && (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30">
-              <Sparkles size={11} className="animate-pulse" />
-              {badgeText}
-            </span>
+            <motion.span 
+              animate={{ y: [-2, 2, -2] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-primary/15 text-indigo-950 dark:text-primary-foreground border border-primary/30 shadow-xs"
+            >
+              <motion.span
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                className="inline-flex items-center justify-center text-primary"
+              >
+                <Sparkles size={11} />
+              </motion.span>
+              <span>{badgeText}</span>
+            </motion.span>
           )}
 
           {project.live && (
-            <span className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-500 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+            <span className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-500/15 dark:bg-emerald-500/20 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
               <span>Live</span>
             </span>

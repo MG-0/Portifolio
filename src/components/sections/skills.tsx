@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { Section } from "@/components/ui/section";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/components/language-provider";
@@ -15,7 +16,7 @@ import {
   FaShieldAlt, FaLock, FaLayerGroup, FaNetworkWired, 
   FaJava, FaLaptopCode
 } from "react-icons/fa";
-import { Pause, Layers, Cpu, Code2 } from "lucide-react";
+import { Pause, Layers, Cpu, Code2, Sparkles } from "lucide-react";
 
 const skillIcons: Record<string, { icon: React.ReactNode; color: string }> = {
   "React.js": { icon: <SiReact />, color: "#61DAFB" },
@@ -108,12 +109,22 @@ export function Skills() {
       subtitle={t.skills.subtitle}
     >
       {/* Interactive Pause Notice */}
-      <div className="flex items-center justify-center gap-2 text-xs md:text-sm text-muted-foreground mb-12">
-        <Pause size={14} className="text-primary animate-pulse" />
-        <span className="glass-pill px-4 py-1.5 rounded-full shadow-sm">
-          {t.skills.pauseNotice}
-        </span>
-      </div>
+      <motion.div 
+        animate={{ y: [-3, 3, -3] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+        className="flex items-center justify-center gap-2 text-xs md:text-sm text-foreground/85 mb-12"
+      >
+        <div className="glass-pill px-4 py-1.5 rounded-full shadow-sm inline-flex items-center gap-2 font-bold text-foreground">
+          <motion.span
+            animate={{ rotate: 360 }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            className="inline-flex items-center justify-center text-primary"
+          >
+            <Sparkles size={14} />
+          </motion.span>
+          <span>{t.skills.pauseNotice}</span>
+        </div>
+      </motion.div>
 
       {/* 4 Interactive Infinite Moving Strips */}
       <div className="space-y-8 relative overflow-hidden py-4">
@@ -134,14 +145,15 @@ export function Skills() {
               <div className={`flex gap-4 flex-nowrap ${stream.reverse ? "animate-marquee-reverse" : "animate-marquee"}`}>
                 {stream.items.map((skill, idx) => {
                   const meta = skillIcons[skill.name];
+                  const isNeutral = meta?.color === "#FFFFFF" || meta?.color === "#E5E7EB";
                   return (
                     <div
                       key={`${stream.id}-${skill.name}-${idx}`}
                       className="flex items-center gap-3 px-5 py-3 rounded-2xl glass-card-floating glass-card-hover shrink-0 cursor-default group"
                     >
                       <span
-                        className="text-xl group-hover:scale-125 transition-transform duration-300"
-                        style={{ color: meta?.color || skill.color }}
+                        className={`text-xl group-hover:scale-125 transition-transform duration-300 ${isNeutral ? "text-slate-900 dark:text-white" : ""}`}
+                        style={isNeutral ? undefined : { color: meta?.color || skill.color }}
                       >
                         {meta?.icon || <FaCode />}
                       </span>

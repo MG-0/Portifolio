@@ -59,12 +59,12 @@ export function Footer() {
           </Link>
 
           {/* Navigation Links from Navbar */}
-          <nav className="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold text-muted-foreground">
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-8 text-sm font-semibold text-muted-foreground">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="hover:text-primary transition-colors"
+                className="hover:text-primary transition-colors py-1"
               >
                 {link.name}
               </Link>
@@ -83,16 +83,16 @@ export function Footer() {
         </div>
 
         {/* Bottom: Copyright & Social Links */}
-        <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
+        <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-5 text-xs text-muted-foreground">
           <p>
             © {currentYear} {siteConfig.name}. {language === "ar" ? "جميع الحقوق محفوظة." : "All rights reserved."}
           </p>
 
-          <div className="flex items-center space-x-4 rtl:space-x-reverse">
+          <div className="flex items-center gap-3 sm:gap-3.5">
             <Link
               href={siteConfig.github}
               target="_blank"
-              className="p-2 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
+              className="p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
               title="GitHub Repositories"
             >
               <Github size={16} />
@@ -100,7 +100,7 @@ export function Footer() {
             <Link
               href={siteConfig.linkedin}
               target="_blank"
-              className="p-2 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
+              className="p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
               title="LinkedIn Profile"
             >
               <Linkedin size={16} />
@@ -108,7 +108,7 @@ export function Footer() {
             <Link
               href={siteConfig.medium}
               target="_blank"
-              className="p-2 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
+              className="p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
               title="Medium Blog"
             >
               <Medium size={16} />
@@ -116,14 +116,14 @@ export function Footer() {
             <Link
               href={siteConfig.whatsapp}
               target="_blank"
-              className="p-2 rounded-xl border border-border/50 hover:bg-secondary hover:text-emerald-500 transition-all"
+              className="p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-emerald-500 transition-all"
               title="WhatsApp Direct"
             >
               <Whatsapp size={16} />
             </Link>
             <Link
               href={`mailto:${siteConfig.email}`}
-              className="p-2 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
+              className="p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
               title="Send Email"
             >
               <Mail size={16} />
