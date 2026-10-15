@@ -136,14 +136,16 @@
     box-shadow: 0 22px 50px rgba(99, 102, 241, 0.18);
   }
   .glass-pill {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(0, 0, 0, 0.09);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    color: hsl(var(--foreground));
   }
   .dark .glass-pill {
     background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: hsl(var(--foreground));
   }
   .text-glow {
     text-shadow: 0 0 30px rgba(99, 102, 241, 0.5);

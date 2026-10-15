@@ -93,7 +93,7 @@ export function FreelanceCard({
         <motion.div
           animate={{ y: [-3, 3, -3] }}
           transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-primary/15 dark:bg-primary/25 text-indigo-950 dark:text-white border border-primary/35 shadow-sm"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-primary/10 dark:bg-primary/25 text-foreground dark:text-white border border-primary/30 dark:border-primary/50 shadow-sm"
         >
           <motion.span
             animate={{ rotate: 360 }}
@@ -102,7 +102,9 @@ export function FreelanceCard({
           >
             <Sparkles size={14} />
           </motion.span>
-          <span>{project.badge ? (project.badge[language] || project.badge.en) : "Freelance Showcase"}</span>
+          <span className="text-foreground dark:text-white font-black">
+            {project.badge ? (project.badge[language] || project.badge.en) : "Freelance Showcase"}
+          </span>
         </motion.div>
 
         {project.live && (
@@ -215,7 +217,7 @@ export function ProjectCard({
             <motion.span 
               animate={{ y: [-2, 2, -2] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-primary/15 text-indigo-950 dark:text-primary-foreground border border-primary/30 shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-primary/10 dark:bg-primary/20 text-foreground dark:text-white border border-primary/30 dark:border-primary/40 shadow-xs"
             >
               <motion.span
                 animate={{ rotate: 360 }}
@@ -224,7 +226,7 @@ export function ProjectCard({
               >
                 <Sparkles size={11} />
               </motion.span>
-              <span>{badgeText}</span>
+              <span className="text-foreground dark:text-white font-extrabold">{badgeText}</span>
             </motion.span>
           )}
 
