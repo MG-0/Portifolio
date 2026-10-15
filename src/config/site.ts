@@ -260,12 +260,12 @@ export const siteConfig = {
         en: [
           "Single-handedly designed and built a three-program CG system (Node.js/Express/Socket.io backend, React + Tailwind control panel, vanilla JS + GSAP overlay for vMix/OBS) supporting three live graphic types (score bug, lower thirds, leaderboards) within a three-month tenure — replacing a fully manual workflow and cutting graphic updates from a multi-step process to a single click, ready for live broadcast use.",
           "Eliminated race conditions across concurrent operator actions by designing a WebSocket event layer with a serialized write queue over a file-based JSON store, enabling reliable real-time state sync across every connected client without a database.",
-          "Delivered the CG system end-to-end as the only engineer on it, alongside also building the official site for Mediacore2, the company's SaaS product — managing two concurrent deliverables independently.",
+          "Delivered the CG system end-to-end as the sole engineer, alongside working on the frontend development of the homepage for Mediacore2, the company's SaaS product — managing concurrent deliverables independently.",
         ],
         ar: [
-          "Single-handedly designed and built a three-program CG system (Node.js/Express/Socket.io backend, React + Tailwind control panel, vanilla JS + GSAP overlay for vMix/OBS) supporting three live graphic types (score bug, lower thirds, leaderboards) within a three-month tenure — replacing a fully manual workflow and cutting graphic updates from a multi-step process to a single click, ready for live broadcast use.",
-          "Eliminated race conditions across concurrent operator actions by designing a WebSocket event layer with a serialized write queue over a file-based JSON store, enabling reliable real-time state sync across every connected client without a database.",
-          "Delivered the CG system end-to-end as the only engineer on it, alongside also building the official site for Mediacore2, the company's SaaS product — managing two concurrent deliverables independently.",
+          "تصميم وتطوير نظام جرافيكس البث المباشر (Broadcast CG) بمفردي والمكوّن من 3 أجزاء متكاملة (خلفية برمجية بـ Node.js/Express/Socket.io، لوحة تحكم بـ React و Tailwind، وطبقة عرض فورية بـ JS و GSAP لبرامج vMix و OBS) مع دعم 3 أنواع رئيسية من الجرافيكس الحي، مما أدى إلى استبدال العمليات اليدوية وتحديث البث بنقرة واحدة جاهزة للاستخدام الحي.",
+          "معالجة تعارض العمليات المتزامنة (Race Conditions) للمشغلين عبر تصميم طبقة أحداث WebSocket بطابور كتابة تسلسلي متزامن على مخزن بيانات JSON، مما ضمن مزامنة لحظية وموثوقة لحالة البث بين جميع المشغلين المتصلين دون الحاجة لقاعدة بيانات تقليدية.",
+          "تسليم نظام جرافيكس البث المباشر (CG System) متكاملاً كمهندس وحيد على المشروع، إلى جانب العمل على تطوير الواجهة الأمامية والصفحة الرئيسية لمنتج الشركة السحابي (Mediacore2 SaaS) — مع إدارة المهام المتزامنة باستقلالية واحترافية.",
         ],
       },
     },
@@ -279,7 +279,7 @@ export const siteConfig = {
           "Detected and escalated production system and network incidents across shift-based monitoring, giving the technical team faster visibility into issues and supporting continuous uptime for client infrastructure.",
         ],
         ar: [
-          "Detected and escalated production system and network incidents across shift-based monitoring, giving the technical team faster visibility into issues and supporting continuous uptime for client infrastructure.",
+          "رصد وتصعيد الحوادث التقنية ومشكلات الأنظمة والشبكات خلال فترات المراقبة الدورية، مما منح الفريق الهندسي رؤية فورية للأعطال وساهم في استمرارية تشغيل البنية التحتية لعملاء الشركة دون انقطاع.",
         ],
       },
     },
