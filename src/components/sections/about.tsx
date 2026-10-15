@@ -18,8 +18,8 @@ export function About() {
       icon: <GraduationCap size={24} className="text-primary" />,
       titleEn: "B.Sc. in Computer Science",
       titleAr: "بكالوريوس علوم الحاسب",
-      descEn: "Arab Open University, Egypt (Graduated June 2026). Strong algorithmic foundations & system principles.",
-      descAr: "الجامعة العربية المفتوحة بمصر (تخرج يونيو 2026). أساس قوي في الخوارزميات ومبادئ هندسة البرمجيات.",
+      descEn: "Arab Open University, Egypt (Graduated June 2026). Rigorous academic grounding in Data Structures, Algorithms, OS, and Software Engineering.",
+      descAr: "الجامعة العربية المفتوحة بمصر (تخرج يونيو 2026). تأهيل أكاديمي متين في هياكل البيانات، الخوارزميات، نظم التشغيل، وهندسة البرمجيات.",
     },
     {
       icon: <Server size={24} className="text-indigo-400" />,
@@ -30,10 +30,10 @@ export function About() {
     },
     {
       icon: <Zap size={24} className="text-amber-400" />,
-      titleEn: "Full Stack Mastery",
-      titleAr: "احتراف التطوير المتكامل",
-      descEn: "Specialized in MERN, Next.js, and NestJS with enterprise clean architecture, DTOs, and REST/GraphQL APIs.",
-      descAr: "متخصص في بيئة MERN و Next.js و NestJS مع معمارية نظيفة وأنابيب DTO وواجهات برمجية عالية الكفاءة.",
+      titleEn: "Full Stack (MERN, Next.js, NestJS, Laravel)",
+      titleAr: "التطوير المتكامل (MERN, Next.js, NestJS, Laravel)",
+      descEn: "Deep expertise across MERN, Next.js, NestJS, and Laravel building robust layered APIs and fluid frontends.",
+      descAr: "خبرة متقدمة في حزمة MERN و Next.js و NestJS و Laravel في بناء واجهات برمجية طبقية وواجهات مستخدم انسيابية.",
     },
     {
       icon: <ShieldCheck size={24} className="text-emerald-400" />,
@@ -44,17 +44,17 @@ export function About() {
     },
     {
       icon: <Users size={24} className="text-pink-400" />,
-      titleEn: "Mentorship & Clarity",
+      titleEn: "Mentorship & Teaching",
       titleAr: "شغف التوجيه ونقل المعرفة",
       descEn: "Passion for mentoring and distilling complex computer science problems into crystal-clear insights.",
       descAr: "شغف كبير بتعليم وتوجيه المطورين وتبسيط أعقد مفاهيم علوم الحاسب إلى أفكار واضحة وسهلة الفهم.",
     },
     {
       icon: <Rocket size={24} className="text-cyan-400" />,
-      titleEn: "Rapid Delivery & Freelance",
-      titleAr: "تسليم فائق السرعة وأعمال حرة",
-      descEn: "Proven ability to ship production platforms within 24h sprints and deliver live luxury commercial platforms.",
-      descAr: "قدرة مثبتة على تسليم أنظمة إنتاجية في تحديات 24 ساعة وإنجاز منصات تجارية كبرى مثل Rewaq Decor.",
+      titleEn: "Full Digital Platform Delivery",
+      titleAr: "تسليم منصات رقمية متكاملة",
+      descEn: "Delivering complete end-to-end platforms: client frontend, custom admin dashboards, and robust backend APIs.",
+      descAr: "بناء وتسليم منصات متكاملة من الصفر: واجهات عملاء تفاعلية، لوحات تحكم للمسؤولين، وواجهات خلفية عالية الكفاءة.",
     },
   ];
 
@@ -64,7 +64,7 @@ export function About() {
       title={language === "ar" ? "عني وعن رحلتي" : "About My Journey"}
       subtitle={
         language === "ar"
-          ? "الركائز الهندسية، الرؤية المهنية، والمعايير التي تحكم بناء مشاريعي."
+          ? "الركائز الهندسية، الرؤية المهنية، والمعايير الأكاديمية التي تحكم بناء مشاريعي."
           : "Engineering philosophy, core competencies, and the standards behind my software systems."
       }
     >
@@ -77,12 +77,8 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.45, delay: idx * 0.08 }}
-            whileHover={{ y: -6, scale: 1.02 }}
-            className="group relative rounded-3xl border border-border/60 bg-gradient-to-b from-card/90 via-card/50 to-card/20 backdrop-blur-xl p-7 hover:border-primary/60 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 cursor-default flex flex-col"
+            className="group relative rounded-3xl glass-card-floating glass-card-hover p-7 cursor-default flex flex-col"
           >
-            {/* Top Accent Line */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
             <div className="w-14 h-14 rounded-2xl bg-secondary/60 flex items-center justify-center mb-5 group-hover:scale-115 group-hover:bg-primary/15 transition-all duration-300 shadow-sm border border-border/40">
               {item.icon}
             </div>
@@ -104,7 +100,7 @@ export function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6 }}
-        className="rounded-3xl border border-border/60 bg-gradient-to-br from-secondary/40 via-card/70 to-card p-8 sm:p-12 backdrop-blur-xl shadow-xl hover:border-primary/40 transition-all"
+        className="rounded-3xl glass-card-floating p-8 sm:p-12 shadow-xl"
       >
         <div className="max-w-4xl mx-auto space-y-6">
           <h3 className="text-2xl sm:text-3xl font-black text-foreground">
@@ -113,14 +109,14 @@ export function About() {
 
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
             {language === "ar"
-              ? "أنا مطور برمجيات متكامل يؤمن بأن الكود البرمجي الممتاز ليس مجرد شحن ميزات سريعة، بل هو تصميم أنظمة مرنة تفهم طبيعة المشكلة المعمارية من جذورها. خبرتي في بناء نظام البث المباشر في شركة TKDS وتطوير منصة رواق للديكور علمتني كيف أتعامل مع الضغط العالي وتحديات التزامن المتوازي (Concurrency) لتقديم منتج فائق السرعة والموثوقية."
-              : "I am a full-stack engineer who believes that high-caliber code is not just about shipping features fast, but about constructing resilient systems that address architectural challenges at their core. My experience building the real-time broadcast graphics system at TKDS and delivering high-performance platforms like Rewaq Decor honed my ability to tackle concurrency, zero-downtime reliability, and high-pressure production demands."}
+              ? "أنا مطور برمجيات متكامل يؤمن بأن الكود البرمجي الممتاز ليس مجرد شحن ميزات سريعة، بل هو تصميم أنظمة مرنة تفهم طبيعة المشكلة المعمارية من جذورها. خبرتي في بناء نظام البث المباشر في شركة TKDS وتطوير المنصات المتكاملة علمتني كيف أتعامل مع الضغط العالي وتحديات التزامن المتوازي (Concurrency) لتقديم منتج فائق السرعة والموثوقية."
+              : "I am a full-stack engineer who believes that high-caliber code is not just about shipping features fast, but about constructing resilient systems that address architectural challenges at their core. My experience building the real-time broadcast graphics system at TKDS and delivering high-performance platforms honed my ability to tackle concurrency, zero-downtime reliability, and high-pressure production demands."}
           </p>
 
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
             {language === "ar"
-              ? "تركيزي ينصب حالياً على تعميق استخدام NestJS بمعمارية طبقية نظيفة، وتقنيات التخزين المؤقت المتقدم بـ Redis، وتصميم الأنظمة الموزعة (System Design)، مع مواصلة استكشاف تكامل نماذج الذكاء الاصطناعي مع الواجهات الحديثة."
-              : "My active focus centers around advancing clean layered architectures with NestJS, distributed caching strategies via Redis, and scalable System Design patterns, while bridging modern frontend fluidity with production-ready AI services."}
+              ? "تشمل حزمتي التقنية MERN و Next.js و NestJS و Laravel، وأركز باستمرار على المعمارية الطبقية النظيفة، ومبادئ SOLID، واستراتيجيات التخزين المؤقت، وتصميم الأنظمة الموزعة."
+              : "My active stack spans MERN, Next.js, NestJS, and Laravel, focusing consistently on clean layered architectures, SOLID principles, caching strategies, and scalable system design."}
           </p>
         </div>
       </motion.div>

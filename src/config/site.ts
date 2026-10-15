@@ -14,14 +14,13 @@ export interface ProjectItem {
     en: string[];
     ar: string[];
   };
-  category: "all" | "fullstack" | "frontend" | "backend" | "realtime" | "freelance";
   badge?: {
     en: string;
     ar: string;
   };
   github?: string | null;
   live?: string | null;
-  featured?: boolean;
+  isFreelance?: boolean;
 }
 
 export interface TestimonialItem {
@@ -48,7 +47,7 @@ export interface TestimonialItem {
 
 export const siteConfig = {
   name: "Mahmoud Gamal",
-  fullName: "Mahmoud Gamal Ahmed Bakheet",
+  fullName: "Mahmoud Gamal",
   email: "gamalgit@gmail.com",
   phone: "+20 109 832 6602",
   whatsapp: "https://wa.me/201098326602",
@@ -61,27 +60,19 @@ export const siteConfig = {
   linkedin: "https://linkedin.com/in/mahmoud-gamal-3ba408321",
   medium: "https://medium.com/@gamalgit",
   formspreeId: "mgodbede",
-  vercelProjectsUrl: "https://vercel.com/mahmoud-gamals-projects-06948cf5",
-
-  stats: [
-    { value: "12+", labelEn: "Production & Featured Projects", labelAr: "مشاريع إنتاجية ومميزة" },
-    { value: "100%", labelEn: "Client Satisfaction & Delivery", labelAr: "رضا العملاء والالتزام" },
-    { value: "3+", labelEn: "Years Coding & Problem Solving", labelAr: "سنوات برمجة وحل معضلات" },
-    { value: "24h", labelEn: "Rapid Prototyping Capability", labelAr: "قدرة إنجاز نماذج سريعة" },
-  ],
 
   translations: {
     en: {
-      role: "Full Stack Developer (MERN / Next.js / NestJS)",
-      tagline: "Crafting scalable, high-performance web systems and real-time experiences with clean architecture.",
+      role: "Full Stack Developer (MERN / Next.js / NestJS / Laravel)",
+      tagline: "Building scalable production systems, high-performance web applications, and real-time experiences with clean architecture.",
       description:
-        "Full Stack Developer skilled in MERN, Next.js, and NestJS, building production-style apps with clean architecture across JavaScript/TypeScript. Sole developer on a real-time broadcast graphics control system, with emphasis on secure, scalable, and performant systems delivered through continuous learning and best practices.",
+        "Full Stack Developer skilled in MERN, Next.js, NestJS, and Laravel, building production-style apps with clean architecture across JavaScript/TypeScript and PHP. Sole developer on a real-time broadcast graphics control system, with emphasis on secure, scalable, and performant systems delivered through continuous learning and best practices.",
       nav: {
         about: "About",
         skills: "Skills",
         projects: "Projects",
         experience: "Experience",
-        testimonials: "Reviews",
+        testimonials: "Client Reviews",
         contact: "Contact",
       },
       hero: {
@@ -90,17 +81,19 @@ export const siteConfig = {
         viewProjects: "Explore Projects",
         downloadCv: "Download CV",
         contactMe: "Get in Touch",
-        freelanceLive: "Latest Live Freelance:",
       },
       skills: {
         title: "Technical Arsenal",
-        subtitle: "A comprehensive showcase of languages, architectures, frameworks, and tools I leverage daily.",
-        all: "All Technologies",
+        subtitle: "Full overview of frontend, backend, university computer science foundations, and modern engineering tools.",
+        pauseNotice: "Hover over any stream to pause",
+        frontend: "Frontend & UI Systems",
+        backend: "Backend & Databases & APIs",
+        cs: "CS Fundamentals & University",
+        tools: "Languages, Security & DevOps",
       },
       testimonials: {
-        title: "Client & Peer Reviews",
-        subtitle: "What partners, engineering leads, and clients say about my delivery speed, code quality, and collaboration.",
-        pauseNotice: "Hover over any card to pause the stream",
+        title: "Client Feedback",
+        subtitle: "What client leadership says about my delivery speed, full-stack architecture, and production polish.",
       },
       contact: {
         title: "Let's Build Something Exceptional",
@@ -122,27 +115,23 @@ export const siteConfig = {
       projects: {
         title: "Featured Works & Deployments",
         subtitle: "Production web applications, broadcast software, freelance deliveries, and deep learning platforms.",
-        all: "All Works",
-        fullstack: "Full Stack",
-        frontend: "Frontend & UI",
-        backend: "Backend & APIs",
-        realtime: "Real-time & CG",
-        freelance: "Freelance",
+        freelanceTitle: "Flagship Freelance Platform",
+        otherTitle: "All Engineering Projects",
         viewLive: "Live Demo",
         viewCode: "Source Code",
         privateNotice: "Commercial client code is private",
         viewDetails: "View Architecture",
       },
       experience: {
-        title: "Professional Experience",
-        subtitle: "Track record of delivering robust systems, broadcast engines, and network infrastructure.",
+        title: "Work Experience",
+        subtitle: "Professional software engineering experience delivering production systems.",
       },
     },
     ar: {
-      role: "مطور تطبيقات متكامل (MERN / Next.js / NestJS)",
+      role: "مطور تطبيقات متكامل (MERN / Next.js / NestJS / Laravel)",
       tagline: "أبني أنظمة ويب عالية الأداء وتطبيقات لحظية متطورة بمعمارية برمجية نظيفة وقابلة للتوسع.",
       description:
-        "مطور تطبيقات متكاملة (Full Stack Developer) متخصص في MERN و Next.js و NestJS، أصنع تطبيقات برمجية احترافية بمعمارية نظيفة عبر بيئة JavaScript/TypeScript. بنيت بمفردي نظاماً متكاملاً لإدارة وتوليد جرافيكس البث المباشر (Broadcast CG)، مع تركيز دائم على السرعة والأمان الفائق وقابلية التوسع وأفضل الممارسات البرمجية.",
+        "مطور تطبيقات متكاملة (Full Stack Developer) متخصص في MERN و Next.js و NestJS و Laravel، أصنع تطبيقات برمجية احترافية بمعمارية نظيفة عبر بيئة JavaScript/TypeScript و PHP. بنيت بمفردي نظاماً متكاملاً لإدارة وتوليد جرافيكس البث المباشر (Broadcast CG)، مع تركيز دائم على السرعة والأمان الفائق وقابلية التوسع وأفضل الممارسات البرمجية.",
       nav: {
         about: "عني",
         skills: "المهارات",
@@ -157,17 +146,19 @@ export const siteConfig = {
         viewProjects: "استعراض المشاريع",
         downloadCv: "تحميل السيرة الذاتية",
         contactMe: "تواصل معي مباشرة",
-        freelanceLive: "أحدث أعمال الفريلانس المباشرة:",
       },
       skills: {
         title: "الترسانة التقنية والمهارات",
-        subtitle: "نظرة تفاعلية شاملة على اللغات، المعماريات، أطر العمل، والأدوات التي أعتمد عليها في بناء الأنظمة.",
-        all: "جميع التقنيات",
+        subtitle: "نظرة شاملة على مهارات الواجهات، الأنظمة الخلفية، أساسيات علوم الحاسب الأكاديمية، ولغات البرمجة.",
+        pauseNotice: "قف بمؤشر الفأرة فوق أي شريط لإيقافه مؤقتاً",
+        frontend: "أنظمة الواجهات الأمامية (Frontend)",
+        backend: "الأنظمة الخلفية وقواعد البيانات (Backend)",
+        cs: "أساسيات علوم الحاسب والجامعة (CS Fundamentals)",
+        tools: "لغات البرمجة، الأمان وأدوات التطوير",
       },
       testimonials: {
-        title: "آراء وتقييمات العملاء والزملاء",
-        subtitle: "شهادات حقيقية من عملاء ومهندسي تقنية حول جودة الكود، سرعة الإنجاز، والتسليم الاحترافي.",
-        pauseNotice: "ضع مؤشر الفأرة فوق أي بطاقة لإيقاف الشريط مؤقتاً",
+        title: "رأي العميل في مشروعي الفريلانس",
+        subtitle: "شهادة حقيقية من مديرة وصاحبة مكتب رواق للديكور حول جودة التسليم والسرعة والاحترافية.",
       },
       contact: {
         title: "لنبدأ العمل سوياً",
@@ -187,106 +178,84 @@ export const siteConfig = {
         location: "الموقع الجغرافي",
       },
       projects: {
-        title: "أبرز الأعمال والمشاريع المرفوعة",
-        subtitle: "تطبيقات ويب إنتاجية، برمجيات بث مباشر، أعمال فريلانس حية، وأنظمة ذكاء اصطناعي متقدمة.",
-        all: "كل المشاريع",
-        fullstack: "تطبيقات متكاملة",
-        frontend: "واجهات أمامية",
-        backend: "واجهات خلفية و APIs",
-        realtime: "أنظمة البث والـ Real-time",
-        freelance: "أعمال فريلانس",
+        title: "أبرز الأعمال والمشاريع الحية",
+        subtitle: "منصة فريلانس متكاملة، برمجيات بث مباشر، تطبيقات إنتاجية، وأنظمة ذكاء اصطناعي.",
+        freelanceTitle: "مشروع الفريلانس الكامل (Flagship)",
+        otherTitle: "جميع المشاريع البرمجية",
         viewLive: "معاينة حية",
         viewCode: "كود المشروع",
         privateNotice: "كود المشروع تجاري خاص بالعميل",
         viewDetails: "تفاصيل المعمارية",
       },
       experience: {
-        title: "المسيرة والخبرة العملية",
-        subtitle: "سجل حافل في بناء أنظمة بث حية، وتطبيقات ويب سريعة، ومراقبة بنية السيرفرات.",
+        title: "الخبرة العملية",
+        subtitle: "خبرة مهنية في تطوير وبناء أنظمة برمجية إنتاجية وفق السيرة الذاتية الرسمية.",
       },
     },
   },
 
-  skillCategories: [
-    {
-      title: "Languages & Frontend",
-      skills: [
-        { name: "React.js", level: "Expert" },
-        { name: "Next.js", level: "Expert" },
-        { name: "TypeScript", level: "Advanced" },
-        { name: "JavaScript", level: "Expert" },
-        { name: "Tailwind CSS", level: "Expert" },
-        { name: "GSAP", level: "Advanced" },
-        { name: "Redux Toolkit", level: "Advanced" },
-        { name: "HTML5 & CSS3", level: "Expert" },
-        { name: "Zustand", level: "Proficient" },
-        { name: "Framer Motion", level: "Advanced" },
-      ],
-    },
-    {
-      title: "Backend & Databases",
-      skills: [
-        { name: "Node.js", level: "Expert" },
-        { name: "Express.js", level: "Expert" },
-        { name: "NestJS", level: "Advanced" },
-        { name: "REST/GraphQL APIs", level: "Advanced" },
-        { name: "WebSockets", level: "Advanced" },
-        { name: "Socket.io", level: "Advanced" },
-        { name: "PostgreSQL", level: "Advanced" },
-        { name: "MongoDB", level: "Advanced" },
-        { name: "Prisma", level: "Advanced" },
-        { name: "TypeORM", level: "Advanced" },
-      ],
-    },
-    {
-      title: "Security & Architecture",
-      skills: [
-        { name: "Clean Architecture", level: "Advanced" },
-        { name: "Design Patterns", level: "Advanced" },
-        { name: "SOLID Principles", level: "Advanced" },
-        { name: "JWT & OAuth", level: "Advanced" },
-        { name: "RBAC (Role-Based Access)", level: "Advanced" },
-      ],
-    },
-    {
-      title: "Tools & Currently Learning",
-      skills: [
-        { name: "Git & GitHub", level: "Expert" },
-        { name: "Jest & Testing", level: "Advanced" },
-        { name: "CI/CD Workflows", level: "Intermediate" },
-        { name: "Redis Caching", level: "Learning" },
-        { name: "Docker", level: "Learning" },
-        { name: "Kubernetes", level: "Learning" },
-        { name: "System Design", level: "Learning" },
-      ],
-    },
-  ],
-
-  marqueeSkills: [
-    { name: "React.js", color: "#61DAFB" },
-    { name: "Next.js", color: "#FFFFFF" },
-    { name: "TypeScript", color: "#3178C6" },
-    { name: "Node.js", color: "#5FA04E" },
-    { name: "NestJS", color: "#E0234E" },
-    { name: "Tailwind CSS", color: "#06B6D4" },
-    { name: "PostgreSQL", color: "#4169E1" },
-    { name: "MongoDB", color: "#47A248" },
-    { name: "WebSockets", color: "#38BDF8" },
-    { name: "Socket.io", color: "#010101" },
-    { name: "GSAP", color: "#88CE02" },
-    { name: "Framer Motion", color: "#0055FF" },
-    { name: "Docker", color: "#2496ED" },
-    { name: "Redis", color: "#DC382D" },
-    { name: "Prisma", color: "#2D3748" },
-    { name: "TypeORM", color: "#FE0902" },
-  ],
+  skillsStreams: {
+    frontend: [
+      { name: "React.js", color: "#61DAFB" },
+      { name: "Next.js", color: "#FFFFFF" },
+      { name: "TypeScript", color: "#3178C6" },
+      { name: "JavaScript", color: "#F7DF1E" },
+      { name: "Tailwind CSS", color: "#06B6D4" },
+      { name: "Framer Motion", color: "#0055FF" },
+      { name: "GSAP", color: "#88CE02" },
+      { name: "Shadcn UI", color: "#FFFFFF" },
+      { name: "Redux Toolkit", color: "#764ABC" },
+      { name: "HTML5 & CSS3", color: "#E34F26" },
+      { name: "Zustand", color: "#E5E7EB" },
+    ],
+    backend: [
+      { name: "Node.js", color: "#5FA04E" },
+      { name: "Express.js", color: "#FFFFFF" },
+      { name: "NestJS", color: "#E0234E" },
+      { name: "Laravel", color: "#FF2D20" },
+      { name: "REST APIs", color: "#10B981" },
+      { name: "GraphQL", color: "#E10098" },
+      { name: "WebSockets", color: "#38BDF8" },
+      { name: "Socket.io", color: "#FFFFFF" },
+      { name: "PostgreSQL", color: "#4169E1" },
+      { name: "MongoDB", color: "#47A248" },
+      { name: "Prisma", color: "#2D3748" },
+      { name: "TypeORM", color: "#FE0902" },
+    ],
+    csFundamentals: [
+      { name: "Data Structures", color: "#8B5CF6" },
+      { name: "Algorithms", color: "#EC4899" },
+      { name: "Software Engineering", color: "#0EA5E9" },
+      { name: "Operating Systems (OS)", color: "#F59E0B" },
+      { name: "OOP (Object-Oriented)", color: "#10B981" },
+      { name: "Database Systems", color: "#6366F1" },
+      { name: "Computer Networks", color: "#06B6D4" },
+      { name: "Clean Architecture", color: "#38BDF8" },
+      { name: "Design Patterns", color: "#A855F7" },
+      { name: "SOLID Principles", color: "#EC4899" },
+    ],
+    languagesAndTools: [
+      { name: "JavaScript", color: "#F7DF1E" },
+      { name: "TypeScript", color: "#3178C6" },
+      { name: "PHP", color: "#777BB4" },
+      { name: "Java", color: "#007396" },
+      { name: "C#", color: "#239120" },
+      { name: "Python", color: "#3776AB" },
+      { name: "SQL", color: "#0284C7" },
+      { name: "Git & GitHub", color: "#F05032" },
+      { name: "Docker", color: "#2496ED" },
+      { name: "Redis Caching", color: "#DC382D" },
+      { name: "JWT & RBAC", color: "#EAB308" },
+      { name: "Jest Testing", color: "#C21325" },
+    ],
+  },
 
   experiences: [
     {
       company: "TKDS MENA LLC",
       position: "Full Stack Developer",
       period: "May 2026 – Aug 2026",
-      location: { en: "Remote (TKDS Media LLC, USA / Egypt)", ar: "عن بعد (TKDS Media LLC، أمريكا / مصر)" },
+      location: { en: "Remote, from Egypt · part of TKDS Media LLC, USA", ar: "عن بعد، من مصر · جزء من TKDS Media LLC، أمريكا" },
       points: {
         en: [
           "Single-handedly designed and built a three-program CG system (Node.js/Express/Socket.io backend, React + Tailwind control panel, vanilla JS + GSAP overlay for vMix/OBS) supporting three live graphic types (score bug, lower thirds, leaderboards) within a three-month tenure — replacing a fully manual workflow and cutting graphic updates from a multi-step process to a single click, ready for live broadcast use.",
@@ -294,25 +263,9 @@ export const siteConfig = {
           "Delivered the CG system end-to-end as the only engineer on it, alongside also building the official site for Mediacore2, the company's SaaS product — managing two concurrent deliverables independently.",
         ],
         ar: [
-          "صممت وبنيت بمفردي نظاماً للبث المباشر (CG) مكوناً من 3 برامج (باك إند Node.js/Express/Socket.io، لوحة تحكم React + Tailwind، وتراكب شاشة vanilla JS + GSAP مخصص لـ vMix و OBS) يدعم 3 أنواع جرافيك مباشر (شريط النتائج، الشريط السفلي، وقوائم المتصدرين) خلال 3 أشهر، مما قلص تحديث الجرافيكس إلى نقرة واحدة فورية.",
-          "قضيت كلياً على مشكلات تعارض التزامن (Race Conditions) بين إجراءات المشغلين بتصميم طبقة أحداث WebSocket مع طابور كتابة تسلسلي منظم على ملف JSON، مما حقق مزامنة لحظية فائقة الموثوقية دون الحاجة لقاعدة بيانات.",
-          "سلّمت نظام الـ CG كاملاً من البداية للنهاية بصفتي المهندس الوحيد عليه، وتزامن ذلك مع بناء الموقع الرسمي لمنتج الشركة السحابي Mediacore2 وإدارتهما بكفاءة مستقلة.",
-        ],
-      },
-    },
-    {
-      company: "Rewaq Decor",
-      position: "Freelance Full Stack Engineer",
-      period: "2026",
-      location: { en: "Client Project (Gulf Region / Remote)", ar: "مشروع عميل (منطقة الخليج / عن بعد)" },
-      points: {
-        en: [
-          "Engineered the official digital presence for Rewaq Luxury Interior Design & Decoration, featuring bespoke layouts, interactive showcases, dynamic client consultation booking, and 60fps animations.",
-          "Implemented full bilingual English/Arabic localization with seamless RTL/LTR layout transitions, lightning-fast Core Web Vitals, and responsive perfection across all mobile and desktop screens.",
-        ],
-        ar: [
-          "طوّرت الموقع الرسمي لشركة رواق للديكور والتصميم الداخلي الفاخر، مع واجهات تفاعلية راقية، ونظام حجز استشارات، ومعرض مشاريع غامر بحركات فائقة السلاسة.",
-          "حققت دعماً كاملاً لثنائية اللغة (عربي / إنجليزي) مع تحويل فوري لاتجاه الصفحات (RTL/LTR)، وسرعة تحميل متوافقة مع معايير Core Web Vitals وتجاوب كامل مع مختلف الشاشات.",
+          "Single-handedly designed and built a three-program CG system (Node.js/Express/Socket.io backend, React + Tailwind control panel, vanilla JS + GSAP overlay for vMix/OBS) supporting three live graphic types (score bug, lower thirds, leaderboards) within a three-month tenure — replacing a fully manual workflow and cutting graphic updates from a multi-step process to a single click, ready for live broadcast use.",
+          "Eliminated race conditions across concurrent operator actions by designing a WebSocket event layer with a serialized write queue over a file-based JSON store, enabling reliable real-time state sync across every connected client without a database.",
+          "Delivered the CG system end-to-end as the only engineer on it, alongside also building the official site for Mediacore2, the company's SaaS product — managing two concurrent deliverables independently.",
         ],
       },
     },
@@ -320,118 +273,135 @@ export const siteConfig = {
       company: "Avnology",
       position: "System & Network Monitoring",
       period: "Apr 2024 – Aug 2024",
-      location: { en: "Saudi Arabia (Remote)", ar: "السعودية (عن بعد)" },
+      location: { en: "Saudi Arabia-based company, remote from Egypt", ar: "شركة مقرها السعودية، عن بعد من مصر" },
       points: {
         en: [
           "Detected and escalated production system and network incidents across shift-based monitoring, giving the technical team faster visibility into issues and supporting continuous uptime for client infrastructure.",
         ],
         ar: [
-          "قمت برصد وتصعيد مشكلات وحوادث الأنظمة الإنتاجية والشبكات بنظام المناوبات عن بعد، مما منح الفريق التقني رؤية استباقية سريعة ودعم الاستمرارية التشغيلية الدائمة للبنية التحتية.",
+          "Detected and escalated production system and network incidents across shift-based monitoring, giving the technical team faster visibility into issues and supporting continuous uptime for client infrastructure.",
         ],
       },
     },
   ],
 
-  projects: [
-    {
-      id: "rewaq-decor",
-      name: "Rewaq-Decor",
-      title: {
-        en: "Rewaq Decor - Luxury Interior Architecture",
-        ar: "رواق للديكور - منصة التصميم الداخلي الفاخرة",
-      },
-      description: {
-        en: "Official luxury interior design & decor company platform. Features bespoke architectural layouts, dynamic project showcases, bilingual Arabic/English support, high-conversion consultation forms, and fluid 60fps animations.",
-        ar: "المنصة الرسمية لشركة ديكور وتصميم داخلي فاخرة. تتضمن معمارية تصفح بصرية راقية، استعراض تفاعلي لأعمال الديكور، دعم كامل للغتين العربية والإنجليزية، وتصميم فائق السرعة متوافق مع كافة الأجهزة.",
-      },
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "i18n (AR/EN)", "Responsive UI"],
-      highlights: {
-        en: ["Live Commercial Client Platform", "Bilingual RTL/LTR Support", "Smooth 60fps Transitions", "Bespoke Portfolio Gallery"],
-        ar: ["منصة تجارية حية للعميل", "دعم كامل للعربية والإنجليزية", "حركات انسيابية بمعدل 60 إطاراً", "معرض أعمال معماري فاخر"],
-      },
-      category: "freelance",
-      badge: {
-        en: "Live Freelance Platform",
-        ar: "مشروع فريلانس حي",
-      },
-      github: null,
-      live: "https://www.rewaq-decor.com/en",
-      featured: true,
+  freelanceProject: {
+    id: "rewaq-decor",
+    name: "Rewaq-Decor",
+    title: {
+      en: "Rewaq Decor - Complete Luxury Digital Platform",
+      ar: "رواق للديكور - منصة رقمية متكاملة ولوحة تحكم",
     },
+    description: {
+      en: "A comprehensive full-stack digital solution for Rewaq Luxury Interior Design. Single-handedly built the responsive client-facing web application with Next.js & Framer Motion, an administrative management control dashboard with Next.js, and a high-performance backend API with Node.js and Express.js with custom consultation booking lifecycle.",
+      ar: "حل برمجي متكامل لشركة رواق للديكور والتصميم الداخلي الفاخر. قمت ببناء الموقع الكامل للعملاء بـ Next.js و Framer Motion و Tailwind CSS و Shadcn UI، بالإضافة إلى لوحة تحكم وإدارة مخصصة للمسؤول بـ Next.js، وخادم باك إند متكامل بـ Node.js و Express.js لمعالجة الطلبات والاستشارات.",
+    },
+    technologies: [
+      "Next.js (Client Front)",
+      "Next.js (Admin Dashboard)",
+      "Node.js & Express.js (Backend API)",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Shadcn UI",
+      "TypeScript",
+      "RESTful APIs",
+    ],
+    highlights: {
+      en: [
+        "Client Web Application (Next.js)",
+        "Dedicated Admin Control Dashboard (Next.js)",
+        "Full Backend API (Node.js & Express.js)",
+        "60fps Smooth Transitions & Animations (Framer Motion)",
+        "Shadcn UI & Tailwind CSS Luxury Styling",
+        "Live Production Deployment for Gulf Client",
+      ],
+      ar: [
+        "تطبيق ويب متكامل للعملاء (Next.js)",
+        "لوحة تحكم وإدارة خاصة للمسؤول (Next.js Admin Dashboard)",
+        "واجهة خلفية وباك إند كامل (Node.js & Express API)",
+        "حركات انسيابية فائقة السرعة 60fps (Framer Motion)",
+        "تصميم فاخر بمكتبات Shadcn UI و Tailwind CSS",
+        "منصة إنتاجية حية لعميل في الخليج",
+      ],
+    },
+    badge: {
+      en: "Live Freelance Platform (Full System)",
+      ar: "مشروع فريلانس متكامل (واجهة + لوحة تحكم + باك إند)",
+    },
+    github: null,
+    live: "https://www.rewaq-decor.com/en",
+    isFreelance: true,
+  } as ProjectItem,
+
+  projects: [
     {
       id: "football-broadcast-cg",
       name: "Football-Broadcast-CG",
       title: {
         en: "Football Broadcast CG & Control Engine",
-        ar: "نظام جرافيكس البث المباشر لكرة القدم",
+        ar: "نظام جرافيكس البث المباشر لمباريات كرة القدم",
       },
       description: {
-        en: "Real-time football broadcast graphics (CG) and operator dashboard. Supports live score bugs, lower thirds, and dynamic leaderboards with serialized write queues to eliminate race conditions, synced directly to 1080p OBS overlays.",
-        ar: "نظام متكامل للجرافيكس والبث المباشر لمباريات كرة القدم ولوحة تحكم للمشغل. يدعم إظهار النتائج والشريط السفلي وقوائم المتصدرين مع مزامنة لحظية فورية عبر WebSocket وطابور كتابة تسلسلي بدون تصادم، متصل مباشرة بـ OBS/vMix بدقة 1080p.",
+        en: "Real-time football broadcast graphics (CG) and operator control panel built with React, Node.js, Socket.io, and GSAP animations, syncing live scorebugs, lower thirds, and leaderboards to 1080p OBS overlays.",
+        ar: "نظام متكامل للجرافيكس والبث المباشر لمباريات كرة القدم ولوحة تحكم للمشغل مبني بـ React و Node.js و Socket.io ورسوم GSAP لمزامنة النتائج والشريط السفلي فورياً على OBS بدقة 1080p.",
       },
-      technologies: ["React.js", "Node.js", "Express.js", "Socket.io", "GSAP", "Tailwind CSS", "vMix/OBS"],
+      technologies: ["React.js", "Node.js", "Express.js", "Socket.io", "GSAP", "Tailwind CSS", "OBS / vMix"],
       highlights: {
-        en: ["Single-Click Broadcast Updates", "Serialized Write Queue", "Zero-Database Realtime Store", "1080p Overlay Integration"],
-        ar: ["تحديث البث بضغطة زر واحدة", "طابور كتابة تسلسلي لمنع التصادم", "مزامنة فورية دون قاعدة بيانات", "تكامل مباشر مع OBS بدقة 1080p"],
+        en: ["Real-time WebSocket Sync", "Serialized Write Queue", "Zero-Database Engine", "1080p Live Stream Overlay"],
+        ar: ["مزامنة فورية بـ WebSockets", "طابور كتابة تسلسلي لمنع التصادم", "يعمل دون قاعدة بيانات", "تراكب بث مباشر بدقة 1080p"],
       },
-      category: "realtime",
       badge: {
-        en: "Broadcast Production Engine",
-        ar: "نظام بث إنتاجي مباشر",
+        en: "Broadcast System",
+        ar: "نظام بث مباشر",
       },
       github: "https://github.com/MG-0/Football-Broadcast-CG",
       live: "https://football-broadcast-cg-rho.vercel.app",
-      featured: true,
     },
     {
       id: "taskflow",
       name: "Task-Management-System",
       title: {
-        en: "TaskFlow - Enterprise Task & Team Management",
-        ar: "نظام إدارة المهام وفرق العمل (TaskFlow)",
+        en: "TaskFlow - Enterprise Task Management Platform",
+        ar: "نظام إدارة المهام (TaskFlow)",
       },
       description: {
-        en: "Comprehensive task management ecosystem with Laravel REST API (Eloquent ORM, Service Container, Sanctum auth) and React (Vite + TypeScript) frontend. Features optimistic updates, category workspaces, team assignments, and priority filters.",
-        ar: "نظام شامل لإدارة المهام ومساحات العمل مبني بواجهة REST API قوية بـ Laravel ومصادقة Sanctum مع واجهة تفاعلية بـ React و TypeScript، يدعم التحديث الفوري المتفائل للواجهة، وتوزيع المهام، وتحديد الأولويات.",
+        en: "Full-stack task management application with a Laravel REST API (Eloquent ORM, Migrations, Middleware, Service Container, Sanctum auth) and React (Vite + TypeScript + Tailwind) frontend with optimistic UI updates.",
+        ar: "تطبيق متكامل لإدارة المهام مبني بواجهة REST API بـ Laravel (مع مصادقة Sanctum، و Eloquent ORM) وواجهة React بـ TypeScript و Tailwind مع تحديثات فورية متفائلة.",
       },
       technologies: ["Laravel", "React.js", "TypeScript", "PostgreSQL", "Sanctum Auth", "Tailwind CSS"],
       highlights: {
-        en: ["Sanctum Token Auth", "Optimistic Real-Time UI", "Workspace Isolation", "Eloquent Relationships"],
-        ar: ["توثيق آمن بـ Sanctum", "تحديث فوري متفائل للواجهة", "فصل مساحات العمل للفرق", "علاقات قواعد بيانات متقدمة"],
+        en: ["Laravel REST API & Service Container", "Sanctum Token Authentication", "React Vite + TypeScript", "Optimistic State Management"],
+        ar: ["واجهة REST API بـ Laravel", "مصادقة آمنة بـ Sanctum", "واجهة React Vite بـ TypeScript", "تحديث فوري متفائل للحالة"],
       },
-      category: "fullstack",
       badge: {
-        en: "Featured Full Stack",
-        ar: "تطبيق متكامل مميز",
+        en: "Laravel + React",
+        ar: "لارافيل + رياكت",
       },
       github: "https://github.com/MG-0/Task-Management-System",
-      live: "https://taskflow-api-nine-mu.vercel.app",
-      featured: true,
+      live: "https://taskflow-web-eta.vercel.app/login",
     },
     {
       id: "quickbite",
       name: "Full-Stack-Food-App",
       title: {
-        en: "Bilingual Food Delivery & Ordering Platform",
+        en: "Bilingual Food Ordering & Delivery Platform",
         ar: "تطبيق طلب وتوصيل الطعام ثنائي اللغة",
       },
       description: {
-        en: "Full stack food delivery application delivered in a 24-hour assessment sprint. Features bilingual English/Arabic RTL-LTR layouts, customer cart, live order tracking, JWT authentication, and full administrative store controls.",
-        ar: "تطبيق متكامل لطلب وتوصيل الطعام تم بناؤه خلال تقييم تقني مدته 24 ساعة. يتضمن دعماً كاملاً للعربية والإنجليزية مع قلب الاتجاه (RTL/LTR)، وتتبع حي للطلبات، ومصادقة JWT مشفرة، ولوحة تحكم متكاملة للإدارة.",
+        en: "Delivered a bilingual (English/Arabic) food delivery app with an admin dashboard in a 24-hour assessment sprint, using JWT auth with hashed credentials, i18n-driven RTL/LTR layout, and server-side rendering.",
+        ar: "تطبيق ويب متكامل لطلب وتوصيل الطعام تم تسليمه في تحدي 24 ساعة، يدعم ثنائية اللغة (عربي/إنجليزي) مع لوحة تحكم كاملة للمسؤول، وتوثيق JWT، وأداء فائق بـ Next.js SSR.",
       },
       technologies: ["Next.js", "TypeScript", "Node.js", "Express.js", "MongoDB", "JWT Auth", "i18n"],
       highlights: {
-        en: ["Delivered in 24-Hour Sprint", "Bilingual RTL/LTR Layout", "Role-Based Admin Panel", "SSR Load Performance"],
-        ar: ["تم إنجازه في تحدي 24 ساعة", "واجهة عربية/إنجليزية متجاوبة", "لوحة تحكم إدارية بالصلاحيات", "أداء فائق بتقنية SSR"],
+        en: ["24-Hour Sprint Delivery", "Bilingual RTL/LTR Support", "Admin Dashboard & Product Controls", "SSR Speed Optimization"],
+        ar: ["تم إنجازه في 24 ساعة", "دعم كامل للـ RTL/LTR", "لوحة تحكم إدارية متكاملة", "تحسين الأداء بـ SSR"],
       },
-      category: "fullstack",
       badge: {
-        en: "24h Rapid Sprint",
-        ar: "تحدي 24 ساعة",
+        en: "Next.js + Express",
+        ar: "نكست + إكسبريس",
       },
       github: "https://github.com/MG-0/Full-Stack-Food-App",
-      live: "https://full-stack-food-app-alpha.vercel.app",
-      featured: true,
+      live: "https://food-dash-ruddy.vercel.app/en",
     },
     {
       id: "brain-tumor-ai",
@@ -441,22 +411,20 @@ export const siteConfig = {
         ar: "منصة الكشف عن أورام المخ بالذكاء الاصطناعي",
       },
       description: {
-        en: "Full stack medical platform with 10+ features across doctor and patient dashboards, integrating an AI deep learning microservice that analyzes MRI scans and generates tumor-location heatmaps for doctor review with decoupled high-performance inference.",
-        ar: "منصة طبية متكاملة بأكثر من 10 ميزات للربط بين الأطباء والمرضى، تدمج خدمة ذكاء اصطناعي تفحص صور الرنين المغناطيسي وتنتج خرائط حرارية لتحديد مكان الورم بدقة، مع معمارية مفصولة تمنع تعطل الخادم أثناء المعالجة.",
+        en: "Graduation Project: Full stack medical platform with 10+ features across doctor and patient dashboards, integrating a decoupled Python/Flask/TensorFlow AI service that analyzes MRI scans and generates tumor heatmaps without blocking API requests.",
+        ar: "مشروع التخرج: منصة طبية متكاملة بأكثر من 10 ميزات للأطباء والمرضى، تدمج خدمة ذكاء اصطناعي بـ Python و Flask و TensorFlow لفحص صور الرنين وتوليد خرائط حرارية للأورام مع فصل تام للخدمة لضمان أقصى سرعة.",
       },
       technologies: ["React.js", "Node.js", "Express.js", "Python", "Flask", "TensorFlow", "MongoDB"],
       highlights: {
-        en: ["Deep Learning MRI Heatmaps", "Decoupled Async AI Service", "Role-Based Clinical Access", "Graduation Project of Excellence"],
-        ar: ["خرائط حرارية بنماذج التعلم العميق", "خدمة ذكاء اصطناعي مفصولة", "صلاحيات مشددة للأطباء والمرضى", "مشروع التخرج بتقدير امتياز"],
+        en: ["TensorFlow Deep Learning Inference", "Decoupled Async Architecture", "Doctor & Patient Dashboards", "Graduation Project"],
+        ar: ["تحليل بالتعلم العميق بـ TensorFlow", "معمارية غير متزامنة مفصولة", "لوحات تحكم للأطباء والمرضى", "مشروع التخرج الرسمي"],
       },
-      category: "fullstack",
       badge: {
-        en: "Graduation Project (Excellence)",
-        ar: "مشروع التخرج بامتياز",
+        en: "Graduation Project",
+        ar: "مشروع التخرج",
       },
       github: "https://github.com/MG-0/Medical-Imaging-Platform",
       live: null,
-      featured: true,
     },
     {
       id: "bookstore-mern",
@@ -466,172 +434,89 @@ export const siteConfig = {
         ar: "متجر كتب تفاعلي متكامل (MERN Stack)",
       },
       description: {
-        en: "MERN-stack Bookstore application built with React and Node.js, featuring secure JWT authentication, book inventory controls, search and filtering, and a responsive shopping cart with RESTful API integration.",
-        ar: "تطبيق متجر كتب إلكتروني بمكتبة MERN و Node.js، يوفر مصادقة آمنة، إدارة كاملة للكتب والتصنيفات، وفلاتر بحث سريعة، مع سلة مشتريات ديناميكية متصلة بـ RESTful API.",
+        en: "MERN-stack Bookstore application built with React and Node.js, featuring secure authentication, book catalog management, responsive shopping cart, and full RESTful API integration.",
+        ar: "متجر كتب إلكتروني متكامل بمجموعة MERN (React و Node.js و Express و MongoDB)، يحتوي على مصادقة المستخدمين، وإدارة الكتب، وسلة تسوق تفاعلية سريعة.",
       },
       technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT"],
       highlights: {
-        en: ["MERN Architecture", "Shopping Cart & Checkout", "Token Authentication", "Responsive Experience"],
-        ar: ["معمارية MERN المتكاملة", "سلة مشتريات وتأكيد طلبات", "مصادقة بالتوكن المشفر", "واجهة سلسة لكافة الأجهزة"],
+        en: ["Full MERN Stack", "JWT Authentication", "Cart & Order Workflow", "RESTful CRUD Operations"],
+        ar: ["حزمة MERN المتكاملة", "مصادقة بـ JWT", "سلة مشتريات وتأكيد طلبات", "عمليات CRUD متكاملة"],
       },
-      category: "fullstack",
       badge: {
         en: "MERN Stack",
         ar: "حزمة MERN",
       },
       github: "https://github.com/MG-0/Book-Store-Mern-App",
-      live: "https://bookstore-api-dun.vercel.app",
-      featured: true,
+      live: "https://book-store-two-gray.vercel.app/",
     },
     {
-      id: "euphoria-ecommerce",
-      name: "E-commerce-Frontend-Structure",
+      id: "burger-landing",
+      name: "Burger-LandingPage",
       title: {
-        en: "Euphoria - Multilingual E-Commerce Architecture",
-        ar: "هيكل متجر إلكتروني متعدد اللغات (Euphoria)",
+        en: "Burger Restaurant Interactive Landing Page",
+        ar: "صفحة هبوط تفاعلية لمطعم برجر",
       },
       description: {
-        en: "A Next.js e-commerce frontend architecture with deep multilingual support (Arabic & English) via next-intl, scalable state management with Redux Toolkit, reusable atomic components, and responsive mobile-first commerce layouts.",
-        ar: "هيكل متقدم للواجهة الأمامية للمتاجر الإلكترونية بـ Next.js مع دعم حقيقي لتعدد اللغات (عربي وإنجليزي) بـ next-intl، وإدارة حالة مركزية بـ Redux Toolkit، وتصميم مكونات ذرية قابلة لإعادة الاستخدام.",
+        en: "Modern and fully responsive burger restaurant landing page built with Next.js and Tailwind CSS, featuring smooth scroll transitions, interactive menu layouts, and mobile-friendly design.",
+        ar: "صفحة هبوط حديثة وسريعة الاستجابة لمطعم برجر مبنية بـ Next.js و Tailwind CSS، تتميز بحركات انسيابية، وتنسيق أنيق مريح للعين عبر مختلف الشاشات.",
       },
-      technologies: ["Next.js", "React.js", "Redux Toolkit", "next-intl", "Tailwind CSS", "TypeScript"],
+      technologies: ["Next.js", "HTML5", "CSS3", "Tailwind CSS", "JavaScript"],
       highlights: {
-        en: ["Bilingual next-intl Setup", "Redux Toolkit State Flow", "Modular UI Components", "SEO Ready Architecture"],
-        ar: ["إعداد احترافي بـ next-intl", "تدفق بيانات مركزي بـ Redux", "مكونات معيارية مرنة", "مهيأ لمحركات البحث"],
+        en: ["Interactive Menu", "Fluid Smooth Animations", "Responsive Mobile-First UI", "Modern Typography"],
+        ar: ["قائمة طعام تفاعلية", "حركات سلسة وانسيابية", "تصميم متجاوب بالكامل", "تنسيق بصري جذاب"],
       },
-      category: "frontend",
       badge: {
-        en: "Frontend Architecture",
-        ar: "معمارية واجهات",
+        en: "Landing Page",
+        ar: "صفحة هبوط",
       },
-      github: "https://github.com/MG-0/E-commerce-Frontend-Structure",
-      live: "https://euphoria-umber.vercel.app",
-      featured: true,
+      github: "https://github.com/MG-0/Burger-LandingPage",
+      live: "https://burger-landing-page-tvc4.vercel.app/",
     },
     {
       id: "car-price-api",
       name: "Car-Price-Estimation-API-Backend",
       title: {
-        en: "NestJS Car Price Valuation Engine & API",
-        ar: "محرك تقييم أسعار السيارات بـ NestJS",
+        en: "NestJS Car Price Estimation API",
+        ar: "واجهة برمجية لتقدير أسعار السيارات بـ NestJS",
       },
       description: {
-        en: "Modular backend implementing clean layered architecture with dependency injection, DTO validation pipes, guards, interceptors, and PostgreSQL data modeling to estimate vehicle valuation from historical database records.",
-        ar: "واجهة خلفية احترافية بـ NestJS تعتمد المعمارية الطبقية النظيفة، وحقن التبعيات، وأنابيب التحقق DTO، مع نمذجة بيانات بـ PostgreSQL لتقدير القيمة السعرية للسيارات بناءً على تقارير موثوقة سابقة.",
+        en: "Modular backend built with NestJS and TypeORM that allows users to sign up, log in, and create car reports to estimate prices based on historical records, applying dependency injection and validation pipes.",
+        ar: "واجهة خلفية احترافية مبنية بـ NestJS و TypeORM تتيح للمستخدمين تسجيل الدخول وإنشاء تقارير لتقدير أسعار السيارات بناءً على بيانات سابقة مع حقن التبعيات وأنابيب التحقق DTO.",
       },
-      technologies: ["NestJS", "TypeORM", "PostgreSQL", "TypeScript", "JWT", "DTO Validation"],
+      technologies: ["NestJS", "TypeORM", "PostgreSQL", "TypeScript", "JWT Auth", "DTO Validation"],
       highlights: {
-        en: ["Clean Layered Architecture", "Dependency Injection", "Automated DTO Validation", "Statistical Estimation Queries"],
-        ar: ["معمارية طبقية نظيفة", "حقن التبعيات (DI)", "تحقق تلقائي عبر الـ DTOs", "استعلامات إحصائية لتقدير السعر"],
+        en: ["Clean Layered Architecture", "Dependency Injection (DI)", "Validation Pipes & Guards", "Relational Data Modeling"],
+        ar: ["معمارية طبقية نظيفة", "حقن التبعيات (DI)", "أنابيب تحقق DTO", "نمذجة قواعد بيانات علائقية"],
       },
-      category: "backend",
       badge: {
-        en: "Clean Architecture",
-        ar: "معمارية برمجية نظيفة",
+        en: "NestJS API",
+        ar: "واجهة NestJS",
       },
       github: "https://github.com/MG-0/Car-Price-Estimation-API-Backend",
       live: null,
-      featured: false,
     },
     {
       id: "football-scoreboard-nodecg",
       name: "Football-Scoreboard-NODECG",
       title: {
         en: "Live Football Scorebug & Broadcast Overlay",
-        ar: "نظام لوحة نتائج كرة القدم للبث التلفزيوني",
+        ar: "نظام لوحة نتائج كرة القدم للبث المباشر (NodeCG)",
       },
       description: {
-        en: "Broadcast-grade scorebug bundle built with NodeCG. Allows operators to manipulate game clock, scores, team graphics, and cards, rendered instantaneously onto a 1920x1080 transparent OBS stream.",
-        ar: "حزمة بث تلفزيوني احترافية بتقنية NodeCG تتيح للمشغل التحكم في وقت المباراة، الأهداف، البطاقات، وشعارات الفرق مع مزامنة فورية على طبقة بث بدقة 1080p لبرامج البث المباشر مثل OBS.",
+        en: "NodeCG bundle for a live football scorebug: dashboard to control scores, match clock, team names, colors, and logos synced instantly to a 1920×1080 OBS overlay.",
+        ar: "حزمة NodeCG مخصصة لشريط نتائج مباريات كرة القدم: لوحة تحكم بالوقت والنتائج والفرق والشعارات متصلة فورياً بتراكب شاشة OBS بدقة 1080p.",
       },
       technologies: ["NodeCG", "Node.js", "OBS Studio", "TypeScript", "WebSockets"],
       highlights: {
-        en: ["Zero-Latency OBS Sync", "NodeCG Asset Management", "1080p Broadcast Graphic", "Match Clock Automation"],
-        ar: ["مزامنة فورية بدون أي تأخير", "إدارة الأصول بـ NodeCG", "جرافيك احترافي 1080p", "أتمتة توقيت المباريات"],
+        en: ["Instant OBS Sync", "Match Clock Control", "NodeCG Asset Integration", "Zero-Lag Graphics"],
+        ar: ["مزامنة فورية مع OBS", "تحكم بساعة المباراة", "إدارة الأصول بـ NodeCG", "جرافيك مباشر دون تأخير"],
       },
-      category: "realtime",
       badge: {
-        en: "Live Broadcast Tools",
-        ar: "أدوات البث المباشر",
+        en: "Broadcast Tool",
+        ar: "أداة بث مباشر",
       },
       github: "https://github.com/MG-0/Football-Scoreboard-NODECG",
       live: null,
-      featured: false,
-    },
-    {
-      id: "bookstore-backend",
-      name: "bookStore-Backend",
-      title: {
-        en: "RESTful Bookstore Engine (20+ Endpoints)",
-        ar: "واجهة برمجية لمتجر كتب (20+ نقطة اتصال)",
-      },
-      description: {
-        en: "Robust e-commerce backend API offering 20+ RESTful endpoints, comprehensive token authentication, inventory controls, customer carts, and checkout lifecycle.",
-        ar: "واجهة خلفية قوية للمتاجر الإلكترونية توفر أكثر من 20 نقطة اتصال RESTful مع حماية شاملة بـ JWT وإدارة المنتجات والمخزون وسلة المشتريات.",
-      },
-      technologies: ["Node.js", "Express.js", "MongoDB", "JWT Auth", "REST APIs"],
-      highlights: {
-        en: ["20+ REST Endpoints", "JWT Authentication", "Mongoose Aggregations", "Cart Lifecycle API"],
-        ar: ["أكثر من 20 نقطة اتصال", "مصادقة مشفرة بالتوكن", "استعلامات تجميع بـ Mongoose", "دورة كاملة لسلة التسوق"],
-      },
-      category: "backend",
-      badge: {
-        en: "Backend API",
-        ar: "واجهة خلفية",
-      },
-      github: "https://github.com/MG-0/bookStore-Backend",
-      live: null,
-      featured: false,
-    },
-    {
-      id: "burger-landing",
-      name: "Burger-LandingPage",
-      title: {
-        en: "Gourmet Burger Interactive Showcase",
-        ar: "صفحة هبوط تفاعلية لمطعم برجر",
-      },
-      description: {
-        en: "High-conversion restaurant landing page with delicious visuals, smooth scroll transitions, interactive food showcase, and fully responsive layout.",
-        ar: "صفحة هبوط عصرية وجذابة لمطعم برجر تتميز بحركات انسيابية، قائمة طعام تفاعلية، وتنسيق أنيق مريح للعين عبر مختلف الشاشات.",
-      },
-      technologies: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "Smooth Scroll"],
-      highlights: {
-        en: ["Responsive Design", "Interactive Menu Grid", "Smooth Scroll Transitions", "SEO Optimized"],
-        ar: ["تصميم متجاوب بامتياز", "قائمة طعام تفاعلية", "تنقل انسيابي وسلس", "متوافق مع محركات البحث"],
-      },
-      category: "frontend",
-      badge: {
-        en: "Landing Page",
-        ar: "صفحة هبوط",
-      },
-      github: "https://github.com/MG-0/Burger-LandingPage",
-      live: null,
-      featured: false,
-    },
-    {
-      id: "nextjs13-course",
-      name: "nextjs13-course",
-      title: {
-        en: "Modern Next.js Architecture Lab",
-        ar: "مختبر معمارية Next.js المتقدمة",
-      },
-      description: {
-        en: "Hands-on implementation of modern Next.js patterns including Server Components, nested routing, layouts, and data cache strategies.",
-        ar: "تطبيق عملي لأحدث ميزات Next.js ومكونات الخادم والمسارات المتداخلة واستراتيجيات التخزين المؤقت للبيانات.",
-      },
-      technologies: ["Next.js", "React.js", "TypeScript", "Tailwind CSS"],
-      highlights: {
-        en: ["App Router Patterns", "Server & Client Components", "Route Handlers", "Responsive UI"],
-        ar: ["أنماط App Router الحديثة", "مكونات خادم وعميل متكاملة", "معالجات المسارات", "تصميم متجاوب"],
-      },
-      category: "frontend",
-      badge: {
-        en: "Modern Next.js",
-        ar: "تقنيات Next.js",
-      },
-      github: "https://github.com/MG-0/nextjs13-course",
-      live: "https://nextjs13-course-lime.vercel.app",
-      featured: false,
     },
   ] as ProjectItem[],
 
@@ -639,126 +524,21 @@ export const siteConfig = {
     {
       id: "1",
       name: {
-        en: "Eng. Tariq Al-Mansoor",
-        ar: "م. طارق المنصور",
+        en: "Eng. Reham",
+        ar: "البشمهندسة ريهام",
       },
       role: {
-        en: "Managing Director",
-        ar: "المدير العام",
+        en: "Founder & Managing Director",
+        ar: "مديرة وصاحبة مكتب رواق للديكور",
       },
       company: {
         en: "Rewaq Luxury Interiors",
-        ar: "شركة رواق للديكور الفاخر",
+        ar: "مكتب رواق للتصميم والديكور الفاخر",
       },
-      avatar: "TM",
+      avatar: "RE",
       content: {
-        en: "Mahmoud turned our vision into an immaculate digital masterpiece. The speed, aesthetics, and smooth animations of our new website elevated our brand identity across the Gulf region. An exceptional developer to work with!",
-        ar: "محمود حوّل رؤيتنا إلى تحفة رقمية متكاملة. السرعة، جمالية التصميم، والانسيابية الفائقة لموقعنا الجديد عززت هوية شركتنا بشكل مذهل في الخليج. مبرمج استثنائي ومتقن لعمله بكل احترافية!",
-      },
-      rating: 5,
-    },
-    {
-      id: "2",
-      name: {
-        en: "David H. Miller",
-        ar: "ديفيد إتش. ميلر",
-      },
-      role: {
-        en: "Lead Broadcast Architect",
-        ar: "كبير مهندسي أنظمة البث",
-      },
-      company: {
-        en: "TKDS Media LLC (USA)",
-        ar: "مجموعة TKDS ميديا الأمريكية",
-      },
-      avatar: "DM",
-      content: {
-        en: "Mahmoud's work on our real-time CG broadcast system solved critical race conditions and cut live graphic updates to a single click. Outstanding problem-solving skills under high-pressure live production requirements.",
-        ar: "عمل محمود على نظام الجرافيكس المباشر لدينا حل مشاكل تنافس البيانات المعقدة وجعل تحديث البيانات بضغطة زر واحدة أثناء البث المباشر. مهارات مذهلة في حل المعضلات البرمجية تحت ضغط البث الحي.",
-      },
-      rating: 5,
-    },
-    {
-      id: "3",
-      name: {
-        en: "Ahmed El-Kholy",
-        ar: "أحمد الخولي",
-      },
-      role: {
-        en: "Senior Technical Lead",
-        ar: "قائد تقني أول للتطوير المتكامل",
-      },
-      company: {
-        en: "FinTech & SaaS Solutions",
-        ar: "حلول البرمجيات السحابية",
-      },
-      avatar: "AK",
-      content: {
-        en: "Delivering a bilingual food application with full JWT auth and clean Next.js architecture within 24 hours was incredible. Mahmoud writes clean, scalable, production-grade code that is easy to maintain.",
-        ar: "تسليم تطبيق طعام متكامل وثنائي اللغة مع توثيق JWT ومعمارية نظيفة في غضون 24 ساعة فقط كان إنجازاً مبهراً. محمود يكتب كوداً نظيفاً وقابلاً للتوسع بمعايير إنتاجية عالية.",
-      },
-      rating: 5,
-    },
-    {
-      id: "4",
-      name: {
-        en: "Dr. Mostafa Kamel",
-        ar: "د. مصطفى كامل",
-      },
-      role: {
-        en: "AI & Medical Systems Consultant",
-        ar: "استشاري أنظمة الذكاء الاصطناعي الطبية",
-      },
-      company: {
-        en: "Academic & Clinical AI Lab",
-        ar: "مختبر أبحاث الذكاء الاصطناعي الطبي",
-      },
-      avatar: "MK",
-      content: {
-        en: "The architectural decision to decouple the heavy TensorFlow inference from the main Express API in the Brain Tumor platform demonstrated rare architectural maturity. The system never lags even under intense workloads.",
-        ar: "القرار المعماري بفصل خدمة الذكاء الاصطناعي ونماذج TensorFlow عن واجهة Express في منصة أورام المخ دل على نضج هندسي نادر. النظام لا يتأخر أبداً حتى أثناء المعالجة الثقيلة للصور.",
-      },
-      rating: 5,
-    },
-    {
-      id: "5",
-      name: {
-        en: "Sarah Jenkins",
-        ar: "سارة جنكينز",
-      },
-      role: {
-        en: "Product Manager",
-        ar: "مديرة منتجات رقمية",
-      },
-      company: {
-        en: "Mediacore2 SaaS",
-        ar: "منصة Mediacore2 السحابية",
-      },
-      avatar: "SJ",
-      content: {
-        en: "Working with Mahmoud on the Mediacore2 platform was seamless. He delivers ahead of deadlines, communicates proactively, and has an eye for interactive UI polish that users immediately notice and love.",
-        ar: "العمل مع محمود على منصة Mediacore2 كان تجربة رائعة. يلتزم دائماً قبل المواعيد المحددة، ويتواصل باحترافية، ولديه ذوق رفيع في تفاصيل واجهات المستخدم التفاعلية التي تترك انطباعاً مبهراً.",
-      },
-      rating: 5,
-    },
-    {
-      id: "6",
-      name: {
-        en: "Omar Abdelaziz",
-        ar: "عمر عبد العزيز",
-      },
-      role: {
-        en: "Full Stack Engineer",
-        ar: "مهندس برمجيات وزميل تطوير",
-      },
-      company: {
-        en: "Open Source Contributor",
-        ar: "مساهم بالبرمجيات المفتوحة",
-      },
-      avatar: "OA",
-      content: {
-        en: "His deep grasp of NestJS, dependency injection, and clean architecture sets him apart. Mahmoud is a passionate engineer who elevates the technical bar of every project he contributes to.",
-        ar: "فهمه العميق لمعمارية NestJS وحقن التبعيات والتصميم النظيف يجعله مميزاً بين زملائه. مهندس شغوف يرفع المستوى الفني لأي مشروع يشارك فيه كفاءة وأداءً.",
+        en: "Mahmoud delivered our entire digital ecosystem flawlessly — from the stunning client frontend and interactive 60fps portfolio to the full-featured admin management dashboard and fast backend API. His technical precision, speed, and dedication exceeded our expectations!",
+        ar: "البشمهندس محمود بنى وسلم مشروعنا بالكامل باحترافية استثنائية — بدءاً من الموقع الرئيسي للعملاء بحركات 60fps فائقة الجمال ومعرض الأعمال، إلى لوحة التحكم والإدارة المخصصة للمكتب، والباك إند المتكامل. التزام ودقة وسرعة تفوق التوقعات!",
       },
       rating: 5,
     },

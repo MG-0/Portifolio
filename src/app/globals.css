@@ -37,7 +37,7 @@
 
 @layer base {
   :root {
-    --background: 220 20% 98%;
+    --background: 220 25% 97%;
     --foreground: 224 71% 4%;
 
     --card: 0 0% 100%;
@@ -65,36 +65,36 @@
     --input: 220 13% 88%;
     --ring: 250 85% 60%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
   }
 
   .dark {
-    --background: 230 25% 6%;
+    --background: 232 30% 7%;
     --foreground: 210 40% 98%;
 
-    --card: 232 23% 9%;
+    --card: 230 26% 11%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 232 23% 9%;
+    --popover: 230 26% 11%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 250 90% 66%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 230 20% 14%;
+    --secondary: 232 24% 15%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 230 18% 13%;
+    --muted: 232 20% 15%;
     --muted-foreground: 220 15% 65%;
 
-    --accent: 250 60% 20%;
+    --accent: 250 60% 22%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 45%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 230 18% 16%;
-    --input: 230 18% 16%;
+    --border: 230 20% 18%;
+    --input: 230 20% 18%;
     --ring: 250 90% 66%;
   }
 }
@@ -104,43 +104,50 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased selection:bg-indigo-500/30 selection:text-indigo-200;
+    @apply bg-background text-foreground antialiased selection:bg-indigo-500/30 selection:text-indigo-200 relative;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.10) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(236, 72, 153, 0.08) 0px, transparent 50%);
+    background-attachment: fixed;
   }
 }
 
 @layer utilities {
-  .glass {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  .glass-card-floating {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
-  .glass-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.09);
+  .glass-card-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card-hover:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border-color: rgba(99, 102, 241, 0.45);
+    box-shadow: 0 25px 60px rgba(99, 102, 241, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
   }
   .glass-pill {
     background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.12);
   }
   .text-glow {
-    text-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
+    text-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
   }
   .box-glow {
     box-shadow: 0 0 35px -5px rgba(99, 102, 241, 0.25);
-  }
-  .box-glow-emerald {
-    box-shadow: 0 0 35px -5px rgba(16, 185, 129, 0.25);
   }
 }
 
 /* Background Cyber Grid Pattern */
 .bg-grid-pattern {
-  background-size: 40px 40px;
+  background-size: 44px 44px;
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
@@ -150,11 +157,6 @@
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-}
-
-.bg-dot-pattern {
-  background-size: 24px 24px;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
 }
 
 /* Infinite Marquee Animations */
@@ -179,7 +181,7 @@
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee 32s linear infinite;
 }
 
 .animate-marquee:hover {
@@ -189,20 +191,10 @@
 .animate-marquee-reverse {
   display: flex;
   width: max-content;
-  animation: marquee-reverse 35s linear infinite;
+  animation: marquee-reverse 32s linear infinite;
 }
 
 .animate-marquee-reverse:hover {
-  animation-play-state: paused;
-}
-
-.animate-marquee-fast {
-  display: flex;
-  width: max-content;
-  animation: marquee 22s linear infinite;
-}
-
-.animate-marquee-fast:hover {
   animation-play-state: paused;
 }
 

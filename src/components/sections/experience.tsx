@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Section } from "@/components/ui/section";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/components/language-provider";
-import { Briefcase, Calendar, MapPin, CheckCircle2, Sparkles } from "lucide-react";
+import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react";
 
 export function Experience() {
   const { language, t } = useLanguage();
@@ -39,13 +39,13 @@ export function Experience() {
               <div className="relative flex items-start gap-6 sm:gap-8">
                 {/* Timeline Icon Node */}
                 <div className="relative flex flex-col items-center shrink-0">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-tr from-primary to-indigo-600 flex items-center justify-center text-white shadow-xl shadow-primary/25 border-2 border-background group-hover:scale-115 group-hover:rotate-6 transition-all duration-300 z-10">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-tr from-primary to-indigo-600 flex items-center justify-center text-white shadow-xl shadow-primary/25 border-2 border-background group-hover:scale-115 transition-all duration-300 z-10">
                     <Briefcase size={22} />
                   </div>
                 </div>
 
                 {/* Experience Card */}
-                <div className="flex-1 rounded-3xl border border-border/60 bg-gradient-to-b from-card/90 via-card/50 to-card/20 backdrop-blur-xl p-6 sm:p-8 hover:border-primary/60 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300">
+                <div className="flex-1 rounded-3xl glass-card-floating glass-card-hover p-6 sm:p-8">
                   {/* Header */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
                     <div>
@@ -69,11 +69,11 @@ export function Experience() {
                     <span>{locationText}</span>
                   </div>
 
-                  {/* Bullet points */}
-                  <div className="space-y-3">
+                  {/* Bullet points - exactly matching official CV */}
+                  <div className="space-y-3.5">
                     {points.map((point, pIdx) => (
                       <div key={pIdx} className="flex items-start gap-3">
-                        <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1" />
+                        <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-1" />
                         <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                           {point}
                         </p>

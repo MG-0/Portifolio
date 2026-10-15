@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
-import { MarqueeBanner } from "@/components/sections/marquee-banner";
 import { About } from "@/components/sections/about";
 import { Skills } from "@/components/sections/skills";
 import { Projects } from "@/components/sections/projects";
@@ -14,7 +13,6 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground relative selection:bg-primary/20 selection:text-primary">
       <Navbar />
       <Hero />
-      <MarqueeBanner />
       <About />
       <Skills />
       <Projects />

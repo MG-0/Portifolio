@@ -48,23 +48,23 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Brand Logo Monogram */}
         <Link href="/" className="group flex items-center gap-3">
-          <div className="relative w-12 h-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+          <div className="relative h-7 sm:h-8 w-auto flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
             {/* Dark mode: crisp white logo */}
             <Image
               src="/logo-white.png"
               alt="MG Logo"
-              width={48}
+              width={54}
               height={32}
-              className="hidden dark:block object-contain"
+              className="hidden dark:block h-7 sm:h-8 w-auto object-contain"
               priority
             />
             {/* Light mode: crisp dark logo */}
             <Image
               src="/logo-transparent.png"
               alt="MG Logo"
-              width={48}
+              width={54}
               height={32}
-              className="block dark:hidden object-contain"
+              className="block dark:hidden h-7 sm:h-8 w-auto object-contain"
               priority
             />
           </div>

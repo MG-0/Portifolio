@@ -194,7 +194,7 @@ export function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="rounded-3xl border border-border/60 bg-gradient-to-b from-card/90 via-card/50 to-card/20 backdrop-blur-xl p-6 sm:p-8 shadow-xl"
+          className="rounded-3xl glass-card-floating p-6 sm:p-8 shadow-2xl relative"
         >
           {status === "success" ? (
             <div className="text-center py-12 flex flex-col items-center">

@@ -7,9 +7,9 @@ import { siteConfig } from "@/config/site";
 import { FileDown, Mail, ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
 import { 
   GithubIcon as Github, 
-  LinkedinIcon as Linkedin,
-  MediumIcon as Medium,
-  WhatsappIcon as Whatsapp
+  LinkedinIcon as Linkedin, 
+  MediumIcon as Medium, 
+  WhatsappIcon as Whatsapp 
 } from "@/components/ui/icons";
 import Link from "next/link";
 import Image from "next/image";
@@ -36,8 +36,8 @@ export function Hero() {
   }, [targetName]);
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-center items-center pt-32 pb-16 px-6 overflow-hidden bg-grid-pattern">
-      {/* Dynamic Animated Ambient Background Glows */}
+    <section className="relative min-h-[88vh] flex flex-col justify-center items-center pt-32 pb-16 px-6 overflow-hidden">
+      {/* Floating Animated Mesh Ambient Glows */}
       <motion.div 
         animate={{ 
           scale: [1, 1.25, 1],
@@ -46,51 +46,18 @@ export function Hero() {
           y: [0, -30, 0]
         }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 -left-28 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none -z-10" 
+        className="absolute top-1/4 -left-28 w-96 h-96 bg-primary/25 rounded-full blur-[130px] pointer-events-none -z-10" 
       />
       <motion.div 
         animate={{ 
           scale: [1, 1.3, 1],
-          opacity: [0.25, 0.5, 0.25],
+          opacity: [0.25, 0.55, 0.25],
           x: [0, -50, 0],
           y: [0, 50, 0]
         }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-1/4 -right-28 w-[450px] h-[450px] bg-indigo-600/20 rounded-full blur-[140px] pointer-events-none -z-10" 
+        className="absolute bottom-1/4 -right-28 w-[450px] h-[450px] bg-indigo-600/25 rounded-full blur-[140px] pointer-events-none -z-10" 
       />
-      <motion.div 
-        animate={{ 
-          scale: [0.9, 1.15, 0.9],
-          opacity: [0.2, 0.4, 0.2]
-        }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none -z-10" 
-      />
-
-      {/* Floating Callout Pill to Latest Freelance Project */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="mb-8 z-10"
-      >
-        <a
-          href="https://www.rewaq-decor.com/en"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-pill text-xs md:text-sm font-semibold hover:border-primary/60 hover:bg-primary/10 transition-all duration-300 shadow-lg shadow-primary/5"
-        >
-          <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-          </span>
-          <span className="text-muted-foreground">{t.hero.freelanceLive}</span>
-          <span className="text-foreground group-hover:text-primary font-bold transition-colors">
-            Rewaq Decor Luxury Architecture
-          </span>
-          <ArrowUpRight size={15} className="text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-        </a>
-      </motion.div>
 
       <div className="max-w-6xl mx-auto z-10 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
@@ -101,20 +68,20 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-start"
           >
-            {/* Greeting & Typewriter Title */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-primary text-xs md:text-sm font-bold tracking-wide uppercase mb-5">
+            {/* Greeting Pill */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-primary text-xs md:text-sm font-bold tracking-wide uppercase mb-6 shadow-sm">
               <Sparkles size={14} className="animate-pulse" />
               <span>{t.hero.hi} {language === "ar" ? "محمود جمال" : "Mahmoud Gamal"}</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-4 leading-[1.1]">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-400 dark:via-purple-300 dark:to-cyan-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300">
                 {displayedName}
               </span>
               <span className="animate-pulse text-primary font-light">|</span>
             </h1>
 
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-foreground/90 mb-4 tracking-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-foreground/90 mb-5 tracking-tight">
               {t.role}
             </h2>
 
@@ -141,7 +108,7 @@ export function Hero() {
                 className="rounded-2xl px-6 py-6 text-base font-bold hover:scale-105 transition-all border-primary/40 bg-card/60 backdrop-blur-md hover:bg-primary/10 hover:border-primary" 
                 asChild
               >
-                <a href="/cv.pdf" download="Mahmoud_Gamal_Bakheet_CV.pdf">
+                <a href="/cv.pdf" download="Mahmoud_Gamal_CV.pdf">
                   <FileDown className={language === "ar" ? "ml-2 h-5 w-5" : "mr-2 h-5 w-5"} />
                   {t.hero.downloadCv}
                 </a>
@@ -160,7 +127,7 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Social Links with Dynamic Brand Hover Glows */}
+            {/* Social Links */}
             <div className="flex items-center gap-3.5 text-muted-foreground">
               <Link 
                 href={siteConfig.github} 
@@ -204,7 +171,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Profile Image Column with Futuristic Frame */}
+          {/* Profile Image Column */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -212,7 +179,7 @@ export function Hero() {
             className="relative shrink-0"
           >
             {/* Outer Rotating Conic Halo */}
-            <div className="absolute -inset-4 rounded-[40px] bg-gradient-to-r from-primary via-indigo-500 to-purple-600 opacity-40 blur-xl animate-pulse" />
+            <div className="absolute -inset-4 rounded-[40px] bg-gradient-to-r from-primary via-indigo-500 to-purple-600 opacity-35 blur-xl animate-pulse" />
 
             <div className="relative w-72 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[430px] rounded-[36px] p-2 bg-gradient-to-tr from-primary via-purple-500/50 to-indigo-500 shadow-2xl overflow-hidden group">
               <div className="w-full h-full rounded-[30px] overflow-hidden relative border border-white/20">
@@ -223,8 +190,7 @@ export function Hero() {
                   className="object-cover object-[50%_15%] group-hover:scale-105 transition-transform duration-700"
                   priority
                 />
-                {/* Subtle Image Bottom Vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
 
@@ -244,7 +210,7 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Floating Experience Pill */}
+            {/* Floating Role Pill */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -258,28 +224,6 @@ export function Hero() {
             </motion.div>
           </motion.div>
         </div>
-
-        {/* Impressive Stats Counter Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 sm:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 p-4 sm:p-6 rounded-3xl glass-card border border-border/60"
-        >
-          {siteConfig.stats.map((stat, idx) => (
-            <div 
-              key={idx}
-              className="flex flex-col items-center justify-center p-4 rounded-2xl bg-secondary/30 hover:bg-primary/10 border border-transparent hover:border-primary/30 transition-all duration-300 text-center"
-            >
-              <span className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-500 mb-1">
-                {stat.value}
-              </span>
-              <span className="text-xs sm:text-sm font-semibold text-muted-foreground">
-                {language === "ar" ? stat.labelAr : stat.labelEn}
-              </span>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
