@@ -63,7 +63,7 @@ export const siteConfig = {
 
   translations: {
     en: {
-      role: "Full Stack Developer (MERN / Next.js / NestJS / Laravel)",
+      role: "Full Stack Developer (MERN / Next.js / NestJS)",
       tagline: "Building scalable production systems, high-performance web applications, and real-time experiences with clean architecture.",
       description:
         "Full Stack Developer skilled in MERN, Next.js, NestJS, and Laravel, building production-style apps with clean architecture across JavaScript/TypeScript and PHP. Sole developer on a real-time broadcast graphics control system, with emphasis on secure, scalable, and performant systems delivered through continuous learning and best practices.",
@@ -128,7 +128,7 @@ export const siteConfig = {
       },
     },
     ar: {
-      role: "مطور تطبيقات متكامل (MERN / Next.js / NestJS / Laravel)",
+      role: "مطور تطبيقات متكامل (MERN / Next.js / NestJS)",
       tagline: "أبني أنظمة ويب عالية الأداء وتطبيقات لحظية متطورة بمعمارية برمجية نظيفة وقابلة للتوسع.",
       description:
         "مطور تطبيقات متكاملة (Full Stack Developer) متخصص في MERN و Next.js و NestJS و Laravel، أصنع تطبيقات برمجية احترافية بمعمارية نظيفة عبر بيئة JavaScript/TypeScript و PHP. بنيت بمفردي نظاماً متكاملاً لإدارة وتوليد جرافيكس البث المباشر (Broadcast CG)، مع تركيز دائم على السرعة والأمان الفائق وقابلية التوسع وأفضل الممارسات البرمجية.",

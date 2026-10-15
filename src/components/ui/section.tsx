@@ -41,7 +41,7 @@ export const Section = ({
           {title && (
             <div className="inline-block">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 tracking-tight">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 dark:from-indigo-300 dark:via-purple-200 dark:to-cyan-300">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-purple-700 to-slate-900 dark:from-indigo-300 dark:via-purple-200 dark:to-cyan-300">
                   {title}
                 </span>
               </h2>

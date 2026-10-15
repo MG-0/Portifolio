@@ -15,7 +15,7 @@ import {
   FaShieldAlt, FaLock, FaLayerGroup, FaNetworkWired, 
   FaJava, FaLaptopCode
 } from "react-icons/fa";
-import { Pause, Sparkles, Layers, Cpu, Code2, Globe } from "lucide-react";
+import { Pause, Layers, Cpu, Code2 } from "lucide-react";
 
 const skillIcons: Record<string, { icon: React.ReactNode; color: string }> = {
   "React.js": { icon: <SiReact />, color: "#61DAFB" },
@@ -124,32 +124,34 @@ export function Skills() {
         {streamConfigs.map((stream) => (
           <div key={stream.id} className="space-y-3">
             {/* Stream Category Header */}
-            <div className="flex items-center gap-2.5 px-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground/80">
+            <div className="flex items-center gap-2.5 px-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground/85">
               {stream.icon}
               <span>{stream.title}</span>
             </div>
 
-            {/* Marquee Track */}
-            <div className={`flex gap-4 ${stream.reverse ? "animate-marquee-reverse" : "animate-marquee"}`}>
-              {stream.items.map((skill, idx) => {
-                const meta = skillIcons[skill.name];
-                return (
-                  <div
-                    key={`${stream.id}-${skill.name}-${idx}`}
-                    className="flex items-center gap-3 px-5 py-3 rounded-2xl glass-card-floating glass-card-hover shrink-0 cursor-default group"
-                  >
-                    <span
-                      className="text-xl group-hover:scale-125 transition-transform duration-300"
-                      style={{ color: meta?.color || skill.color }}
+            {/* Marquee Track Container with explicit LTR to guarantee all 4 strips are visible and fluid in Arabic */}
+            <div dir="ltr" className="w-full overflow-hidden py-1 relative">
+              <div className={`flex gap-4 flex-nowrap ${stream.reverse ? "animate-marquee-reverse" : "animate-marquee"}`}>
+                {stream.items.map((skill, idx) => {
+                  const meta = skillIcons[skill.name];
+                  return (
+                    <div
+                      key={`${stream.id}-${skill.name}-${idx}`}
+                      className="flex items-center gap-3 px-5 py-3 rounded-2xl glass-card-floating glass-card-hover shrink-0 cursor-default group"
                     >
-                      {meta?.icon || <FaCode />}
-                    </span>
-                    <span className="text-xs sm:text-sm font-extrabold text-foreground group-hover:text-primary transition-colors">
-                      {skill.name}
-                    </span>
-                  </div>
-                );
-              })}
+                      <span
+                        className="text-xl group-hover:scale-125 transition-transform duration-300"
+                        style={{ color: meta?.color || skill.color }}
+                      >
+                        {meta?.icon || <FaCode />}
+                      </span>
+                      <span className="text-xs sm:text-sm font-extrabold text-foreground group-hover:text-primary transition-colors">
+                        {skill.name}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         ))}

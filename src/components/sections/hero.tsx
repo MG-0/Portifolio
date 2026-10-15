@@ -18,7 +18,7 @@ import { useLanguage } from "@/components/language-provider";
 export function Hero() {
   const { t, language } = useLanguage();
   const [displayedName, setDisplayedName] = useState("");
-  const targetName = siteConfig.name;
+  const targetName = language === "ar" ? "محمود جمال" : siteConfig.name;
 
   useEffect(() => {
     let index = 0;
@@ -75,7 +75,7 @@ export function Hero() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-4 leading-[1.1]">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-purple-700 to-slate-900 dark:from-indigo-400 dark:via-purple-300 dark:to-cyan-300">
                 {displayedName}
               </span>
               <span className="animate-pulse text-primary font-light">|</span>

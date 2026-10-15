@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
-import { Menu, X, Languages, Sparkles } from "lucide-react";
+import { Menu, X, Languages } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 
 export function Navbar() {
@@ -41,21 +41,21 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-6 py-4",
         isScrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/60 py-3 shadow-lg shadow-black/5"
+          ? "bg-background/85 backdrop-blur-xl border-b border-border/60 py-3 shadow-lg shadow-black/5"
           : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Brand Logo Monogram */}
+        {/* Brand Logo & Name */}
         <Link href="/" className="group flex items-center gap-3">
-          <div className="relative h-7 sm:h-8 w-auto flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+          <div className="relative h-8 w-auto flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
             {/* Dark mode: crisp white logo */}
             <Image
               src="/logo-white.png"
               alt="MG Logo"
               width={54}
               height={32}
-              className="hidden dark:block h-7 sm:h-8 w-auto object-contain"
+              className="hidden dark:block h-8 w-auto object-contain"
               priority
             />
             {/* Light mode: crisp dark logo */}
@@ -64,13 +64,13 @@ export function Navbar() {
               alt="MG Logo"
               width={54}
               height={32}
-              className="block dark:hidden h-7 sm:h-8 w-auto object-contain"
+              className="block dark:hidden h-8 w-auto object-contain"
               priority
             />
           </div>
           <div className="hidden sm:block">
             <span className="text-base font-extrabold tracking-tight text-foreground block">
-              {siteConfig.name}
+              {language === "ar" ? "محمود جمال" : siteConfig.name}
             </span>
             <span className="text-[10px] font-bold text-primary block uppercase tracking-wider">
               Full Stack Engineer
@@ -79,7 +79,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-7 rtl:space-x-reverse">
+        <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <motion.div
               key={link.name}
@@ -91,16 +91,16 @@ export function Navbar() {
                 className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors duration-200 relative group py-1"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-indigo-500 transition-all duration-300 group-hover:w-full rounded-full" />
+                <span className="absolute -bottom-1 left-0 rtl:left-auto rtl:right-0 w-0 h-0.5 bg-gradient-to-r from-primary to-indigo-500 transition-all duration-300 group-hover:w-full rounded-full" />
               </Link>
             </motion.div>
           ))}
 
           {/* Controls: Language & Theme Toggle */}
-          <div className="flex items-center gap-3 pl-4 rtl:pl-0 rtl:pr-4 border-l rtl:border-l-0 rtl:border-r border-border/60">
+          <div className="flex items-center gap-3 ms-2 ps-4 border-s border-border/60">
             <button
               onClick={toggleLanguage}
-              className="px-3 py-1.5 rounded-xl border border-border/60 hover:bg-secondary/80 hover:border-primary/40 transition-all flex items-center gap-2 text-xs font-bold text-foreground"
+              className="px-3 py-1.5 rounded-xl border border-border/60 hover:bg-secondary hover:border-primary/40 transition-all flex items-center gap-2 text-xs font-bold text-foreground"
               title={language === "en" ? "تبديل إلى العربية" : "Switch to English"}
             >
               <Languages size={15} className="text-primary" />
@@ -111,7 +111,7 @@ export function Navbar() {
         </nav>
 
         {/* Mobile Navigation Toggles */}
-        <div className="flex items-center space-x-3 md:hidden rtl:space-x-reverse">
+        <div className="flex items-center gap-2.5 md:hidden">
           <button
             onClick={toggleLanguage}
             className="p-2 rounded-xl border border-border/60 hover:bg-secondary text-xs font-bold flex items-center gap-1.5"
@@ -132,7 +132,7 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-2xl border-b border-border/60 px-6 py-8 flex flex-col space-y-5 animate-in slide-in-from-top duration-300 shadow-2xl">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-2xl border-b border-border/60 px-6 py-8 flex flex-col space-y-4 animate-in slide-in-from-top duration-300 shadow-2xl">
           {navLinks.map((link) => (
             <Link
               key={link.name}
