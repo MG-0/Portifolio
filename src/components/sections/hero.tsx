@@ -68,11 +68,11 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-start"
           >
-            {/* Greeting Pill with Gentle Floating, Colorful Gradient & Glowing Rotating Sparkle */}
+            {/* Greeting Pill with Gentle Floating & High Contrast Name */}
             <motion.div 
               animate={{ y: [-3, 3, -3] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full text-xs md:text-sm font-extrabold tracking-wider uppercase mb-6 bg-gradient-to-r from-indigo-500/10 via-purple-500/15 to-pink-500/10 dark:from-indigo-500/20 dark:via-purple-500/20 dark:to-pink-500/20 border border-indigo-500/30 dark:border-indigo-400/40 shadow-lg shadow-indigo-500/10 backdrop-blur-xl"
+              className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full text-xs md:text-sm font-extrabold tracking-wider uppercase mb-6 bg-indigo-50/90 dark:bg-indigo-950/40 border border-indigo-200/90 dark:border-indigo-500/40 shadow-md shadow-indigo-500/5 backdrop-blur-xl"
             >
               <motion.span
                 animate={{ rotate: 360 }}
@@ -81,8 +81,11 @@ export function Hero() {
               >
                 <Sparkles size={16} className="text-amber-500 dark:text-amber-400 fill-amber-400/30" />
               </motion.span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-300 dark:via-purple-200 dark:to-pink-300 font-black">
-                {t.hero.hi} {language === "ar" ? "محمود جمال" : "Mahmoud Gamal"}
+              <span className="text-primary dark:text-indigo-300 font-bold">
+                {t.hero.hi}
+              </span>
+              <span className="text-slate-950 dark:text-white dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-indigo-200 dark:via-purple-200 dark:to-pink-200 font-black">
+                {language === "ar" ? "محمود جمال" : "Mahmoud Gamal"}
               </span>
             </motion.div>
 

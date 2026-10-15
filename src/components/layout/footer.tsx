@@ -38,6 +38,7 @@ export function Footer() {
           {/* Brand with Logo & 2-Word Name */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-11 h-7 flex items-center justify-center">
+              {/* Dark mode: crisp white logo */}
               <Image
                 src="/logo-white.png"
                 alt="MG Logo"
@@ -45,12 +46,13 @@ export function Footer() {
                 height={26}
                 className="hidden dark:block object-contain group-hover:scale-105 transition-transform"
               />
+              {/* Light mode: crisp dark logo */}
               <Image
-                src="/logo-transparent.png"
+                src="/logo-dark.png"
                 alt="MG Logo"
                 width={44}
                 height={26}
-                className="block dark:hidden object-contain group-hover:scale-105 transition-transform"
+                className="block dark:hidden object-contain group-hover:scale-105 transition-transform brightness-0"
               />
             </div>
             <span className="font-extrabold text-foreground text-lg tracking-tight">

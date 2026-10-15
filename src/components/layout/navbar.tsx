@@ -60,11 +60,11 @@ export function Navbar() {
             />
             {/* Light mode: crisp dark logo */}
             <Image
-              src="/logo-transparent.png"
+              src="/logo-dark.png"
               alt="MG Logo"
               width={54}
               height={32}
-              className="block dark:hidden h-8 w-auto object-contain"
+              className="block dark:hidden h-8 w-auto object-contain brightness-0"
               priority
             />
           </div>
