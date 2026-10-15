@@ -68,20 +68,22 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-start"
           >
-            {/* Greeting Pill with Gentle Floating & Rotating Sparkle */}
+            {/* Greeting Pill with Gentle Floating, Colorful Gradient & Glowing Rotating Sparkle */}
             <motion.div 
               animate={{ y: [-3, 3, -3] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-primary text-xs md:text-sm font-bold tracking-wide uppercase mb-6 shadow-sm"
+              className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full text-xs md:text-sm font-extrabold tracking-wider uppercase mb-6 bg-gradient-to-r from-indigo-500/10 via-purple-500/15 to-pink-500/10 dark:from-indigo-500/20 dark:via-purple-500/20 dark:to-pink-500/20 border border-indigo-500/30 dark:border-indigo-400/40 shadow-lg shadow-indigo-500/10 backdrop-blur-xl"
             >
               <motion.span
                 animate={{ rotate: 360 }}
                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                className="inline-flex items-center justify-center text-primary"
+                className="inline-flex items-center justify-center filter drop-shadow-[0_0_8px_rgba(245,158,11,0.7)]"
               >
-                <Sparkles size={14} />
+                <Sparkles size={16} className="text-amber-500 dark:text-amber-400 fill-amber-400/30" />
               </motion.span>
-              <span>{t.hero.hi} {language === "ar" ? "محمود جمال" : "Mahmoud Gamal"}</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-300 dark:via-purple-200 dark:to-pink-300 font-black">
+                {t.hero.hi} {language === "ar" ? "محمود جمال" : "Mahmoud Gamal"}
+              </span>
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-4 leading-[1.1]">
