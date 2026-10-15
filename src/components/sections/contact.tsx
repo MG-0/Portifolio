@@ -81,7 +81,7 @@ export function Contact() {
             <motion.div 
               animate={{ y: [-2.5, 2.5, -2.5] }}
               transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/30 text-foreground dark:text-primary text-xs font-bold uppercase tracking-wider mb-4 shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider badge-pill-contrast mb-4 shadow-sm"
             >
               <motion.span
                 animate={{ rotate: 360 }}
@@ -90,7 +90,7 @@ export function Contact() {
               >
                 <Sparkles size={13} />
               </motion.span>
-              <span className="text-foreground dark:text-primary font-bold">{t.contact.connect}</span>
+              <span className="font-bold">{t.contact.connect}</span>
             </motion.div>
 
             <h3 className="text-2xl sm:text-3xl font-black mb-4 text-foreground">
