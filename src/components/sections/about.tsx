@@ -1,133 +1,127 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import { Section } from "@/components/ui/section";
-import { GraduationCap, Heart, Code2, Rocket, Zap, Target } from "lucide-react";
+import { 
+  GraduationCap, Code2, Rocket, Zap, ShieldCheck, Heart, 
+  Terminal, Server, Users, Award, CheckCircle2 
+} from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
+import { siteConfig } from "@/config/site";
 
 export function About() {
   const { language } = useLanguage();
 
-  const features = [
+  const highlights = [
     {
-      icon: <GraduationCap className="text-primary" size={24} />,
-      titleEn: "Education",
-      titleAr: "التعليم",
-      descriptionEn:
-        "Computer Science graduate from Arab Open University (Egypt) in 2026.",
-      descriptionAr: "خريج علوم حاسب من الجامعة العربية المفتوحة (مصر) 2026.",
+      icon: <GraduationCap size={24} className="text-primary" />,
+      titleEn: "B.Sc. in Computer Science",
+      titleAr: "بكالوريوس علوم الحاسب",
+      descEn: "Arab Open University, Egypt (Graduated June 2026). Strong algorithmic foundations & system principles.",
+      descAr: "الجامعة العربية المفتوحة بمصر (تخرج يونيو 2026). أساس قوي في الخوارزميات ومبادئ هندسة البرمجيات.",
     },
     {
-      icon: <Code2 className="text-primary" size={24} />,
-      titleEn: "Full Stack",
-      titleAr: "متكامل",
-      descriptionEn:
-        "Proficient in MERN stack, Next.js, and NestJS for complete web solutions.",
-      descriptionAr:
-        "خبرة في مجموعة MERN و Next.js و NestJS للحصول على حلول ويب كاملة.",
+      icon: <Server size={24} className="text-indigo-400" />,
+      titleEn: "Real-Time & Broadcast CG",
+      titleAr: "أنظمة البث والـ Real-Time",
+      descEn: "Sole engineer on real-time broadcast CG system with WebSocket queues and GSAP overlay integration.",
+      descAr: "المهندس الوحيد لنظام جرافيكس البث المباشر مع طوابير WebSocket وتكامل GSAP الاحترافي للبث الحي.",
     },
     {
-      icon: <Zap className="text-primary" size={24} />,
-      titleEn: "AI Integration",
-      titleAr: "تكامل الذكاء الاصطناعي",
-      descriptionEn:
-        "Experienced integrating AI models into production applications with TensorFlow.",
-      descriptionAr:
-        "خبرة في تكامل نماذج الذكاء الاصطناعي في التطبيقات باستخدام TensorFlow.",
+      icon: <Zap size={24} className="text-amber-400" />,
+      titleEn: "Full Stack Mastery",
+      titleAr: "احتراف التطوير المتكامل",
+      descEn: "Specialized in MERN, Next.js, and NestJS with enterprise clean architecture, DTOs, and REST/GraphQL APIs.",
+      descAr: "متخصص في بيئة MERN و Next.js و NestJS مع معمارية نظيفة وأنابيب DTO وواجهات برمجية عالية الكفاءة.",
     },
     {
-      icon: <Rocket className="text-primary" size={24} />,
-      titleEn: "DevOps & Tools",
-      titleAr: "أدوات التطوير",
-      descriptionEn:
-        "Learning Docker, Kubernetes, CI/CD, and system design principles.",
-      descriptionAr: "تعلم Docker و Kubernetes و CI/CD وفن تصميم الأنظمة.",
+      icon: <ShieldCheck size={24} className="text-emerald-400" />,
+      titleEn: "Clean Architecture & Security",
+      titleAr: "معمارية نظيفة وأمان عالي",
+      descEn: "Strict adherence to SOLID principles, Design Patterns, RBAC, JWT/OAuth, and zero-compromise security.",
+      descAr: "تطبيق صارم لمبادئ SOLID، وأنماط التصميم المعمارية، وحماية الصلاحيات المشددة (RBAC) ومصادقة التوكن.",
     },
     {
-      icon: <Heart className="text-primary" size={24} />,
-      titleEn: "Quality Focused",
-      titleAr: "التركيز على الجودة",
-      descriptionEn:
-        "Passionate about clean code, design patterns, and best practices.",
-      descriptionAr: "شغوف بكود نظيف وأنماط التصميم وأفضل الممارسات.",
+      icon: <Users size={24} className="text-pink-400" />,
+      titleEn: "Mentorship & Clarity",
+      titleAr: "شغف التوجيه ونقل المعرفة",
+      descEn: "Passion for mentoring and distilling complex computer science problems into crystal-clear insights.",
+      descAr: "شغف كبير بتعليم وتوجيه المطورين وتبسيط أعقد مفاهيم علوم الحاسب إلى أفكار واضحة وسهلة الفهم.",
     },
     {
-      icon: <Target className="text-primary" size={24} />,
-      titleEn: "Growth Mindset",
-      titleAr: "عقلية النمو",
-      descriptionEn:
-        "Continuous learner, always exploring new technologies and challenges.",
-      descriptionAr: "متعلم مستمر، يستكشف باستمرار تقنيات وتحديات جديدة.",
+      icon: <Rocket size={24} className="text-cyan-400" />,
+      titleEn: "Rapid Delivery & Freelance",
+      titleAr: "تسليم فائق السرعة وأعمال حرة",
+      descEn: "Proven ability to ship production platforms within 24h sprints and deliver live luxury commercial platforms.",
+      descAr: "قدرة مثبتة على تسليم أنظمة إنتاجية في تحديات 24 ساعة وإنجاز منصات تجارية كبرى مثل Rewaq Decor.",
     },
   ];
 
   return (
     <Section
       id="about"
-      title={language === "ar" ? "عني" : "About Me"}
+      title={language === "ar" ? "عني وعن رحلتي" : "About My Journey"}
       subtitle={
         language === "ar"
-          ? "نظرة عامة على من أكون والمجالات التي أركز عليها."
-          : "A brief overview of who I am and what I focus on."
+          ? "الركائز الهندسية، الرؤية المهنية، والمعايير التي تحكم بناء مشاريعي."
+          : "Engineering philosophy, core competencies, and the standards behind my software systems."
       }
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {features.map((feature, index) => (
+      {/* 6 Key Architectural Pillars */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {highlights.map((item, idx) => (
           <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30, x: index % 2 === 0 ? -20 : 20 }}
-            whileInView={{ opacity: 1, y: 0, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -8, scale: 1.02 }}
-            className="group relative overflow-hidden p-6 rounded-3xl border border-border/60 bg-gradient-to-b from-card to-card/60 hover:border-primary/60 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 cursor-default"
+            key={idx}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.45, delay: idx * 0.08 }}
+            whileHover={{ y: -6, scale: 1.02 }}
+            className="group relative rounded-3xl border border-border/60 bg-gradient-to-b from-card/90 via-card/50 to-card/20 backdrop-blur-xl p-7 hover:border-primary/60 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 cursor-default flex flex-col"
           >
-            {/* Ambient hover glow */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/0 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            {/* Top Accent Line */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300 text-primary">
-              {feature.icon}
+            <div className="w-14 h-14 rounded-2xl bg-secondary/60 flex items-center justify-center mb-5 group-hover:scale-115 group-hover:bg-primary/15 transition-all duration-300 shadow-sm border border-border/40">
+              {item.icon}
             </div>
-            <h3 className="text-lg font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
-              {language === "ar" ? feature.titleAr : feature.titleEn}
+
+            <h3 className="text-lg font-bold text-foreground mb-2.5 group-hover:text-primary transition-colors">
+              {language === "ar" ? item.titleAr : item.titleEn}
             </h3>
-            <p className="text-muted-foreground leading-relaxed text-sm">
-              {language === "ar"
-                ? feature.descriptionAr
-                : feature.descriptionEn}
+
+            <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+              {language === "ar" ? item.descAr : item.descEn}
             </p>
           </motion.div>
         ))}
       </div>
 
-      <motion.div 
-        initial={{ opacity: 0, y: 40 }}
+      {/* Narrative & Vision Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6 }}
-        className="mt-16 p-8 md:p-12 rounded-3xl border border-border/60 bg-gradient-to-br from-secondary/40 via-secondary/20 to-card backdrop-blur-md flex flex-col md:flex-row items-center gap-8 shadow-lg hover:border-primary/40 transition-all duration-300"
+        className="rounded-3xl border border-border/60 bg-gradient-to-br from-secondary/40 via-card/70 to-card p-8 sm:p-12 backdrop-blur-xl shadow-xl hover:border-primary/40 transition-all"
       >
-        <div className="flex-1">
-          <h3 className="text-3xl font-bold mb-6 text-foreground">
-            {language === "ar" ? "رحلتي والرؤية" : "My Journey & Vision"}
+        <div className="max-w-4xl mx-auto space-y-6">
+          <h3 className="text-2xl sm:text-3xl font-black text-foreground">
+            {language === "ar" ? "الفلسفة الهندسية وراء الكود" : "Engineering Philosophy & Mindset"}
           </h3>
-          <div className="space-y-6">
-            <p className="text-muted-foreground text-base leading-relaxed">
-              {language === "ar"
-                ? "مطور متكامل مخلص ذو أساس قوي في علوم الحاسب ودافع حقيقي لفهم كيفية عمل الأشياء من الداخل، وليس مجرد كيفية استخدامها. تشمل تقنياتي الأساسية نظام MERN و Next.js و NestJS، إلى جانب تعمق متزايد في Laravel و PHP — أحب البحث عن \"السبب\" وراء معمارية إطارات العمل، وليس مجرد شحن الميزات بها."
-                : "A dedicated Full Stack Developer with a strong foundation in Computer Science and a genuine drive to understand how things really work, not just how to use them. My core stack spans the MERN ecosystem, Next.js, and NestJS, alongside a growing depth in Laravel and PHP — I like digging into the \"why\" behind a framework's architecture, not just shipping features with it."}
-            </p>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              {language === "ar"
-                ? "كما أنني أتوسع باستمرار في مجالات جديدة: استراتيجيات التخزين المؤقت (Caching)، تصميم الأنظمة الموزعة (System Design)، ومفاهيم متقدمة أخرى، ودائماً ما أتطلع لبناء صورة أكثر اكتمالاً حول كيفية تصميم وتطوير التطبيقات الحديثة."
-                : "I'm also continuously expanding into new territory: caching strategies (Redis), System Design, and advanced full-stack concepts, always looking to build a more complete picture of how modern applications are designed and scaled."}
-            </p>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              {language === "ar"
-                ? "بعيداً عن الكود، لدي شغف قوي بالتوجيه والتدريس، وأستمتع بتبسيط الأفكار التقنية المعقدة إلى رؤى واضحة وسهلة الفهم للآخرين."
-                : "Beyond code, I have a strong passion for mentoring and teaching, and I enjoy breaking down complex technical ideas into clear, digestible insights for others."}
-            </p>
-          </div>
+
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+            {language === "ar"
+              ? "أنا مطور برمجيات متكامل يؤمن بأن الكود البرمجي الممتاز ليس مجرد شحن ميزات سريعة، بل هو تصميم أنظمة مرنة تفهم طبيعة المشكلة المعمارية من جذورها. خبرتي في بناء نظام البث المباشر في شركة TKDS وتطوير منصة رواق للديكور علمتني كيف أتعامل مع الضغط العالي وتحديات التزامن المتوازي (Concurrency) لتقديم منتج فائق السرعة والموثوقية."
+              : "I am a full-stack engineer who believes that high-caliber code is not just about shipping features fast, but about constructing resilient systems that address architectural challenges at their core. My experience building the real-time broadcast graphics system at TKDS and delivering high-performance platforms like Rewaq Decor honed my ability to tackle concurrency, zero-downtime reliability, and high-pressure production demands."}
+          </p>
+
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+            {language === "ar"
+              ? "تركيزي ينصب حالياً على تعميق استخدام NestJS بمعمارية طبقية نظيفة، وتقنيات التخزين المؤقت المتقدم بـ Redis، وتصميم الأنظمة الموزعة (System Design)، مع مواصلة استكشاف تكامل نماذج الذكاء الاصطناعي مع الواجهات الحديثة."
+              : "My active focus centers around advancing clean layered architectures with NestJS, distributed caching strategies via Redis, and scalable System Design patterns, while bridging modern frontend fluidity with production-ready AI services."}
+          </p>
         </div>
       </motion.div>
     </Section>

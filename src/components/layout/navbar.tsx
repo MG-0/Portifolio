@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
-import { Menu, X, Languages } from "lucide-react";
+import { Menu, X, Languages, Sparkles } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 
 export function Navbar() {
@@ -19,12 +20,13 @@ export function Navbar() {
     { name: t.nav.skills, href: "#skills" },
     { name: t.nav.projects, href: "#projects" },
     { name: t.nav.experience, href: "#experience" },
+    { name: t.nav.testimonials, href: "#testimonials" },
     { name: t.nav.contact, href: "#contact" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 25);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -37,79 +39,106 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b py-3" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-6 py-4",
+        isScrolled
+          ? "bg-background/80 backdrop-blur-xl border-b border-border/60 py-3 shadow-lg shadow-black/5"
+          : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="group flex items-center gap-2">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-indigo-600 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-primary/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-            MG
+        {/* Brand Logo Monogram */}
+        <Link href="/" className="group flex items-center gap-3">
+          <div className="relative w-12 h-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            {/* Dark mode: crisp white logo */}
+            <Image
+              src="/logo-white.png"
+              alt="MG Logo"
+              width={48}
+              height={32}
+              className="hidden dark:block object-contain"
+              priority
+            />
+            {/* Light mode: crisp dark logo */}
+            <Image
+              src="/logo-transparent.png"
+              alt="MG Logo"
+              width={48}
+              height={32}
+              className="block dark:hidden object-contain"
+              priority
+            />
           </div>
-          <span className="text-xl font-bold tracking-tight hidden sm:block">
-            {siteConfig.name}
-          </span>
+          <div className="hidden sm:block">
+            <span className="text-base font-extrabold tracking-tight text-foreground block">
+              {siteConfig.name}
+            </span>
+            <span className="text-[10px] font-bold text-primary block uppercase tracking-wider">
+              Full Stack Engineer
+            </span>
+          </div>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
+        {/* Desktop Navigation Links */}
+        <nav className="hidden md:flex items-center space-x-7 rtl:space-x-reverse">
           {navLinks.map((link) => (
             <motion.div
               key={link.name}
               whileHover={{ y: -2 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
             >
               <Link
                 href={link.href}
-                className="text-sm font-medium hover:text-indigo-400 transition-all duration-300 relative group py-1"
+                className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors duration-200 relative group py-1"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-400 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-indigo-500 transition-all duration-300 group-hover:w-full rounded-full" />
               </Link>
             </motion.div>
           ))}
-          <div className="flex items-center gap-4">
+
+          {/* Controls: Language & Theme Toggle */}
+          <div className="flex items-center gap-3 pl-4 rtl:pl-0 rtl:pr-4 border-l rtl:border-l-0 rtl:border-r border-border/60">
             <button
               onClick={toggleLanguage}
-              className="p-2 rounded-xl hover:bg-secondary transition-colors flex items-center gap-2 text-sm font-bold"
-              title={language === "en" ? "العربية" : "English"}
+              className="px-3 py-1.5 rounded-xl border border-border/60 hover:bg-secondary/80 hover:border-primary/40 transition-all flex items-center gap-2 text-xs font-bold text-foreground"
+              title={language === "en" ? "تبديل إلى العربية" : "Switch to English"}
             >
-              <Languages size={18} />
-              <span className="hidden lg:block">
-                {language === "en" ? "العربية" : "English"}
-              </span>
+              <Languages size={15} className="text-primary" />
+              <span>{language === "en" ? "العربية" : "EN"}</span>
             </button>
             <ThemeToggle />
           </div>
         </nav>
 
-        {/* Mobile Nav Toggle */}
-        <div className="flex items-center space-x-4 md:hidden rtl:space-x-reverse">
+        {/* Mobile Navigation Toggles */}
+        <div className="flex items-center space-x-3 md:hidden rtl:space-x-reverse">
           <button
             onClick={toggleLanguage}
-            className="p-2 rounded-xl hover:bg-secondary transition-colors"
+            className="p-2 rounded-xl border border-border/60 hover:bg-secondary text-xs font-bold flex items-center gap-1.5"
           >
-            <Languages size={20} />
+            <Languages size={16} className="text-primary" />
+            <span>{language === "en" ? "العربية" : "EN"}</span>
           </button>
           <ThemeToggle />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2"
+            className="p-2 rounded-xl border border-border/60 hover:bg-secondary"
+            aria-label="Toggle navigation menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b px-6 py-8 flex flex-col space-y-6 animate-in slide-in-from-top duration-300">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-2xl border-b border-border/60 px-6 py-8 flex flex-col space-y-5 animate-in slide-in-from-top duration-300 shadow-2xl">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-lg font-medium hover:text-primary"
+              className="text-base font-bold text-foreground hover:text-primary transition-colors py-1"
             >
               {link.name}
             </Link>

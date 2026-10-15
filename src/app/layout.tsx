@@ -9,10 +9,35 @@ const cairo = Cairo({ subsets: ["arabic", "latin"], variable: "--font-cairo" });
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
+    default: `${siteConfig.fullName} | Full Stack Developer`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: "Mahmoud Gamal's Portfolio - Full Stack Developer",
+  description:
+    "Portfolio of Mahmoud Gamal Ahmed Bakheet - Full Stack Developer skilled in MERN, Next.js, and NestJS, building production-grade web applications with clean architecture.",
+  keywords: [
+    "Mahmoud Gamal",
+    "Mahmoud Gamal Ahmed Bakheet",
+    "Full Stack Developer",
+    "Next.js Developer",
+    "NestJS Developer",
+    "MERN Stack",
+    "React.js",
+    "TypeScript",
+    "Node.js",
+    "Rewaq Decor",
+    "Egypt",
+    "Broadcast Graphics",
+  ],
+  authors: [{ name: siteConfig.fullName, url: siteConfig.github }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.github,
+    title: `${siteConfig.fullName} | Full Stack Developer`,
+    description:
+      "Full Stack Developer skilled in MERN, Next.js, and NestJS, building production-grade web systems and real-time experiences.",
+    siteName: siteConfig.fullName,
+  },
   icons: {
     icon: "/favicon.ico",
   },

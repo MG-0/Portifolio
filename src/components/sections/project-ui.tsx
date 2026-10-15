@@ -1,175 +1,186 @@
 "use client";
 
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Code2, Star, GitFork } from "lucide-react";
+import { 
+  X, ExternalLink, Code2, Star, Sparkles, CheckCircle2, 
+  ArrowUpRight, ShieldCheck, Layers, Eye
+} from "lucide-react";
 import { GithubIcon as Github } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { siteConfig } from "@/config/site";
+import { ProjectItem } from "@/config/site";
+import { useLanguage } from "@/components/language-provider";
 import { 
   SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiNestjs, 
   SiTypescript, SiJavascript, SiMongodb, SiPostgresql, 
   SiRedux, SiTailwindcss, SiDocker, SiKubernetes, 
-  SiGraphql, SiPython, SiFlask, SiFramer, SiBootstrap,
-  SiHtml5, SiPrisma, SiSwagger, SiPostman, SiSqlite,
-  SiTensorflow, SiReactquery, SiPhp, SiLaravel, SiJest, SiSpringboot, SiRedis
+  SiGraphql, SiPython, SiFlask, SiFramer, 
+  SiHtml5, SiPrisma, SiJest, SiRedis, SiLaravel, SiTensorflow
 } from "react-icons/si";
-import { FaCode, FaGlobe, FaServer, FaDatabase, FaRobot, FaCubes, FaJava, FaShieldAlt } from "react-icons/fa";
-
-interface Project {
-  id?: number;
-  name: string;
-  description: string;
-  html_url: string;
-  homepage?: string;
-  topics?: string[];
-  technologies?: string[];
-  isGraduationProject?: boolean;
-  language?: string;
-  stargazers_count?: number;
-  forks_count?: number;
-}
+import { FaCode, FaGlobe, FaServer, FaDatabase, FaLayerGroup, FaNetworkWired } from "react-icons/fa";
 
 const getTechIcon = (tech: string) => {
-  const icons: Record<string, React.ReactNode> = {
-    "React.js": <SiReact className="text-[#61DAFB]" />,
-    "Next.js": <SiNextdotjs className="text-foreground" />,
-    "Node.js": <SiNodedotjs className="text-[#339933]" />,
-    "Express.js": <SiExpress className="text-foreground" />,
-    "NestJS": <SiNestjs className="text-[#E0234E]" />,
-    "TypeScript": <SiTypescript className="text-[#3178C6]" />,
-    "JavaScript": <SiJavascript className="text-[#F7DF1E]" />,
-    "MongoDB": <SiMongodb className="text-[#47A248]" />,
-    "PostgreSQL": <SiPostgresql className="text-[#4169E1]" />,
-    "Redux": <SiRedux className="text-[#764ABC]" />,
-    "Tailwind CSS": <SiTailwindcss className="text-[#06B6D4]" />,
-    "Docker": <SiDocker className="text-[#2496ED]" />,
-    "Kubernetes": <SiKubernetes className="text-[#326CE5]" />,
-    "GraphQL": <SiGraphql className="text-[#E10098]" />,
-    "Python": <SiPython className="text-[#3776AB]" />,
-    "Flask": <SiFlask className="text-foreground" />,
-    "React Query": <SiReactquery className="text-[#FF4154]" />,
-    "Framer Motion": <SiFramer className="text-[#0055FF]" />,
-    "i18n": <FaGlobe className="text-[#26A69A]" />,
-    "HTML5": <SiHtml5 className="text-[#E34F26]" />,
-    "HTML5 & CSS3": <SiHtml5 className="text-[#E34F26]" />,
-    "Bootstrap": <SiBootstrap className="text-[#7952B3]" />,
-    "REST APIs": <FaServer className="text-foreground" />,
-    "TypeORM": <FaDatabase className="text-[#FE0902]" />,
-    "Prisma": <SiPrisma className="text-foreground" />,
-    "Mongoose": <SiMongodb className="text-[#880000]" />,
-    "JWT": <FaCode className="text-foreground" />,
-    "Swagger": <SiSwagger className="text-[#85EA2D]" />,
-    "Postman": <SiPostman className="text-[#FF6C37]" />,
-    "SQLite": <SiSqlite className="text-[#003B57]" />,
-    "SQL": <FaDatabase className="text-foreground" />,
-    "Java": <FaJava className="text-[#007396]" />,
-    "C#": <FaCode className="text-[#239120]" />,
-    "PHP": <SiPhp className="text-[#777BB4]" />,
-    "Laravel": <SiLaravel className="text-[#FF2D20]" />,
-    "Eloquent ORM": <FaDatabase className="text-[#FF2D20]" />,
-    "Sanctum Auth": <FaShieldAlt className="text-[#FF2D20]" />,
-    "Jest": <SiJest className="text-[#C21325]" />,
-    "Spring Boot": <SiSpringboot className="text-[#6DB33F]" />,
-    "Caching (Redis)": <SiRedis className="text-[#DC382D]" />,
-    "TensorFlow": <SiTensorflow className="text-[#FF6F00]" />,
-    "Machine Learning": <FaRobot className="text-foreground" />,
+  const icons: Record<string, { icon: React.ReactNode; color: string }> = {
+    "React.js": { icon: <SiReact />, color: "#61DAFB" },
+    "Next.js": { icon: <SiNextdotjs />, color: "#FFFFFF" },
+    "TypeScript": { icon: <SiTypescript />, color: "#3178C6" },
+    "JavaScript": { icon: <SiJavascript />, color: "#F7DF1E" },
+    "Tailwind CSS": { icon: <SiTailwindcss />, color: "#06B6D4" },
+    "Node.js": { icon: <SiNodedotjs />, color: "#5FA04E" },
+    "Express.js": { icon: <SiExpress />, color: "#E5E7EB" },
+    "NestJS": { icon: <SiNestjs />, color: "#E0234E" },
+    "Laravel": { icon: <SiLaravel />, color: "#FF2D20" },
+    "PostgreSQL": { icon: <SiPostgresql />, color: "#4169E1" },
+    "MongoDB": { icon: <SiMongodb />, color: "#47A248" },
+    "Python": { icon: <SiPython />, color: "#3776AB" },
+    "Flask": { icon: <SiFlask />, color: "#E5E7EB" },
+    "TensorFlow": { icon: <SiTensorflow />, color: "#FF6F00" },
+    "Redux Toolkit": { icon: <SiRedux />, color: "#764ABC" },
+    "WebSockets": { icon: <FaNetworkWired />, color: "#38BDF8" },
+    "Socket.io": { icon: <FaCode />, color: "#E5E7EB" },
+    "GSAP": { icon: <FaCode />, color: "#88CE02" },
+    "Framer Motion": { icon: <SiFramer />, color: "#0055FF" },
+    "TypeORM": { icon: <FaDatabase />, color: "#FE0902" },
+    "Prisma": { icon: <SiPrisma />, color: "#2D3748" },
+    "Sanctum Auth": { icon: <ShieldCheck size={14} />, color: "#FF2D20" },
+    "JWT Auth": { icon: <ShieldCheck size={14} />, color: "#F59E0B" },
+    "NodeCG": { icon: <FaServer />, color: "#8B5CF6" },
+    "OBS Studio": { icon: <FaCode />, color: "#E5E7EB" },
   };
-  return icons[tech] || <FaCode className="text-muted-foreground" />;
+
+  const item = icons[tech];
+  if (item) {
+    return <span style={{ color: item.color }}>{item.icon}</span>;
+  }
+  return <FaCode className="text-primary" />;
 };
 
 export function ProjectCard({
   project,
   onClick,
 }: {
-  project: Project;
+  project: ProjectItem;
   onClick: () => void;
 }) {
-  const displayName = project.name.replace(/-/g, " ");
+  const { language, t } = useLanguage();
+  const title = project.title[language] || project.title.en;
+  const description = project.description[language] || project.description.en;
+  const badgeText = project.badge ? (project.badge[language] || project.badge.en) : null;
+  const highlights = project.highlights ? (project.highlights[language] || project.highlights.en) : [];
 
   return (
     <div
-      className={cn(
-        "group relative flex flex-col h-full overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:-translate-y-1.5 cursor-pointer",
-        project.isGraduationProject && "border-primary/40 ring-1 ring-primary/20 shadow-md"
-      )}
       onClick={onClick}
+      className="group relative flex flex-col h-full rounded-3xl border border-border/60 bg-gradient-to-b from-card/90 via-card/50 to-card/20 backdrop-blur-xl transition-all duration-400 hover:border-primary/60 hover:shadow-2xl hover:shadow-primary/15 hover:-translate-y-2 cursor-pointer overflow-hidden p-6 sm:p-7"
     >
-      {/* Background gradient on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+      {/* Top Ambient Glow Line */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
 
-      {/* Badge */}
-      {project.isGraduationProject && (
-        <div className="absolute top-4 right-4 z-10">
-          <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-primary text-primary-foreground shadow-sm">
-            Featured AI Project
+      {/* Header: Project Badge & Category */}
+      <div className="flex items-center justify-between gap-3 mb-5">
+        {badgeText ? (
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30">
+            <Sparkles size={12} className="animate-pulse" />
+            {badgeText}
           </span>
-        </div>
-      )}
+        ) : (
+          <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
+            {project.category}
+          </span>
+        )}
 
-      <div className="p-6 flex flex-col flex-1 relative z-10">
-        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
-          <Code2 className="text-primary" size={24} />
-        </div>
+        {/* Live indicator if live link exists */}
+        {project.live && (
+          <span className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-500 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+            <span>Live</span>
+          </span>
+        )}
+      </div>
 
-        <h3 className="text-xl font-bold mb-3 leading-tight group-hover:text-primary transition-colors duration-300 line-clamp-2 text-foreground">
-          {displayName}
-        </h3>
+      {/* Project Title */}
+      <h3 className="text-xl sm:text-2xl font-black mb-3 text-foreground group-hover:text-primary transition-colors duration-300 leading-snug">
+        {title}
+      </h3>
 
-        <p className="text-muted-foreground text-sm line-clamp-3 mb-6 flex-1">
-          {project.description || "A notable project in my portfolio."}
-        </p>
+      {/* Description */}
+      <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
+        {description}
+      </p>
 
-        {/* Technologies / Tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {(project.technologies || project.topics?.slice(0, 4) || []).map((tech) => (
+      {/* Highlights Pills */}
+      {highlights.length > 0 && (
+        <div className="mb-5 flex flex-wrap gap-1.5">
+          {highlights.slice(0, 3).map((item, i) => (
             <span
-              key={tech}
-              className="flex items-center gap-1.5 text-[11px] px-2 py-1 rounded-md bg-secondary text-secondary-foreground font-medium border border-border/50 group-hover:border-primary/20 transition-colors"
+              key={i}
+              className="inline-flex items-center gap-1 text-[11px] font-medium text-foreground/80 bg-secondary/50 px-2.5 py-1 rounded-lg border border-border/40"
             >
-              <span className="text-sm">{getTechIcon(tech)}</span>
-              <span>{tech}</span>
+              <CheckCircle2 size={11} className="text-primary shrink-0" />
+              <span>{item}</span>
             </span>
           ))}
         </div>
+      )}
 
-        {/* Footer */}
-        <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">
-          <div className="flex items-center gap-3 text-xs text-muted-foreground">
-            {project.stargazers_count !== undefined && project.stargazers_count > 0 && (
-              <div className="flex items-center gap-1">
-                <Star size={14} className="fill-yellow-500 text-yellow-500" />
-                <span>{project.stargazers_count}</span>
-              </div>
-            )}
-            {project.forks_count !== undefined && project.forks_count > 0 && (
-              <div className="flex items-center gap-1">
-                <GitFork size={14} />
-                <span>{project.forks_count}</span>
-              </div>
-            )}
-          </div>
-          <div className="flex gap-2">
-            <a
-              href={project.html_url}
-              target="_blank"
-              onClick={(e) => e.stopPropagation()}
-              className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground hover:text-primary transition-all hover:scale-110"
-            >
-              <Github size={18} />
-            </a>
-            {project.homepage && (
-              <a
-                href={project.homepage}
-                target="_blank"
-                onClick={(e) => e.stopPropagation()}
-                className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground hover:text-primary transition-all hover:scale-110"
-              >
-                <ExternalLink size={18} />
-              </a>
-            )}
-          </div>
-        </div>
+      {/* Tech Badges */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {project.technologies.slice(0, 5).map((tech) => (
+          <span
+            key={tech}
+            className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-xl bg-secondary/40 text-foreground font-medium border border-border/50 group-hover:border-primary/30 transition-colors"
+          >
+            <span className="text-sm shrink-0">{getTechIcon(tech)}</span>
+            <span>{tech}</span>
+          </span>
+        ))}
+        {project.technologies.length > 5 && (
+          <span className="text-xs px-2 py-1 rounded-xl bg-secondary/30 text-muted-foreground font-semibold">
+            +{project.technologies.length - 5}
+          </span>
+        )}
+      </div>
+
+      {/* Action Footer Buttons */}
+      <div className="flex items-center justify-between pt-4 border-t border-border/50 mt-auto gap-3">
+        {/* Live Link Button */}
+        {project.live ? (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500 hover:text-white transition-all duration-300 shadow-sm group/btn"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse group-hover/btn:bg-white" />
+            <span>{t.projects.viewLive}</span>
+            <ExternalLink size={13} />
+          </a>
+        ) : (
+          <span className="text-[11px] text-muted-foreground italic font-medium">
+            {project.category === "backend" ? "Backend Core" : "Architecture Ready"}
+          </span>
+        )}
+
+        {/* GitHub or Private Client Code Indicator */}
+        {project.github ? (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-secondary/60 text-foreground hover:bg-primary/20 hover:border-primary/50 border border-border/60 transition-all duration-300 hover:scale-105"
+            title="GitHub Repository"
+          >
+            <Github size={15} />
+            <span>{t.projects.viewCode}</span>
+          </a>
+        ) : (
+          <span className="text-[11px] font-bold px-3 py-1.5 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20">
+            {language === "ar" ? "مشروع فريلانس خاص" : "Private Client Code"}
+          </span>
+        )}
       </div>
     </div>
   );
@@ -180,116 +191,133 @@ export function ProjectModal({
   isOpen,
   onClose,
 }: {
-  project: Project | null;
+  project: ProjectItem | null;
   isOpen: boolean;
   onClose: () => void;
 }) {
+  const { language, t } = useLanguage();
+
   if (!project) return null;
 
-  const displayName = project.name.replace(/-/g, " ");
+  const title = project.title[language] || project.title.en;
+  const description = project.description[language] || project.description.en;
+  const highlights = project.highlights ? (project.highlights[language] || project.highlights.en) : [];
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[60] bg-background/80 backdrop-blur-sm"
+            className="fixed inset-0 bg-background/80 backdrop-blur-md"
           />
+
+          {/* Modal Container */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 10 }}
-            transition={{ duration: 0.2 }}
-            className="fixed left-1/2 top-1/2 z-[70] w-full max-w-3xl -translate-x-1/2 -translate-y-1/2 p-4 md:p-6"
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ type: "spring", duration: 0.5 }}
+            className="relative w-full max-w-2xl rounded-3xl border border-border/80 bg-card p-6 sm:p-8 shadow-2xl z-10 my-8 overflow-hidden"
           >
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 md:p-10 shadow-xl">
-              <button
-                onClick={onClose}
-                className="absolute right-6 top-6 p-2 rounded-full hover:bg-secondary transition-colors z-20 text-muted-foreground hover:text-foreground"
-              >
-                <X size={20} />
-              </button>
+            {/* Top Accent Gradient */}
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-indigo-500 to-purple-600" />
 
-              <div className="mb-8">
-                {project.isGraduationProject && (
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary mb-4 border border-primary/20">
-                    <Star size={14} className="fill-primary" />
-                    Featured AI Project
-                  </span>
-                )}
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="absolute top-6 right-6 p-2 rounded-full border border-border/60 bg-secondary/50 hover:bg-secondary text-muted-foreground hover:text-foreground transition-all hover:scale-110"
+              aria-label="Close modal"
+            >
+              <X size={18} />
+            </button>
 
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-foreground">
-                  {displayName}
-                </h2>
+            {/* Header */}
+            <div className="mb-6">
+              {project.badge && (
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/30 mb-3">
+                  {project.badge[language] || project.badge.en}
+                </span>
+              )}
+              <h2 className="text-2xl sm:text-3xl font-black text-foreground">
+                {title}
+              </h2>
+            </div>
 
-                <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
-                  {project.description}
-                </p>
+            {/* Full Description */}
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6">
+              {description}
+            </p>
 
-                {(project.stargazers_count !== undefined || project.language) && (
-                  <div className="flex gap-6 mb-8">
-                    {project.language && (
-                      <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 rounded-full bg-primary" />
-                        <span className="text-sm font-medium text-muted-foreground">
-                          {project.language}
-                        </span>
-                      </div>
-                    )}
-                    {project.stargazers_count !== undefined && project.stargazers_count > 0 && (
-                      <div className="flex items-center gap-2">
-                        <Star size={16} className="fill-yellow-500 text-yellow-500" />
-                        <span className="text-sm font-medium text-muted-foreground">
-                          {project.stargazers_count} Stars
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-
-              {(project.technologies?.length || project.topics?.length) ? (
-                <div className="mb-8">
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-4">
-                    Technologies Used
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {(project.technologies || project.topics || []).map((tech) => (
-                      <span
-                        key={tech}
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-sm font-medium border border-border"
-                      >
-                        <span className="text-base">{getTechIcon(tech)}</span>
-                        <span>{tech}</span>
-                      </span>
-                    ))}
-                  </div>
+            {/* Architectural Highlights */}
+            {highlights.length > 0 && (
+              <div className="mb-6">
+                <h4 className="text-sm font-bold uppercase tracking-wider text-foreground mb-3 flex items-center gap-2">
+                  <Layers size={16} className="text-primary" />
+                  <span>{language === "ar" ? "أبرز مميزات المعمارية" : "Key Architectural Highlights"}</span>
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {highlights.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-2.5 p-3 rounded-2xl bg-secondary/40 border border-border/50 text-xs sm:text-sm font-medium text-foreground"
+                    >
+                      <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
                 </div>
-              ) : null}
+              </div>
+            )}
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-border">
-                <Button size="lg" className="flex-1 rounded-lg font-semibold" asChild>
-                  <a href={project.html_url} target="_blank">
-                    <Github className="mr-2 h-5 w-5" />
-                    View on GitHub
-                  </a>
-                </Button>
-                {project.homepage && (
-                  <Button variant="outline" size="lg" className="flex-1 rounded-lg font-semibold" asChild>
-                    <a href={project.homepage} target="_blank">
-                      <ExternalLink className="mr-2 h-5 w-5" />
-                      Live Demo
-                    </a>
-                  </Button>
-                )}
+            {/* Tech Stack */}
+            <div className="mb-8">
+              <h4 className="text-sm font-bold uppercase tracking-wider text-foreground mb-3">
+                {language === "ar" ? "الحزمة البرمجية المستخدمة" : "Technologies & Libraries"}
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-secondary/60 text-foreground font-semibold text-xs border border-border/60"
+                  >
+                    <span>{getTechIcon(tech)}</span>
+                    <span>{tech}</span>
+                  </span>
+                ))}
               </div>
             </div>
+
+            {/* Links CTA */}
+            <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-border/60">
+              {project.live && (
+                <Button size="lg" className="rounded-2xl gap-2 font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-600/20" asChild>
+                  <a href={project.live} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink size={18} />
+                    <span>{t.projects.viewLive}</span>
+                  </a>
+                </Button>
+              )}
+
+              {project.github && (
+                <Button variant="outline" size="lg" className="rounded-2xl gap-2 font-bold border-primary/40 hover:bg-primary/10" asChild>
+                  <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <Github size={18} />
+                    <span>{t.projects.viewCode}</span>
+                  </a>
+                </Button>
+              )}
+
+              <Button variant="ghost" size="lg" className="rounded-2xl ml-auto" onClick={onClose}>
+                {language === "ar" ? "إغلاق" : "Close"}
+              </Button>
+            </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );
@@ -297,17 +325,16 @@ export function ProjectModal({
 
 export function ProjectSkeleton() {
   return (
-    <div className="rounded-xl border border-border bg-card p-6 h-[320px] animate-pulse">
-      <div className="w-12 h-12 rounded-lg bg-secondary mb-5" />
-      <div className="h-6 bg-secondary rounded w-3/4 mb-3" />
-      <div className="h-4 bg-secondary rounded w-full mb-2" />
-      <div className="h-4 bg-secondary rounded w-full mb-2" />
-      <div className="h-4 bg-secondary rounded w-2/3 mb-6" />
-      <div className="flex gap-2 mb-6">
-        <div className="h-6 bg-secondary rounded-md w-16" />
-        <div className="h-6 bg-secondary rounded-md w-16" />
+    <div className="h-[400px] rounded-3xl border border-border/50 bg-card/40 p-7 animate-pulse flex flex-col justify-between">
+      <div>
+        <div className="w-24 h-6 rounded-full bg-secondary mb-4" />
+        <div className="w-3/4 h-8 rounded-xl bg-secondary mb-3" />
+        <div className="w-full h-16 rounded-xl bg-secondary mb-4" />
       </div>
-      <div className="h-10 bg-secondary rounded-lg w-full mt-auto" />
+      <div className="flex gap-2">
+        <div className="w-16 h-6 rounded-lg bg-secondary" />
+        <div className="w-16 h-6 rounded-lg bg-secondary" />
+      </div>
     </div>
   );
 }

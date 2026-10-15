@@ -1,65 +1,33 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "@/components/ui/section";
-import { siteConfig } from "@/config/site";
-import { ProjectCard, ProjectModal, ProjectSkeleton } from "./project-ui";
+import { siteConfig, ProjectItem } from "@/config/site";
+import { ProjectCard, ProjectModal } from "./project-ui";
 import { useLanguage } from "@/components/language-provider";
+import { Layers } from "lucide-react";
 
 export function Projects() {
-  const [projects, setProjects] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedProject, setSelectedProject] = useState<any | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const { t, language } = useLanguage();
 
-  useEffect(() => {
-    async function fetchProjects() {
-      try {
-        const response = await fetch(
-          `https://api.github.com/users/${siteConfig.githubUsername}/repos?sort=updated&per_page=100`,
+  const categories = [
+    { id: "all", label: t.projects.all },
+    { id: "freelance", label: t.projects.freelance },
+    { id: "fullstack", label: t.projects.fullstack },
+    { id: "realtime", label: t.projects.realtime },
+    { id: "frontend", label: t.projects.frontend },
+    { id: "backend", label: t.projects.backend },
+  ];
+
+  const filteredProjects =
+    activeCategory === "all"
+      ? siteConfig.projects
+      : siteConfig.projects.filter(
+          (p) => p.category === activeCategory || (activeCategory === "fullstack" && p.technologies.includes("Node.js") && p.technologies.includes("React.js"))
         );
-        const data = await response.json();
-
-        if (Array.isArray(data)) {
-          // Filter projects by featured list and graduation project
-          const filtered = data.filter((repo: any) => {
-            const repoName = repo.name.replace(/-/g, "-");
-            const isFeatured = siteConfig.featuredProjects.some(
-              (proj) => proj.toLowerCase() === repoName.toLowerCase(),
-            );
-            const isGraduation =
-              repo.topics?.includes("graduation") ||
-              repo.name.toLowerCase().includes("tumor") ||
-              repo.name.toLowerCase().includes("graduation");
-            return isFeatured || isGraduation;
-          });
-
-          // Sort to show graduation project first
-          const processed = filtered.map((repo: any) => ({
-            ...repo,
-            isGraduationProject:
-              repo.topics?.includes("graduation") ||
-              repo.name.toLowerCase().includes("tumor") ||
-              repo.name.toLowerCase().includes("graduation"),
-          }));
-
-          processed.sort(
-            (a, b) =>
-              (b.isGraduationProject ? 1 : 0) - (a.isGraduationProject ? 1 : 0),
-          );
-
-          setProjects(processed);
-        }
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchProjects();
-  }, []);
 
   return (
     <Section
@@ -67,46 +35,59 @@ export function Projects() {
       title={t.projects.title}
       subtitle={t.projects.subtitle}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {loading ? (
-          Array.from({ length: 3 }).map((_, i) => <ProjectSkeleton key={i} />)
-        ) : projects.length > 0 ? (
-          projects.map((project, index) => {
-            const manualDesc = (siteConfig as any).projectDescriptions?.[
-              language
-            ]?.[project.name];
-            const displayProject = {
-              ...project,
-              description:
-                typeof manualDesc === "object"
-                  ? manualDesc.description
-                  : manualDesc || project.description,
-              technologies: typeof manualDesc === "object" ? manualDesc.technologies : project.topics,
-            };
-
-            return (
-              <motion.div
-                key={project.id || project.name}
-                initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: (index % 3) * 0.15 }}
-                className="h-full"
-              >
-                <ProjectCard
-                  project={displayProject}
-                  onClick={() => setSelectedProject(displayProject)}
+      {/* Category Filter Pills */}
+      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+        {categories.map((cat) => {
+          const isActive = activeCategory === cat.id;
+          return (
+            <button
+              key={cat.id}
+              onClick={() => setActiveCategory(cat.id)}
+              className={`relative px-5 py-2.5 rounded-full text-xs md:text-sm font-bold transition-all duration-300 ${
+                isActive
+                  ? "text-white shadow-lg shadow-primary/25 scale-105"
+                  : "text-muted-foreground hover:text-foreground bg-secondary/40 hover:bg-secondary/70 border border-border/40"
+              }`}
+            >
+              {isActive && (
+                <motion.div
+                  layoutId="activeProjectCategory"
+                  className="absolute inset-0 bg-gradient-to-r from-primary to-indigo-600 rounded-full -z-10"
+                  transition={{ type: "spring", stiffness: 450, damping: 30 }}
                 />
-              </motion.div>
-            );
-          })
-        ) : (
-          <div className="col-span-full text-center py-20 bg-secondary/20 rounded-3xl border border-dashed">
-            <p className="text-muted-foreground">{t.projects.noProjects}</p>
-          </div>
-        )}
+              )}
+              {cat.label}
+            </button>
+          );
+        })}
       </div>
 
+      {/* Projects Grid */}
+      <motion.div 
+        layout 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-8"
+      >
+        <AnimatePresence mode="popLayout">
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              layout
+              key={project.id}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.35, delay: (index % 3) * 0.08 }}
+              className="h-full"
+            >
+              <ProjectCard
+                project={project}
+                onClick={() => setSelectedProject(project)}
+              />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
+
+      {/* Project Modal Details */}
       <ProjectModal
         project={selectedProject}
         isOpen={!!selectedProject}
