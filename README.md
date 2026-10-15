@@ -2,7 +2,7 @@
   <h1>🚀 Personal Developer Portfolio</h1>
   <p>This is my personal developer portfolio built using Next.js. It showcases my skills, projects, and experience as a frontend and backend developer.</p>
   
-  <a href="https://portifolio-website-mg0.vercel.app/" target="_blank">
+  <a href="https://portifolio-mg.vercel.app/" target="_blank">
     <img src="https://img.shields.io/badge/Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
   </a>
 </div>
