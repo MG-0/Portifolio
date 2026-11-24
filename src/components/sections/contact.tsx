@@ -14,7 +14,8 @@ import {
   MediumIcon as Medium, 
   WhatsappIcon as Whatsapp,
   InstagramIcon as Instagram,
-  TiktokIcon as Tiktok
+  TiktokIcon as Tiktok,
+  XIcon as X
 } from "@/components/ui/icons";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/components/language-provider";
@@ -207,6 +208,12 @@ export function Contact() {
               <a href={siteConfig.tiktok} target="_blank">
                 <Tiktok size={16} />
                 <span>TikTok</span>
+              </a>
+            </Button>
+            <Button variant="outline" size="sm" className="rounded-xl gap-2 font-bold hover:bg-foreground/10 hover:border-foreground/40 border-border/60" asChild>
+              <a href={siteConfig.x} target="_blank">
+                <X size={16} />
+                <span>X</span>
               </a>
             </Button>
           </div>

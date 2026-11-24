@@ -9,7 +9,8 @@ import {
   MediumIcon as Medium, 
   WhatsappIcon as Whatsapp,
   InstagramIcon as Instagram,
-  TiktokIcon as Tiktok
+  TiktokIcon as Tiktok,
+  XIcon as X
 } from "@/components/ui/icons";
 import Link from "next/link";
 import Image from "next/image";
@@ -132,6 +133,14 @@ export function Footer() {
               title="TikTok (@mgdevbuild)"
             >
               <Tiktok size={16} />
+            </Link>
+            <Link
+              href={siteConfig.x}
+              target="_blank"
+              className="p-2.5 rounded-xl border border-border/50 hover:bg-neutral-900/10 dark:hover:bg-white/10 hover:border-neutral-400 dark:hover:border-white hover:text-foreground transition-all"
+              title="X / Twitter (@MahmoudGamal_0o)"
+            >
+              <X size={16} />
             </Link>
             <Link
               href={siteConfig.whatsapp}

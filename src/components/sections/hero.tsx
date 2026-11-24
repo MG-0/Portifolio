@@ -11,7 +11,8 @@ import {
   MediumIcon as Medium, 
   WhatsappIcon as Whatsapp,
   InstagramIcon as Instagram,
-  TiktokIcon as Tiktok
+  TiktokIcon as Tiktok,
+  XIcon as X
 } from "@/components/ui/icons";
 import Link from "next/link";
 import Image from "next/image";
@@ -173,6 +174,14 @@ export function Hero() {
                 title="TikTok Profile"
               >
                 <Tiktok size={20} />
+              </Link>
+              <Link 
+                href={siteConfig.x} 
+                target="_blank" 
+                className="p-3 rounded-2xl border border-border/60 bg-secondary/40 hover:text-foreground hover:border-neutral-400 dark:hover:border-white hover:bg-neutral-900/10 dark:hover:bg-white/20 hover:scale-115 shadow-sm transition-all duration-300"
+                title="X (Twitter) Profile"
+              >
+                <X size={20} />
               </Link>
               <Link 
                 href={siteConfig.whatsapp} 

@@ -61,6 +61,7 @@ export const siteConfig = {
   medium: "https://medium.com/@gamalgit",
   instagram: "https://www.instagram.com/mgdevbuild/",
   tiktok: "https://www.tiktok.com/@mgdevbuild",
+  x: "https://x.com/MahmoudGamal_0o",
   formspreeId: "mgodbede",
 
   translations: {
