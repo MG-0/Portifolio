@@ -7,7 +7,9 @@ import {
   GithubIcon as Github, 
   LinkedinIcon as Linkedin, 
   MediumIcon as Medium, 
-  WhatsappIcon as Whatsapp 
+  WhatsappIcon as Whatsapp,
+  InstagramIcon as Instagram,
+  TiktokIcon as Tiktok
 } from "@/components/ui/icons";
 import Link from "next/link";
 import Image from "next/image";
@@ -90,7 +92,7 @@ export function Footer() {
             © {currentYear} {siteConfig.name}. {language === "ar" ? "جميع الحقوق محفوظة." : "All rights reserved."}
           </p>
 
-          <div className="flex items-center gap-3 sm:gap-3.5">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
             <Link
               href={siteConfig.github}
               target="_blank"
@@ -114,6 +116,22 @@ export function Footer() {
               title="Medium Blog"
             >
               <Medium size={16} />
+            </Link>
+            <Link
+              href={siteConfig.instagram}
+              target="_blank"
+              className="p-2.5 rounded-xl border border-border/50 hover:bg-[#E4405F]/15 hover:border-[#E4405F]/40 hover:text-[#E4405F] transition-all"
+              title="Instagram (@mgdevbuild)"
+            >
+              <Instagram size={16} />
+            </Link>
+            <Link
+              href={siteConfig.tiktok}
+              target="_blank"
+              className="p-2.5 rounded-xl border border-border/50 hover:bg-[#FE2C55]/15 hover:border-[#FE2C55]/40 hover:text-[#FE2C55] transition-all"
+              title="TikTok (@mgdevbuild)"
+            >
+              <Tiktok size={16} />
             </Link>
             <Link
               href={siteConfig.whatsapp}

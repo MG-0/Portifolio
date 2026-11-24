@@ -12,7 +12,9 @@ import {
   GithubIcon as Github, 
   LinkedinIcon as Linkedin, 
   MediumIcon as Medium, 
-  WhatsappIcon as Whatsapp 
+  WhatsappIcon as Whatsapp,
+  InstagramIcon as Instagram,
+  TiktokIcon as Tiktok
 } from "@/components/ui/icons";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/components/language-provider";
@@ -176,7 +178,7 @@ export function Contact() {
           </div>
 
           {/* Social Icons Strip */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <Button variant="outline" size="sm" className="rounded-xl gap-2 font-bold hover:bg-primary/10 border-border/60" asChild>
               <a href={siteConfig.github} target="_blank">
                 <Github size={16} />
@@ -193,6 +195,18 @@ export function Contact() {
               <a href={siteConfig.medium} target="_blank">
                 <Medium size={16} />
                 <span>Medium</span>
+              </a>
+            </Button>
+            <Button variant="outline" size="sm" className="rounded-xl gap-2 font-bold hover:bg-[#E4405F]/10 hover:border-[#E4405F]/40 border-border/60" asChild>
+              <a href={siteConfig.instagram} target="_blank">
+                <Instagram size={16} />
+                <span>Instagram</span>
+              </a>
+            </Button>
+            <Button variant="outline" size="sm" className="rounded-xl gap-2 font-bold hover:bg-[#FE2C55]/10 hover:border-[#FE2C55]/40 border-border/60" asChild>
+              <a href={siteConfig.tiktok} target="_blank">
+                <Tiktok size={16} />
+                <span>TikTok</span>
               </a>
             </Button>
           </div>

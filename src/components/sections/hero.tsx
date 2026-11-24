@@ -9,7 +9,9 @@ import {
   GithubIcon as Github, 
   LinkedinIcon as Linkedin, 
   MediumIcon as Medium, 
-  WhatsappIcon as Whatsapp 
+  WhatsappIcon as Whatsapp,
+  InstagramIcon as Instagram,
+  TiktokIcon as Tiktok
 } from "@/components/ui/icons";
 import Link from "next/link";
 import Image from "next/image";
@@ -131,7 +133,7 @@ export function Hero() {
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-3.5 text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-3.5 text-muted-foreground">
               <Link 
                 href={siteConfig.github} 
                 target="_blank" 
@@ -155,6 +157,22 @@ export function Hero() {
                 title="Medium Articles"
               >
                 <Medium size={20} />
+              </Link>
+              <Link 
+                href={siteConfig.instagram} 
+                target="_blank" 
+                className="p-3 rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#E4405F] hover:bg-[#E4405F]/20 hover:scale-115 shadow-sm transition-all duration-300"
+                title="Instagram Profile"
+              >
+                <Instagram size={20} />
+              </Link>
+              <Link 
+                href={siteConfig.tiktok} 
+                target="_blank" 
+                className="p-3 rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#FE2C55] hover:bg-[#FE2C55]/20 hover:scale-115 shadow-sm transition-all duration-300"
+                title="TikTok Profile"
+              >
+                <Tiktok size={20} />
               </Link>
               <Link 
                 href={siteConfig.whatsapp} 

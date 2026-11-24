@@ -57,8 +57,10 @@ export const siteConfig = {
   },
   githubUsername: "MG-0",
   github: "https://github.com/MG-0",
-  linkedin: "https://linkedin.com/in/mahmoud-gamal-3ba408321",
+  linkedin: "https://linkedin.com/in/mahmoud-gamal-dev",
   medium: "https://medium.com/@gamalgit",
+  instagram: "https://www.instagram.com/mgdevbuild/",
+  tiktok: "https://www.tiktok.com/@mgdevbuild",
   formspreeId: "mgodbede",
 
   translations: {
@@ -272,7 +274,7 @@ export const siteConfig = {
     {
       company: "Avnology",
       position: "System & Network Monitoring",
-      period: "Apr 2024 – Aug 2024",
+      period: "Apr 2024 – Dec 2024",
       location: { en: "Saudi Arabia-based company, remote from Egypt", ar: "شركة مقرها السعودية، عن بعد من مصر" },
       points: {
         en: [
