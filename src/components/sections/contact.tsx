@@ -179,40 +179,40 @@ export function Contact() {
           </div>
 
           {/* Social Icons Strip */}
-          <div className="flex flex-wrap items-center gap-3">
-            <Button variant="outline" size="sm" className="rounded-xl gap-2 font-bold hover:bg-primary/10 border-border/60" asChild>
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+            <Button variant="outline" size="sm" className="rounded-xl gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold hover:bg-primary/10 border-border/60 px-2.5 sm:px-3" asChild>
               <a href={siteConfig.github} target="_blank">
-                <Github size={16} />
+                <Github size={15} />
                 <span>GitHub</span>
               </a>
             </Button>
-            <Button variant="outline" size="sm" className="rounded-xl gap-2 font-bold hover:bg-primary/10 border-border/60" asChild>
+            <Button variant="outline" size="sm" className="rounded-xl gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold hover:bg-primary/10 border-border/60 px-2.5 sm:px-3" asChild>
               <a href={siteConfig.linkedin} target="_blank">
-                <Linkedin size={16} />
+                <Linkedin size={15} />
                 <span>LinkedIn</span>
               </a>
             </Button>
-            <Button variant="outline" size="sm" className="rounded-xl gap-2 font-bold hover:bg-primary/10 border-border/60" asChild>
+            <Button variant="outline" size="sm" className="rounded-xl gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold hover:bg-primary/10 border-border/60 px-2.5 sm:px-3" asChild>
               <a href={siteConfig.medium} target="_blank">
-                <Medium size={16} />
+                <Medium size={15} />
                 <span>Medium</span>
               </a>
             </Button>
-            <Button variant="outline" size="sm" className="rounded-xl gap-2 font-bold hover:bg-[#E4405F]/10 hover:border-[#E4405F]/40 border-border/60" asChild>
+            <Button variant="outline" size="sm" className="rounded-xl gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold hover:bg-[#E4405F]/10 hover:border-[#E4405F]/40 border-border/60 px-2.5 sm:px-3" asChild>
               <a href={siteConfig.instagram} target="_blank">
-                <Instagram size={16} />
+                <Instagram size={15} />
                 <span>Instagram</span>
               </a>
             </Button>
-            <Button variant="outline" size="sm" className="rounded-xl gap-2 font-bold hover:bg-[#FE2C55]/10 hover:border-[#FE2C55]/40 border-border/60" asChild>
+            <Button variant="outline" size="sm" className="rounded-xl gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold hover:bg-[#FE2C55]/10 hover:border-[#FE2C55]/40 border-border/60 px-2.5 sm:px-3" asChild>
               <a href={siteConfig.tiktok} target="_blank">
-                <Tiktok size={16} />
+                <Tiktok size={15} />
                 <span>TikTok</span>
               </a>
             </Button>
-            <Button variant="outline" size="sm" className="rounded-xl gap-2 font-bold hover:bg-foreground/10 hover:border-foreground/40 border-border/60" asChild>
+            <Button variant="outline" size="sm" className="rounded-xl gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold hover:bg-foreground/10 hover:border-foreground/40 border-border/60 px-2.5 sm:px-3" asChild>
               <a href={siteConfig.x} target="_blank">
-                <X size={16} />
+                <X size={15} />
                 <span>X</span>
               </a>
             </Button>

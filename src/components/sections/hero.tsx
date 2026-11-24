@@ -123,7 +123,7 @@ export function Hero() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="rounded-2xl px-6 py-6 text-base font-bold hover:scale-105 transition-all border-primary/40 bg-card/60 backdrop-blur-md hover:bg-primary/10 hover:border-primary" 
+                className="rounded-2xl px-8 sm:px-10 py-6 min-w-[170px] sm:min-w-[195px] text-base font-bold hover:scale-105 transition-all border-primary/40 bg-card/60 backdrop-blur-md hover:bg-primary/10 hover:border-primary flex items-center justify-center" 
                 asChild
               >
                 <a href="/cv.pdf" download="Mahmoud_Gamal_CV.pdf">
@@ -134,69 +134,69 @@ export function Hero() {
             </div>
 
             {/* Social Links */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-3.5 text-muted-foreground">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-2.5 md:gap-3 text-muted-foreground">
               <Link 
                 href={siteConfig.github} 
                 target="_blank" 
-                className="p-3 rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#2da44f] hover:bg-[#2da44f]/20 hover:scale-115 shadow-sm transition-all duration-300"
+                className="p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#2da44f] hover:bg-[#2da44f]/20 hover:scale-110 shadow-sm transition-all duration-300"
                 title="GitHub Repositories"
               >
-                <Github size={20} />
+                <Github size={18} />
               </Link>
               <Link 
                 href={siteConfig.linkedin} 
                 target="_blank" 
-                className="p-3 rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#0A66C2] hover:bg-[#0A66C2]/20 hover:scale-115 shadow-sm transition-all duration-300"
+                className="p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#0A66C2] hover:bg-[#0A66C2]/20 hover:scale-110 shadow-sm transition-all duration-300"
                 title="LinkedIn Profile"
               >
-                <Linkedin size={20} />
+                <Linkedin size={18} />
               </Link>
               <Link 
                 href={siteConfig.medium} 
                 target="_blank" 
-                className="p-3 rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#00AB6C] hover:bg-[#00AB6C]/20 hover:scale-115 shadow-sm transition-all duration-300"
+                className="p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#00AB6C] hover:bg-[#00AB6C]/20 hover:scale-110 shadow-sm transition-all duration-300"
                 title="Medium Articles"
               >
-                <Medium size={20} />
+                <Medium size={18} />
               </Link>
               <Link 
                 href={siteConfig.instagram} 
                 target="_blank" 
-                className="p-3 rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#E4405F] hover:bg-[#E4405F]/20 hover:scale-115 shadow-sm transition-all duration-300"
+                className="p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#E4405F] hover:bg-[#E4405F]/20 hover:scale-110 shadow-sm transition-all duration-300"
                 title="Instagram Profile"
               >
-                <Instagram size={20} />
+                <Instagram size={18} />
               </Link>
               <Link 
                 href={siteConfig.tiktok} 
                 target="_blank" 
-                className="p-3 rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#FE2C55] hover:bg-[#FE2C55]/20 hover:scale-115 shadow-sm transition-all duration-300"
+                className="p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#FE2C55] hover:bg-[#FE2C55]/20 hover:scale-110 shadow-sm transition-all duration-300"
                 title="TikTok Profile"
               >
-                <Tiktok size={20} />
+                <Tiktok size={18} />
               </Link>
               <Link 
                 href={siteConfig.x} 
                 target="_blank" 
-                className="p-3 rounded-2xl border border-border/60 bg-secondary/40 hover:text-foreground hover:border-neutral-400 dark:hover:border-white hover:bg-neutral-900/10 dark:hover:bg-white/20 hover:scale-115 shadow-sm transition-all duration-300"
+                className="p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl border border-border/60 bg-secondary/40 hover:text-foreground hover:border-neutral-400 dark:hover:border-white hover:bg-neutral-900/10 dark:hover:bg-white/20 hover:scale-110 shadow-sm transition-all duration-300"
                 title="X (Twitter) Profile"
               >
-                <X size={20} />
+                <X size={18} />
               </Link>
               <Link 
                 href={siteConfig.whatsapp} 
                 target="_blank" 
-                className="p-3 rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#25D366] hover:bg-[#25D366]/20 hover:scale-115 shadow-sm transition-all duration-300"
+                className="p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#25D366] hover:bg-[#25D366]/20 hover:scale-110 shadow-sm transition-all duration-300"
                 title="WhatsApp Direct"
               >
-                <Whatsapp size={20} />
+                <Whatsapp size={18} />
               </Link>
               <Link 
                 href={`mailto:${siteConfig.email}`} 
-                className="p-3 rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#EA4335] hover:bg-[#EA4335]/20 hover:scale-115 shadow-sm transition-all duration-300"
+                className="p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl border border-border/60 bg-secondary/40 hover:text-white hover:border-[#EA4335] hover:bg-[#EA4335]/20 hover:scale-110 shadow-sm transition-all duration-300"
                 title="Email Mahmoud"
               >
-                <Mail size={20} />
+                <Mail size={18} />
               </Link>
             </div>
           </motion.div>

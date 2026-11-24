@@ -93,69 +93,69 @@ export function Footer() {
             © {currentYear} {siteConfig.name}. {language === "ar" ? "جميع الحقوق محفوظة." : "All rights reserved."}
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
             <Link
               href={siteConfig.github}
               target="_blank"
-              className="p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
+              className="p-2 sm:p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
               title="GitHub Repositories"
             >
-              <Github size={16} />
+              <Github size={15} />
             </Link>
             <Link
               href={siteConfig.linkedin}
               target="_blank"
-              className="p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
+              className="p-2 sm:p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
               title="LinkedIn Profile"
             >
-              <Linkedin size={16} />
+              <Linkedin size={15} />
             </Link>
             <Link
               href={siteConfig.medium}
               target="_blank"
-              className="p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
+              className="p-2 sm:p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
               title="Medium Blog"
             >
-              <Medium size={16} />
+              <Medium size={15} />
             </Link>
             <Link
               href={siteConfig.instagram}
               target="_blank"
-              className="p-2.5 rounded-xl border border-border/50 hover:bg-[#E4405F]/15 hover:border-[#E4405F]/40 hover:text-[#E4405F] transition-all"
+              className="p-2 sm:p-2.5 rounded-xl border border-border/50 hover:bg-[#E4405F]/15 hover:border-[#E4405F]/40 hover:text-[#E4405F] transition-all"
               title="Instagram (@mgdevbuild)"
             >
-              <Instagram size={16} />
+              <Instagram size={15} />
             </Link>
             <Link
               href={siteConfig.tiktok}
               target="_blank"
-              className="p-2.5 rounded-xl border border-border/50 hover:bg-[#FE2C55]/15 hover:border-[#FE2C55]/40 hover:text-[#FE2C55] transition-all"
+              className="p-2 sm:p-2.5 rounded-xl border border-border/50 hover:bg-[#FE2C55]/15 hover:border-[#FE2C55]/40 hover:text-[#FE2C55] transition-all"
               title="TikTok (@mgdevbuild)"
             >
-              <Tiktok size={16} />
+              <Tiktok size={15} />
             </Link>
             <Link
               href={siteConfig.x}
               target="_blank"
-              className="p-2.5 rounded-xl border border-border/50 hover:bg-neutral-900/10 dark:hover:bg-white/10 hover:border-neutral-400 dark:hover:border-white hover:text-foreground transition-all"
+              className="p-2 sm:p-2.5 rounded-xl border border-border/50 hover:bg-neutral-900/10 dark:hover:bg-white/10 hover:border-neutral-400 dark:hover:border-white hover:text-foreground transition-all"
               title="X / Twitter (@MahmoudGamal_0o)"
             >
-              <X size={16} />
+              <X size={15} />
             </Link>
             <Link
               href={siteConfig.whatsapp}
               target="_blank"
-              className="p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-emerald-500 transition-all"
+              className="p-2 sm:p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-emerald-500 transition-all"
               title="WhatsApp Direct"
             >
-              <Whatsapp size={16} />
+              <Whatsapp size={15} />
             </Link>
             <Link
               href={`mailto:${siteConfig.email}`}
-              className="p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
+              className="p-2 sm:p-2.5 rounded-xl border border-border/50 hover:bg-secondary hover:text-foreground transition-all"
               title="Send Email"
             >
-              <Mail size={16} />
+              <Mail size={15} />
             </Link>
           </div>
         </div>
